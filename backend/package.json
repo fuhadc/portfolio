@@ -1,0 +1,35 @@
+{
+  "name": "citation-api-backend",
+  "version": "1.0.0",
+  "description": "Backend API service for automatic citation count updates from Google Scholar and other academic databases",
+  "main": "citation-api.js",
+  "scripts": {
+    "start": "node citation-api.js",
+    "dev": "nodemon citation-api.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "citations",
+    "google-scholar",
+    "academic",
+    "research",
+    "api"
+  ],
+  "author": "Muhammed Fuhad C",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "puppeteer": "^21.5.2",
+    "axios": "^1.6.2",
+    "express-rate-limit": "^7.1.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
