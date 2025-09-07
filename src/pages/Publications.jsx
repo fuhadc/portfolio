@@ -96,7 +96,6 @@ const Publications = () => {
     }
   ])
   
-  const [isLoading, setIsLoading] = useState(false)
   const [lastUpdated, setLastUpdated] = useState(null)
 
   // Fetch citation data on component mount
@@ -106,15 +105,14 @@ const Publications = () => {
 
   // Update citation counts from Google Scholar
   const updateCitations = async () => {
-    setIsLoading(true)
     try {
       const updatedPublications = await citationService.updateAllCitations(publications)
       setPublications(updatedPublications)
       setLastUpdated(new Date().toISOString())
     } catch (error) {
       console.error('Error updating citations:', error)
-    } finally {
-      setIsLoading(false)
+      // Don't fail the component if citation update fails
+      // Just use the existing publications data
     }
   }
 
@@ -132,14 +130,6 @@ const Publications = () => {
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
-      <style>
-        {`
-          @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-        `}
-      </style>
       <SEO 
         title="Research Publications - Muhammed Fuhad C | IEEE & Springer Papers"
         description="Explore the research publications of Muhammed Fuhad C, including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems."
@@ -162,15 +152,8 @@ const Publications = () => {
             Published research papers and conference proceedings in IoT, smart agriculture, and healthcare monitoring
           </p>
           
-          {/* Google Scholar Profile Link and Refresh Button */}
-          <div style={{ 
-            textAlign: 'center', 
-            marginBottom: '2rem',
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '1rem',
-            flexWrap: 'wrap'
-          }}>
+          {/* Google Scholar Profile Link */}
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <a
               href="https://scholar.google.com/citations?user=rC6hYXwAAAAJ&hl=en&oi=sra"
               target="_blank"
@@ -202,48 +185,6 @@ const Publications = () => {
               <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
               View Google Scholar Profile
             </a>
-            
-            <button
-              onClick={updateCitations}
-              disabled={isLoading}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: '0.75rem 1.5rem',
-                backgroundColor: isLoading ? '#9ca3af' : '#10b981',
-                color: 'white',
-                border: 'none',
-                borderRadius: '0.5rem',
-                fontSize: '0.875rem',
-                fontWeight: '500',
-                cursor: isLoading ? 'not-allowed' : 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 2px 4px rgba(16, 185, 129, 0.2)'
-              }}
-              onMouseOver={(e) => {
-                if (!isLoading) {
-                  e.target.style.backgroundColor = '#059669'
-                  e.target.style.transform = 'translateY(-1px)'
-                  e.target.style.boxShadow = '0 4px 8px rgba(16, 185, 129, 0.3)'
-                }
-              }}
-              onMouseOut={(e) => {
-                if (!isLoading) {
-                  e.target.style.backgroundColor = '#10b981'
-                  e.target.style.transform = 'translateY(0)'
-                  e.target.style.boxShadow = '0 2px 4px rgba(16, 185, 129, 0.2)'
-                }
-              }}
-            >
-              <RefreshCw 
-                size={16} 
-                style={{ 
-                  marginRight: '0.5rem',
-                  animation: isLoading ? 'spin 1s linear infinite' : 'none'
-                }} 
-              />
-              {isLoading ? 'Updating...' : 'Refresh Citations'}
-            </button>
           </div>
           
           {lastUpdated && (

@@ -3,7 +3,7 @@ class CitationService {
   constructor() {
     this.cache = new Map()
     this.cacheTimeout = 24 * 60 * 60 * 1000 // 24 hours
-    this.apiBaseUrl = process.env.REACT_APP_CITATION_API_URL || 'http://localhost:3001/api'
+    this.apiBaseUrl = import.meta.env.VITE_CITATION_API_URL || 'http://localhost:3001/api'
   }
 
   // Generate Google Scholar search URL
@@ -87,14 +87,34 @@ class CitationService {
   // Mock citation data (replace with real API calls)
   getMockCitationCount(title) {
     const mockData = {
-      'cost-effective-energy-efficient-drip-irrigation-2024': 15,
-      'automated-contactless-temperature-monitoring-2023': 12,
+      'cost-effective-energy-efficient-drip-irrigation-2024': 2,
+      'automated-contactless-temperature-monitoring-2023': 2,
       'generative-ai-iot-voice-assistance-2024': 0,
       'iot-visualization-fog-computing-2024': 0
     }
     
+    // Try to match by key first
     const key = title.toLowerCase().replace(/[^a-z0-9]/g, '-')
-    return mockData[key] || 0
+    if (mockData[key]) {
+      return mockData[key]
+    }
+    
+    // Fallback: try to match by title keywords
+    const titleLower = title.toLowerCase()
+    if (titleLower.includes('drip irrigation') || titleLower.includes('smart agriculture')) {
+      return 2
+    }
+    if (titleLower.includes('temperature monitoring') || titleLower.includes('contactless')) {
+      return 2
+    }
+    if (titleLower.includes('generative ai') || titleLower.includes('voice assistance')) {
+      return 0
+    }
+    if (titleLower.includes('fog computing') || titleLower.includes('visualization')) {
+      return 0
+    }
+    
+    return 0
   }
 
   // Fetch complete Google Scholar profile data
@@ -145,8 +165,9 @@ class CitationService {
       
     } catch (error) {
       console.error('Error in batch update:', error)
-      // Fallback to individual updates
-      return this.updateCitationsIndividually(publications)
+      // If API is completely unavailable, return original publications with mock data
+      console.warn('API unavailable, using mock citation data')
+      return this.getPublicationsWithMockCitations(publications)
     }
   }
 
@@ -156,18 +177,36 @@ class CitationService {
     
     for (const pub of publications) {
       if (pub.googleScholarId || pub.doi) {
-        const citationCount = await this.fetchCitationCount(pub.title, pub.authors, pub.doi)
-        updatedPublications.push({
-          ...pub,
-          citations: citationCount,
-          lastUpdated: new Date().toISOString()
-        })
+        try {
+          const citationCount = await this.fetchCitationCount(pub.title, pub.authors, pub.doi)
+          updatedPublications.push({
+            ...pub,
+            citations: citationCount,
+            lastUpdated: new Date().toISOString()
+          })
+        } catch (error) {
+          console.warn(`Failed to fetch citations for "${pub.title}", using mock data`)
+          updatedPublications.push({
+            ...pub,
+            citations: this.getMockCitationCount(pub.title),
+            lastUpdated: new Date().toISOString()
+          })
+        }
       } else {
         updatedPublications.push(pub)
       }
     }
     
     return updatedPublications
+  }
+
+  // Get publications with mock citation data when API is unavailable
+  getPublicationsWithMockCitations(publications) {
+    return publications.map(pub => ({
+      ...pub,
+      citations: this.getMockCitationCount(pub.title),
+      lastUpdated: new Date().toISOString()
+    }))
   }
 
   // Check if citation data needs updating
