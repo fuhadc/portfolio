@@ -9,6 +9,7 @@ import {
   Database,
   Award
 } from 'lucide-react'
+import SEO from '../components/SEO'
 
 const Experience = () => {
   const experiences = [

@@ -11,6 +11,7 @@ import {
   Calendar,
   Award
 } from 'lucide-react'
+import SEO from '../components/SEO'
 
 const Projects = () => {
   const projects = [
@@ -170,20 +171,98 @@ const Projects = () => {
       category: "Web App",
       icon: Globe,
       color: "#8b5cf6"
+    },
+    {
+      title: "Google Drive CRM System",
+      description: "A comprehensive Flask-based CRM application that integrates with Google Drive to process ZIP files containing images and generate reports. Features advanced image optimization, memory management, and production-ready deployment.",
+      image: "/api/placeholder/400/250",
+      technologies: ["Python", "Flask", "MongoDB", "Google Drive API", "Redis", "Celery"],
+      features: [
+        "Google Drive integration for automatic file monitoring",
+        "Image processing with IR generation capabilities",
+        "Advanced image optimization with thumbnails",
+        "MongoDB-based data storage",
+        "Background task processing with Celery",
+        "Memory management and monitoring"
+      ],
+      links: {
+        code: "https://github.com/fuhadc/google-drive-crm",
+        demo: "https://google-drive-crm.fuhadc.dev"
+      },
+      status: "Completed",
+      year: "2024",
+      category: "CRM",
+      icon: Database,
+      color: "#059669"
+    },
+    {
+      title: "AUSS Market Platform",
+      description: "A Python Flask-based marketplace application for the Australian market. Features admin panel, payment processing, real-time updates, and comprehensive product management system.",
+      image: "/api/placeholder/400/250",
+      technologies: ["Python", "Flask", "Admin Panel", "Payment Processing", "Real-time Updates"],
+      features: [
+        "Admin panel for marketplace management",
+        "Payment processing integration",
+        "Real-time updates and notifications",
+        "Product management system",
+        "Performance testing with Locust",
+        "Production deployment ready"
+      ],
+      links: {
+        code: "https://github.com/fuhadc/auss-market",
+        demo: "https://auss-market.fuhadc.dev"
+      },
+      status: "In Development",
+      year: "2024",
+      category: "Web App",
+      icon: Globe,
+      color: "#dc2626"
+    },
+    {
+      title: "SUH iOS Application",
+      description: "A native iOS application built with Swift and SwiftUI. Features modern iOS design patterns, comprehensive testing suite, and user-friendly interface.",
+      image: "/api/placeholder/400/250",
+      technologies: ["Swift", "SwiftUI", "iOS", "Xcode", "Unit Testing", "UI Testing"],
+      features: [
+        "Native iOS development with Swift",
+        "Modern SwiftUI interface",
+        "Comprehensive unit testing",
+        "UI testing suite",
+        "iOS best practices implementation",
+        "Cross-device compatibility"
+      ],
+      links: {
+        code: "https://github.com/fuhadc/suh-ios",
+        demo: "https://suh-app.fuhadc.dev"
+      },
+      status: "Completed",
+      year: "2023",
+      category: "Mobile App",
+      icon: Smartphone,
+      color: "#7c3aed"
     }
   ]
 
   const projectStats = [
-    { label: "Total Projects", value: "7", icon: Code },
+    { label: "Total Projects", value: "11", icon: Code },
     { label: "IoT Projects", value: "3", icon: Cpu },
-    { label: "Mobile Apps", value: "3", icon: Smartphone },
-    { label: "Web Apps", value: "2", icon: Globe }
+    { label: "Mobile Apps", value: "4", icon: Smartphone },
+    { label: "Web Apps", value: "4", icon: Globe }
   ]
 
-  const categories = ["All", "IoT", "Mobile App", "Web App", "Data Science"]
+  const categories = ["All", "IoT", "Mobile App", "Web App", "CRM", "Data Science"]
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+      <SEO 
+        title="Projects - Muhammed Fuhad C | IoT, Mobile Apps & Web Development"
+        description="Explore the portfolio of projects by Muhammed Fuhad C including IoT solutions, mobile applications, web development, and smart agriculture systems."
+        keywords="Muhammed Fuhad C projects, IoT projects, mobile app development, web development, smart agriculture, healthcare monitoring, Flutter apps, React projects"
+        url="/projects"
+        type="article"
+        section="Portfolio"
+        tags={["Projects", "IoT", "Mobile Apps", "Web Development", "Smart Agriculture", "Healthcare Monitoring"]}
+      />
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>

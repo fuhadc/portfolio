@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { HelmetProvider } from 'react-helmet-async'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -31,24 +32,26 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="min-h-screen bg-white dark:bg-dark-900 transition-colors duration-300">
-        <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode}>
-          <AnimatePresence mode="wait">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/experience" element={<Experience />} />
-                  <Route path="/publications" element={<Publications />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/skills" element={<Skills />} />
-                  <Route path="/achievements" element={<Achievements />} />
-                  <Route path="/contact" element={<Contact />} />
-                </Routes>
-          </AnimatePresence>
-        </Layout>
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <div className="min-h-screen bg-white dark:bg-dark-900 transition-colors duration-300">
+          <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode}>
+            <AnimatePresence mode="wait">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/experience" element={<Experience />} />
+                    <Route path="/publications" element={<Publications />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/skills" element={<Skills />} />
+                    <Route path="/achievements" element={<Achievements />} />
+                    <Route path="/contact" element={<Contact />} />
+                  </Routes>
+            </AnimatePresence>
+          </Layout>
+        </div>
+      </Router>
+    </HelmetProvider>
   )
 }
 

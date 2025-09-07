@@ -12,6 +12,7 @@ import {
   ExternalLink
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const Home = () => {
   const socialLinks = [
@@ -30,6 +31,14 @@ const Home = () => {
 
   return (
     <div style={{ minHeight: '100vh' }}>
+      <SEO 
+        title="Muhammed Fuhad C - IoT & Embedded Systems Enthusiast | Researcher | Developer"
+        description="Passionate IoT and Embedded Systems enthusiast, researcher, and developer. Specializing in smart agriculture, healthcare monitoring, mobile applications, and research with published papers in IEEE and Springer conferences."
+        keywords="Muhammed Fuhad C, IoT, Embedded Systems, Smart Agriculture, Healthcare Monitoring, Mobile Apps, Research, IEEE, Springer, Flutter, Python, Arduino, Raspberry Pi"
+        url="/"
+        type="website"
+        tags={["IoT", "Embedded Systems", "Research", "Mobile Development", "Smart Agriculture", "Healthcare Monitoring"]}
+      />
       {/* Hero Section */}
       <section className="hero">
         <div className="container">

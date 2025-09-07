@@ -43,9 +43,64 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://muhammedfuhadc.dev/" />
     
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- DNS Prefetch for performance -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="IN-KL" />
+    <meta name="geo.placename" content="Kerala, India" />
+    <meta name="geo.position" content="10.8505;76.2711" />
+    <meta name="ICBM" content="10.8505, 76.2711" />
+    <meta name="DC.title" content="Muhammed Fuhad C - IoT & Embedded Systems Portfolio" />
+    <meta name="DC.creator" content="Muhammed Fuhad C" />
+    <meta name="DC.subject" content="IoT, Embedded Systems, Research, Mobile Development" />
+    <meta name="DC.description" content="Professional portfolio of Muhammed Fuhad C showcasing IoT, Embedded Systems, and Research work" />
+    <meta name="DC.publisher" content="Muhammed Fuhad C" />
+    <meta name="DC.contributor" content="Muhammed Fuhad C" />
+    <meta name="DC.date" content="2024-12-19" />
+    <meta name="DC.type" content="Text" />
+    <meta name="DC.format" content="text/html" />
+    <meta name="DC.identifier" content="https://muhammedfuhadc.dev" />
+    <meta name="DC.language" content="en" />
+    <meta name="DC.rights" content="Copyright Muhammed Fuhad C" />
+    <meta name="DC.coverage" content="Worldwide" />
+    <meta name="DC.relation" content="https://muhammedfuhadc.dev" />
+    
+    <!-- Verification Tags -->
+    <meta name="google-site-verification" content="your-google-verification-code" />
+    <meta name="msvalidate.01" content="your-bing-verification-code" />
+    <meta name="yandex-verification" content="your-yandex-verification-code" />
+    
+    <!-- Additional Open Graph Tags -->
+    <meta property="og:updated_time" content="2024-12-19T00:00:00+05:30" />
+    <meta property="article:author" content="Muhammed Fuhad C" />
+    <meta property="article:section" content="Technology" />
+    <meta property="article:tag" content="IoT" />
+    <meta property="article:tag" content="Embedded Systems" />
+    <meta property="article:tag" content="Research" />
+    <meta property="article:tag" content="Mobile Development" />
+    
+    <!-- Additional Twitter Tags -->
+    <meta property="twitter:domain" content="muhammedfuhadc.dev" />
+    <meta property="twitter:label1" content="Written by" />
+    <meta property="twitter:data1" content="Muhammed Fuhad C" />
+    <meta property="twitter:label2" content="Est. reading time" />
+    <meta property="twitter:data2" content="5 minutes" />
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -53,6 +108,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Muhammed Fuhad C",
+      "alternateName": "Fuhad C",
       "jobTitle": "IoT & Embedded Systems Enthusiast | Researcher | Developer",
       "description": "Passionate IoT and Embedded Systems enthusiast, researcher, and developer specializing in smart agriculture, healthcare monitoring, and mobile applications.",
       "url": "https://muhammedfuhadc.dev",
@@ -68,14 +124,18 @@
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Kerala",
+        "addressRegion": "Kerala",
         "addressCountry": "India"
       },
       "email": "fuhadcs@icloud.com",
       "telephone": "+91-7306525489",
+      "birthDate": "2002-01-01",
+      "nationality": "Indian",
       "alumniOf": {
         "@type": "EducationalOrganization",
         "name": "Christ (Deemed to be) University",
-        "description": "Bachelor of Technology in Computer Science Engineering (IoT)"
+        "description": "Bachelor of Technology in Computer Science Engineering (IoT)",
+        "url": "https://christuniversity.in"
       },
       "knowsAbout": [
         "Internet of Things",
@@ -87,7 +147,12 @@
         "Python",
         "Flutter",
         "Arduino",
-        "Raspberry Pi"
+        "Raspberry Pi",
+        "React",
+        "JavaScript",
+        "Node.js",
+        "MongoDB",
+        "Firebase"
       ],
       "hasOccupation": {
         "@type": "Occupation",
@@ -95,7 +160,109 @@
         "occupationLocation": {
           "@type": "Place",
           "name": "Toyota Industries Engine India Pvt. Ltd."
+        },
+        "skills": ["IoT Development", "Mobile App Development", "Research", "Embedded Systems"]
+      },
+      "award": [
+        {
+          "@type": "Award",
+          "name": "Best Paper Award",
+          "description": "Recognition for outstanding research contribution"
         }
+      ],
+      "memberOf": [
+        {
+          "@type": "Organization",
+          "name": "IEEE",
+          "description": "Institute of Electrical and Electronics Engineers"
+        }
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Toyota Industries Engine India Pvt. Ltd.",
+        "description": "Software Engineer Intern"
+      }
+    }
+    </script>
+    
+    <!-- Website Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Muhammed Fuhad C Portfolio",
+      "alternateName": "Fuhad C Portfolio",
+      "url": "https://muhammedfuhadc.dev",
+      "description": "Professional portfolio showcasing IoT, Embedded Systems, and Research work",
+      "author": {
+        "@type": "Person",
+        "name": "Muhammed Fuhad C"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Muhammed Fuhad C"
+      },
+      "inLanguage": "en-US",
+      "copyrightYear": "2024",
+      "dateCreated": "2024-01-01",
+      "dateModified": "2024-12-19",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://muhammedfuhadc.dev/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Professional Service Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "IoT & Embedded Systems Development Services",
+      "description": "Professional IoT and Embedded Systems development, mobile application development, and research services",
+      "provider": {
+        "@type": "Person",
+        "name": "Muhammed Fuhad C"
+      },
+      "url": "https://muhammedfuhadc.dev",
+      "telephone": "+91-7306525489",
+      "email": "fuhadcs@icloud.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kerala",
+        "addressCountry": "India"
+      },
+      "areaServed": "Worldwide",
+      "serviceType": [
+        "IoT Development",
+        "Embedded Systems",
+        "Mobile Application Development",
+        "Research and Development",
+        "Smart Agriculture Solutions",
+        "Healthcare Monitoring Systems"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "IoT Development",
+              "description": "Custom IoT solutions for various industries"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile App Development",
+              "description": "Cross-platform mobile applications using Flutter"
+            }
+          }
+        ]
       }
     }
     </script>

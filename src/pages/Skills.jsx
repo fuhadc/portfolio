@@ -14,6 +14,7 @@ import {
   Zap,
   Cloud
 } from 'lucide-react'
+import SEO from '../components/SEO'
 
 const Skills = () => {
   const skillCategories = [

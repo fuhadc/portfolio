@@ -11,6 +11,7 @@ import {
   Clock,
   CheckCircle
 } from 'lucide-react'
+import SEO from '../components/SEO'
 
 const Contact = () => {
   const [formData, setFormData] = useState({

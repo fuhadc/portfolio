@@ -10,6 +10,7 @@ import {
   Award,
   BookOpen
 } from 'lucide-react'
+import SEO from '../components/SEO'
 
 const About = () => {
   const education = [
@@ -31,6 +32,15 @@ const About = () => {
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+      <SEO 
+        title="About Muhammed Fuhad C | IoT & Embedded Systems Developer"
+        description="Learn about Muhammed Fuhad C, a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India."
+        keywords="Muhammed Fuhad C about, IoT developer, Embedded Systems developer, Smart Agriculture, Healthcare Monitoring, Mobile App Developer, Kerala India"
+        url="/about"
+        type="article"
+        section="About"
+        tags={["About", "IoT Developer", "Embedded Systems", "Smart Agriculture", "Healthcare Monitoring"]}
+      />
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>

@@ -8,6 +8,7 @@ import {
   FileText,
   Eye
 } from 'lucide-react'
+import SEO from '../components/SEO'
 
 
 const Publications = () => {
@@ -108,6 +109,15 @@ const Publications = () => {
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+      <SEO 
+        title="Research Publications - Muhammed Fuhad C | IEEE & Springer Papers"
+        description="Explore the research publications of Muhammed Fuhad C, including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems."
+        keywords="Muhammed Fuhad C publications, IEEE papers, Springer papers, IoT research, Smart Agriculture research, Healthcare Monitoring, Embedded Systems research, academic papers"
+        url="/publications"
+        type="article"
+        section="Research"
+        tags={["Research", "Publications", "IEEE", "Springer", "IoT", "Smart Agriculture", "Healthcare Monitoring"]}
+      />
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>

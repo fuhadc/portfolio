@@ -1,8 +1,24 @@
 User-agent: *
 Allow: /
 
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Allow important files
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
 # Sitemap
 Sitemap: https://muhammedfuhadc.dev/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
+
+# Host
+Host: https://muhammedfuhadc.dev

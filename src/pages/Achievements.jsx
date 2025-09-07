@@ -10,6 +10,7 @@ import {
   ExternalLink,
   Download
 } from 'lucide-react'
+import SEO from '../components/SEO'
 
 const Achievements = () => {
   const achievements = [
