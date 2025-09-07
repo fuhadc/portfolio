@@ -23,7 +23,31 @@ class CitationService {
         return cached.citations
       }
 
-      // Fetch from backend API
+      // Try to get from your specific Google Scholar profile first
+      try {
+        const profileResponse = await fetch(`${this.apiBaseUrl}/scholar/profile`)
+        if (profileResponse.ok) {
+          const profileData = await profileResponse.json()
+          if (profileData.success && profileData.data.publications) {
+            const paper = profileData.data.publications.find(p => 
+              p.title.toLowerCase().includes(title.toLowerCase()) ||
+              title.toLowerCase().includes(p.title.toLowerCase())
+            )
+            if (paper) {
+              const citations = paper.citations || 0
+              this.cache.set(cacheKey, {
+                citations,
+                timestamp: new Date().toISOString()
+              })
+              return citations
+            }
+          }
+        }
+      } catch (profileError) {
+        console.warn('Could not fetch from Google Scholar profile:', profileError)
+      }
+
+      // Fallback to general search
       const response = await fetch(`${this.apiBaseUrl}/citations/search`, {
         method: 'POST',
         headers: {
@@ -71,6 +95,29 @@ class CitationService {
     
     const key = title.toLowerCase().replace(/[^a-z0-9]/g, '-')
     return mockData[key] || 0
+  }
+
+  // Fetch complete Google Scholar profile data
+  async fetchScholarProfile() {
+    try {
+      const response = await fetch(`${this.apiBaseUrl}/scholar/profile`)
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const data = await response.json()
+      
+      if (data.success) {
+        return data.data
+      } else {
+        throw new Error('Failed to fetch profile data')
+      }
+      
+    } catch (error) {
+      console.error('Error fetching Google Scholar profile:', error)
+      return null
+    }
   }
 
   // Update all publications with fresh citation counts

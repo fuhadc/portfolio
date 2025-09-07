@@ -26,6 +26,8 @@ class GoogleScholarScraper {
   constructor() {
     this.browser = null
     this.page = null
+    this.profileId = 'rC6hYXwAAAAJ' // Your Google Scholar profile ID
+    this.profileUrl = `https://scholar.google.com/citations?user=${this.profileId}&hl=en&oi=sra`
   }
 
   async init() {
@@ -69,6 +71,89 @@ class GoogleScholarScraper {
     } catch (error) {
       console.error('Error scraping Google Scholar:', error)
       return { citations: 0, found: false, error: error.message }
+    }
+  }
+
+  // Scrape your specific Google Scholar profile
+  async scrapeProfile() {
+    try {
+      if (!this.browser) await this.init()
+
+      await this.page.goto(this.profileUrl, { waitUntil: 'networkidle2' })
+      
+      // Wait for profile to load
+      await this.page.waitForSelector('#gsc_a_b', { timeout: 10000 })
+
+      // Extract all publications from your profile
+      const publications = await this.page.evaluate(() => {
+        const papers = []
+        const paperElements = document.querySelectorAll('#gsc_a_b .gsc_a_tr')
+        
+        paperElements.forEach((element, index) => {
+          const titleElement = element.querySelector('.gsc_a_at')
+          const authorsElement = element.querySelector('.gs_gray')
+          const venueElement = element.querySelector('.gs_gray:last-child')
+          const citationElement = element.querySelector('.gsc_a_c a')
+          const yearElement = element.querySelector('.gsc_a_y')
+          
+          if (titleElement) {
+            const title = titleElement.textContent.trim()
+            const authors = authorsElement ? authorsElement.textContent.trim() : ''
+            const venue = venueElement ? venueElement.textContent.trim() : ''
+            const citations = citationElement ? parseInt(citationElement.textContent) || 0 : 0
+            const year = yearElement ? yearElement.textContent.trim() : ''
+            
+            papers.push({
+              title,
+              authors,
+              venue,
+              citations,
+              year,
+              index
+            })
+          }
+        })
+        
+        return papers
+      })
+
+      return {
+        success: true,
+        publications,
+        totalPapers: publications.length,
+        totalCitations: publications.reduce((sum, paper) => sum + paper.citations, 0)
+      }
+
+    } catch (error) {
+      console.error('Error scraping Google Scholar profile:', error)
+      return { 
+        success: false, 
+        error: error.message,
+        publications: [],
+        totalPapers: 0,
+        totalCitations: 0
+      }
+    }
+  }
+
+  // Get citation count for a specific paper from your profile
+  async getCitationFromProfile(title) {
+    try {
+      const profileData = await this.scrapeProfile()
+      
+      if (profileData.success) {
+        const paper = profileData.publications.find(p => 
+          p.title.toLowerCase().includes(title.toLowerCase()) ||
+          title.toLowerCase().includes(p.title.toLowerCase())
+        )
+        
+        return paper ? paper.citations : 0
+      }
+      
+      return 0
+    } catch (error) {
+      console.error('Error getting citation from profile:', error)
+      return 0
     }
   }
 
@@ -314,6 +399,27 @@ app.post('/api/citations/batch', async (req, res) => {
 
   } catch (error) {
     console.error('Error in citations/batch:', error)
+    res.status(500).json({ 
+      success: false, 
+      error: 'Internal server error',
+      message: error.message 
+    })
+  }
+})
+
+// Get complete Google Scholar profile data
+app.get('/api/scholar/profile', async (req, res) => {
+  try {
+    const profileData = await scholarScraper.scrapeProfile()
+    
+    res.json({
+      success: true,
+      data: profileData,
+      timestamp: new Date().toISOString()
+    })
+
+  } catch (error) {
+    console.error('Error in scholar/profile:', error)
     res.status(500).json({ 
       success: false, 
       error: 'Internal server error',

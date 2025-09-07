@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { 
   BookOpen, 
   ExternalLink, 
@@ -9,10 +9,11 @@ import {
   Eye
 } from 'lucide-react'
 import SEO from '../components/SEO'
+import citationService from '../services/citationService'
 
 
 const Publications = () => {
-  const publications = [
+  const [publications, setPublications] = useState([
     {
       title: "Cost Effective and Energy Efficient Drip Irrigation System for IoT Enabled Smart Agriculture",
       authors: "Muhammed Fuhad C, Stenin George, Manu Elappila, Sachin Malayath Jose",
@@ -27,7 +28,7 @@ const Publications = () => {
       keywords: ["IoT", "Smart Agriculture", "Drip Irrigation", "Energy Efficiency", "Cost Optimization", "Solenoid Valves"],
       status: "Published",
       impact: "High",
-      citations: 2, // Google Scholar: https://scholar.google.com/citations?user=YOUR_PROFILE_ID
+      citations: 2, // Google Scholar: https://scholar.google.com/citations?user=rC6hYXwAAAAJ
       lastUpdated: new Date().toISOString(),
       icon: BookOpen,
       color: "#10b981",
@@ -47,7 +48,7 @@ const Publications = () => {
       keywords: ["IoT", "Temperature Monitoring", "Pandemic Control", "Contactless", "Real-time Alerts", "Data Analytics"],
       status: "Published",
       impact: "High",
-      citations: 2, // Google Scholar: https://scholar.google.com/citations?user=YOUR_PROFILE_ID
+      citations: 2, // Google Scholar: https://scholar.google.com/citations?user=rC6hYXwAAAAJ
       lastUpdated: new Date().toISOString(),
       icon: BookOpen,
       color: "#3b82f6",
@@ -93,7 +94,29 @@ const Publications = () => {
       color: "#f59e0b",
       googleScholarId: null
     }
-  ]
+  ])
+  
+  const [isLoading, setIsLoading] = useState(false)
+  const [lastUpdated, setLastUpdated] = useState(null)
+
+  // Fetch citation data on component mount
+  useEffect(() => {
+    updateCitations()
+  }, [])
+
+  // Update citation counts from Google Scholar
+  const updateCitations = async () => {
+    setIsLoading(true)
+    try {
+      const updatedPublications = await citationService.updateAllCitations(publications)
+      setPublications(updatedPublications)
+      setLastUpdated(new Date().toISOString())
+    } catch (error) {
+      console.error('Error updating citations:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   // Calculate dynamic stats from publications
   const totalCitations = publications.reduce((sum, pub) => sum + pub.citations, 0)
@@ -109,6 +132,14 @@ const Publications = () => {
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+      <style>
+        {`
+          @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+        `}
+      </style>
       <SEO 
         title="Research Publications - Muhammed Fuhad C | IEEE & Springer Papers"
         description="Explore the research publications of Muhammed Fuhad C, including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems."
@@ -130,6 +161,101 @@ const Publications = () => {
           }}>
             Published research papers and conference proceedings in IoT, smart agriculture, and healthcare monitoring
           </p>
+          
+          {/* Google Scholar Profile Link and Refresh Button */}
+          <div style={{ 
+            textAlign: 'center', 
+            marginBottom: '2rem',
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '1rem',
+            flexWrap: 'wrap'
+          }}>
+            <a
+              href="https://scholar.google.com/citations?user=rC6hYXwAAAAJ&hl=en&oi=sra"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '0.75rem 1.5rem',
+                backgroundColor: '#4285f4',
+                color: 'white',
+                textDecoration: 'none',
+                borderRadius: '0.5rem',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 2px 4px rgba(66, 133, 244, 0.2)'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#3367d6'
+                e.target.style.transform = 'translateY(-1px)'
+                e.target.style.boxShadow = '0 4px 8px rgba(66, 133, 244, 0.3)'
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#4285f4'
+                e.target.style.transform = 'translateY(0)'
+                e.target.style.boxShadow = '0 2px 4px rgba(66, 133, 244, 0.2)'
+              }}
+            >
+              <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
+              View Google Scholar Profile
+            </a>
+            
+            <button
+              onClick={updateCitations}
+              disabled={isLoading}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '0.75rem 1.5rem',
+                backgroundColor: isLoading ? '#9ca3af' : '#10b981',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0.5rem',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                cursor: isLoading ? 'not-allowed' : 'pointer',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 2px 4px rgba(16, 185, 129, 0.2)'
+              }}
+              onMouseOver={(e) => {
+                if (!isLoading) {
+                  e.target.style.backgroundColor = '#059669'
+                  e.target.style.transform = 'translateY(-1px)'
+                  e.target.style.boxShadow = '0 4px 8px rgba(16, 185, 129, 0.3)'
+                }
+              }}
+              onMouseOut={(e) => {
+                if (!isLoading) {
+                  e.target.style.backgroundColor = '#10b981'
+                  e.target.style.transform = 'translateY(0)'
+                  e.target.style.boxShadow = '0 2px 4px rgba(16, 185, 129, 0.2)'
+                }
+              }}
+            >
+              <RefreshCw 
+                size={16} 
+                style={{ 
+                  marginRight: '0.5rem',
+                  animation: isLoading ? 'spin 1s linear infinite' : 'none'
+                }} 
+              />
+              {isLoading ? 'Updating...' : 'Refresh Citations'}
+            </button>
+          </div>
+          
+          {lastUpdated && (
+            <div style={{ 
+              textAlign: 'center', 
+              color: '#6b7280', 
+              fontSize: '0.875rem',
+              marginBottom: '1rem'
+            }}>
+              Last updated: {new Date(lastUpdated).toLocaleString()}
+            </div>
+          )}
           
         </div>
 

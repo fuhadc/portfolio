@@ -16,20 +16,20 @@ import SEO from '../components/SEO'
 const Projects = () => {
   const projects = [
     {
-      title: "Drip Irrigation IoT Project",
-      description: "Developed a cost-effective and energy-efficient drip irrigation system for smart agriculture using IoT technologies. Published research paper in Springer Conference.",
+      title: "Home Automation IoT System",
+      description: "Developed a comprehensive home automation system using IoT technologies for smart home control and monitoring. Features real-time sensor data and remote control capabilities.",
       image: "/api/placeholder/400/250",
-      technologies: ["Arduino", "Sensors", "Python", "IoT Protocols", "Mobile App"],
+      technologies: ["Arduino", "Sensors", "Python", "IoT Protocols", "Home Automation"],
       features: [
-        "Real-time soil moisture monitoring",
-        "Automated water flow control",
-        "Cost and energy optimization",
-        "Mobile app for remote monitoring",
-        "Published research paper"
+        "Real-time home monitoring",
+        "Automated device control",
+        "Energy optimization",
+        "Remote access capabilities",
+        "Smart home integration"
       ],
       links: {
-        code: "https://github.com/fuhadc/iot-irrigation",
-        demo: "https://irrigation-demo.fuhadc.dev",
+        code: "https://github.com/fuhadc/home_automation",
+        demo: "https://github.com/fuhadc/home_automation",
         paper: "https://doi.org/10.1007/978-981-97-1841-2_14"
       },
       status: "Completed",
@@ -39,20 +39,20 @@ const Projects = () => {
       color: "#10b981"
     },
     {
-      title: "Contactless Continuous Temperature Monitoring System",
-      description: "Designed and implemented an IoT-based system for real-time, contactless temperature monitoring. Published research paper in IEEE Conference.",
+      title: "Breast Cancer Admin System",
+      description: "Developed an administrative system for breast cancer management with comprehensive data handling and monitoring capabilities. Features advanced analytics and reporting.",
       image: "/api/placeholder/400/250",
-      technologies: ["Raspberry Pi", "Thermal Sensors", "Python", "MQTT", "Web Dashboard"],
+      technologies: ["Python", "Web Framework", "Database", "Admin Panel", "Analytics"],
       features: [
-        "Contactless temperature detection",
-        "Real-time alerts and notifications",
-        "Web-based monitoring dashboard",
-        "Published research paper",
-        "Pandemic control infrastructure"
+        "Comprehensive data management",
+        "Real-time analytics dashboard",
+        "Admin panel for system control",
+        "Data visualization",
+        "Automated reporting"
       ],
       links: {
-        code: "https://github.com/fuhadc/temperature-monitoring",
-        demo: "https://temp-monitor.fuhadc.dev",
+        code: "https://github.com/fuhadc/brestcanceradmin",
+        demo: "https://github.com/fuhadc/brestcanceradmin",
         paper: "https://doi.org/10.1109/ICRTEC56977.2023.10111891"
       },
       status: "Completed",
@@ -62,7 +62,7 @@ const Projects = () => {
       color: "#3b82f6"
     },
     {
-      title: "RekthaSeva Blood Donation App",
+      title: "RakthSeva Blood Donation App",
       description: "Created a user-friendly mobile application to connect blood donors and recipients. Flutter-based platform with real-time notifications and location-based search.",
       image: "/api/placeholder/400/250",
       technologies: ["Flutter", "Dart", "Firebase", "Google Maps", "Push Notifications"],
@@ -74,9 +74,9 @@ const Projects = () => {
         "Donor history tracking"
       ],
       links: {
-        code: "https://github.com/fuhadc/rekthaseva",
-        demo: "https://rekthaseva.fuhadc.dev",
-        app: "https://play.google.com/store/apps/details?id=com.fuhadc.rekthaseva"
+        code: "https://github.com/fuhadc/rakthseva",
+        demo: "https://github.com/fuhadc/rakthseva",
+        app: "https://github.com/fuhadc/rakthseva"
       },
       status: "Completed",
       year: "2023",
@@ -97,8 +97,8 @@ const Projects = () => {
         "Abstract presented at conference"
       ],
       links: {
-        code: "https://github.com/fuhadc/iot-dashboard",
-        demo: "https://iot-dashboard.fuhadc.dev"
+        code: "https://github.com/fuhadc/iotDash",
+        demo: "https://github.com/fuhadc/iotDash"
       },
       status: "Completed",
       year: "2024",
@@ -119,8 +119,8 @@ const Projects = () => {
         "User-friendly interface"
       ],
       links: {
-        code: "https://github.com/fuhadc/news-app",
-        demo: "https://news-app.fuhadc.dev"
+        code: "https://github.com/fuhadc/NewsApi",
+        demo: "https://github.com/fuhadc/NewsApi"
       },
       status: "Completed",
       year: "2023",
@@ -129,20 +129,20 @@ const Projects = () => {
       color: "#06b6d4"
     },
     {
-      title: "Ludo Game Application",
-      description: "Designed and deployed a multiplayer Ludo game app. Cross-platform mobile game with real-time multiplayer functionality.",
+      title: "QR Code Generator Mobile App",
+      description: "Developed a mobile application for generating QR codes with various customization options. Cross-platform app with multiple QR code formats and sharing capabilities.",
       image: "/api/placeholder/400/250",
-      technologies: ["Flutter", "Dart", "Multiplayer", "Game Development", "Real-time"],
+      technologies: ["Flutter", "Dart", "QR Code Generation", "Mobile Development", "Cross-platform"],
       features: [
-        "Multiplayer functionality",
-        "Real-time game play",
+        "Multiple QR code formats",
+        "Customizable designs",
         "Cross-platform support",
-        "User-friendly interface",
-        "Game statistics tracking"
+        "Share functionality",
+        "History tracking"
       ],
       links: {
-        code: "https://github.com/fuhadc/ludo-game",
-        demo: "https://ludo-game.fuhadc.dev"
+        code: "https://github.com/fuhadc/Qr-Code-Generator-Mobile-App",
+        demo: "https://github.com/fuhadc/Qr-Code-Generator-Mobile-App"
       },
       status: "Completed",
       year: "2023",
@@ -163,8 +163,8 @@ const Projects = () => {
         "Educational platform"
       ],
       links: {
-        code: "https://github.com/fuhadc/fog-computing",
-        demo: "https://fog-computing.fuhadc.dev"
+        code: "https://github.com/fuhadc/fogioten",
+        demo: "https://github.com/fuhadc/fogioten"
       },
       status: "Completed",
       year: "2023",
@@ -219,38 +219,83 @@ const Projects = () => {
       color: "#dc2626"
     },
     {
-      title: "SUH iOS Application",
-      description: "A native iOS application built with Swift and SwiftUI. Features modern iOS design patterns, comprehensive testing suite, and user-friendly interface.",
+      title: "Virtual Assistant using Python",
+      description: "Built an intelligent virtual assistant using Python with voice recognition and natural language processing capabilities. Features multiple AI integrations and automation.",
       image: "/api/placeholder/400/250",
-      technologies: ["Swift", "SwiftUI", "iOS", "Xcode", "Unit Testing", "UI Testing"],
+      technologies: ["Python", "Speech Recognition", "NLP", "AI Integration", "Automation"],
       features: [
-        "Native iOS development with Swift",
-        "Modern SwiftUI interface",
-        "Comprehensive unit testing",
-        "UI testing suite",
-        "iOS best practices implementation",
-        "Cross-device compatibility"
+        "Voice recognition capabilities",
+        "Natural language processing",
+        "AI-powered responses",
+        "Task automation",
+        "Multi-platform support",
+        "Custom command integration"
       ],
       links: {
-        code: "https://github.com/fuhadc/suh-ios",
-        demo: "https://suh-app.fuhadc.dev"
+        code: "https://github.com/fuhadc/virtual-assistant-using-python",
+        demo: "https://github.com/fuhadc/virtual-assistant-using-python"
       },
       status: "Completed",
       year: "2023",
-      category: "Mobile App",
-      icon: Smartphone,
+      category: "AI/ML",
+      icon: Database,
       color: "#7c3aed"
+    },
+    {
+      title: "Weather Monitor Web App",
+      description: "Developed a comprehensive weather monitoring web application with real-time data visualization and forecasting capabilities. Features interactive charts and location-based weather data.",
+      image: "/api/placeholder/400/250",
+      technologies: ["Python", "Flask", "Weather API", "Data Visualization", "Web Development"],
+      features: [
+        "Real-time weather data",
+        "Interactive data visualization",
+        "Location-based forecasting",
+        "Historical weather analysis",
+        "Responsive web interface"
+      ],
+      links: {
+        code: "https://github.com/fuhadc/whether-monitor-web-app",
+        demo: "https://github.com/fuhadc/whether-monitor-web-app"
+      },
+      status: "Completed",
+      year: "2023",
+      category: "Web App",
+      icon: Globe,
+      color: "#06b6d4"
+    },
+    {
+      title: "PDF to DOCX Converter",
+      description: "Built a powerful document conversion tool that converts PDF files to DOCX format with high accuracy. Features batch processing and format preservation.",
+      image: "/api/placeholder/400/250",
+      technologies: ["Python", "Document Processing", "File Conversion", "Automation", "CLI"],
+      features: [
+        "High-accuracy PDF conversion",
+        "Batch processing capabilities",
+        "Format preservation",
+        "Command-line interface",
+        "Error handling and validation"
+      ],
+      links: {
+        code: "https://github.com/fuhadc/pdftodocx",
+        demo: "https://github.com/fuhadc/pdftodocx"
+      },
+      status: "Completed",
+      year: "2023",
+      category: "Web App",
+      icon: FileText,
+      color: "#059669"
     }
   ]
 
   const projectStats = [
-    { label: "Total Projects", value: "11", icon: Code },
+    { label: "Total Projects", value: "13", icon: Code },
     { label: "IoT Projects", value: "3", icon: Cpu },
-    { label: "Mobile Apps", value: "4", icon: Smartphone },
-    { label: "Web Apps", value: "4", icon: Globe }
+    { label: "Mobile Apps", value: "3", icon: Smartphone },
+    { label: "Web Apps", value: "6", icon: Globe },
+    { label: "AI/ML Projects", value: "1", icon: Database }
   ]
 
-  const categories = ["All", "IoT", "Mobile App", "Web App", "CRM", "Data Science"]
+  const categories = ["All", "IoT", "Mobile App", "Web App", "CRM", "AI/ML"]
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>

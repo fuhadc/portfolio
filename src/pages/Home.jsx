@@ -122,8 +122,8 @@ const Home = () => {
               </Link>
               
               <a
-                href="/resume.pdf"
-                download
+                href="/resume_fuhad.pdf"
+                download="Muhammed_Fuhad_C_Resume.pdf"
                 className="btn btn-outline"
                 style={{
                   display: 'inline-flex',

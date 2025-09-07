@@ -150,6 +150,17 @@ body {
   padding: 0;
 }
 
+/* Mobile menu list styling */
+.mobile-menu ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.mobile-menu li {
+  list-style: none !important;
+}
+
 @media (min-width: 640px) {
   .navbar-nav {
     gap: 1rem;
@@ -767,4 +778,191 @@ main {
 .dark .btn-outline:hover {
   background: #60a5fa;
   color: #0f172a;
+}
+
+/* Additional dark mode styles for better visibility */
+.dark {
+  color: #f1f5f9;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9;
+}
+
+.dark p {
+  color: #cbd5e1;
+}
+
+.dark .text-responsive {
+  color: #cbd5e1;
+}
+
+.dark .hero-description {
+  color: #cbd5e1;
+}
+
+.dark .hero-subtitle {
+  color: #60a5fa;
+}
+
+/* Dark mode for project cards and elements */
+.dark .project-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .project-title {
+  color: #f1f5f9;
+}
+
+.dark .project-description {
+  color: #cbd5e1;
+}
+
+.dark .project-tech {
+  background: #334155;
+  color: #cbd5e1;
+  border-color: #475569;
+}
+
+.dark .project-feature {
+  color: #cbd5e1;
+}
+
+.dark .project-status-completed {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+.dark .project-status-development {
+  background: #78350f;
+  color: #fbbf24;
+}
+
+/* Dark mode for publication elements */
+.dark .publication-title {
+  color: #f1f5f9;
+}
+
+.dark .publication-authors {
+  color: #94a3b8;
+}
+
+.dark .publication-abstract {
+  color: #cbd5e1;
+}
+
+.dark .publication-keyword {
+  background: #334155;
+  color: #cbd5e1;
+  border-color: #475569;
+}
+
+/* Dark mode for stats and icons */
+.dark .stat-value {
+  color: #f1f5f9;
+}
+
+.dark .stat-label {
+  color: #94a3b8;
+}
+
+.dark .stat-icon-bg {
+  background: #1e293b;
+}
+
+/* Dark mode for buttons and links */
+.dark .btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.dark .btn-primary:hover {
+  background: #2563eb;
+}
+
+.dark .btn-secondary {
+  background: #1e293b;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+.dark .btn-secondary:hover {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+/* Dark mode for form elements */
+.dark input, .dark textarea, .dark select {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  border-color: #3b82f6;
+  outline-color: #3b82f6;
+}
+
+/* Dark mode for placeholder text */
+.dark input::placeholder, .dark textarea::placeholder {
+  color: #64748b;
+}
+
+/* Dark mode for links */
+.dark a {
+  color: #60a5fa;
+}
+
+.dark a:hover {
+  color: #93c5fd;
+}
+
+/* Dark mode for code blocks */
+.dark code {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-color: #334155;
+}
+
+/* Dark mode for badges and tags */
+.dark .badge {
+  background: #334155;
+  color: #cbd5e1;
+  border-color: #475569;
+}
+
+/* Dark mode for dividers */
+.dark hr {
+  border-color: #334155;
+}
+
+/* Dark mode for tables */
+.dark table {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark th {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+.dark td {
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+/* Dark mode for modals and overlays */
+.dark .modal {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .modal-header {
+  border-bottom-color: #334155;
+}
+
+.dark .modal-footer {
+  border-top-color: #334155;
 }

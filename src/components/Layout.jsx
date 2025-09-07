@@ -150,12 +150,12 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
               className="mobile-menu bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-gray-700"
             >
               <div className="container py-4">
-                <ul className="space-y-2">
+                <ul className="space-y-2" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {navigation.map((item) => {
                     const Icon = item.icon
                     const isActive = location.pathname === item.href
                     return (
-                      <li key={item.name}>
+                      <li key={item.name} style={{ listStyle: 'none' }}>
                         <Link
                           to={item.href}
                           style={{
