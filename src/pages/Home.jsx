@@ -13,21 +13,11 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import homeData from '../data/home.json'
+import { getIcon } from '../utils/iconMapper'
 
 const Home = () => {
-  const socialLinks = [
-    { name: 'GitHub', href: 'https://github.com/fuhadc', icon: Github },
-    { name: 'LinkedIn', href: 'https://linkedin.com/in/fuhadc', icon: Linkedin },
-    { name: 'ResearchGate', href: 'https://www.researchgate.net/profile/Muhammed-Fuhad', icon: ExternalLink },
-    { name: 'Email', href: 'mailto:fuhadcs@icloud.com', icon: Mail },
-  ]
-
-  const quickStats = [
-    { label: 'Projects Completed', value: '7+', icon: Code },
-    { label: 'IoT Solutions', value: '4+', icon: Cpu },
-    { label: 'Mobile Apps', value: '3+', icon: Globe },
-    { label: 'Research Papers', value: '3+', icon: Database },
-  ]
+  const { hero, socialLinks, quickStats, coreExpertise } = homeData
 
   return (
     <div style={{ minHeight: '100vh' }}>
@@ -75,15 +65,15 @@ const Home = () => {
 
             {/* Name and Title */}
             <h1 className="hero-title">
-              Muhammed Fuhad C
+              {hero.name}
             </h1>
             
             <div className="hero-subtitle">
-              IoT & Embedded Systems Enthusiast
+              {hero.title}
             </div>
             
             <div className="hero-description">
-              Researcher • Developer • Innovator
+              {hero.subtitle}
             </div>
 
             {/* Description */}
@@ -92,11 +82,11 @@ const Home = () => {
               marginLeft: 'auto',
               marginRight: 'auto',
               lineHeight: '1.75',
-              padding: '0 1rem'
+              padding: '0 1rem',
+              wordWrap: 'break-word',
+              overflowWrap: 'break-word'
             }}>
-              I'm passionate about IoT, embedded systems, mobile app development, and AI/ML integration. 
-              I love building smart solutions that combine hardware + software to solve real-world problems. 
-              With experience at Toyota Industries and published research, I'm committed to creating innovative technology solutions.
+              {hero.description}
             </p>
 
             {/* CTA Buttons */}
@@ -146,7 +136,7 @@ const Home = () => {
             {/* Social Links */}
             <div className="social-links">
               {socialLinks.map((link) => {
-                const Icon = link.icon
+                const Icon = getIcon(link.icon)
                 return (
                   <a
                     key={link.name}
@@ -184,10 +174,12 @@ const Home = () => {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-            gap: '1.5rem'
+            gap: '1.5rem',
+            width: '100%',
+            maxWidth: '100%'
           }}>
             {quickStats.map((stat, index) => {
-              const Icon = stat.icon
+              const Icon = getIcon(stat.icon)
               return (
                 <div key={index} style={{ textAlign: 'center' }}>
                   <div style={{
@@ -243,97 +235,44 @@ const Home = () => {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1.5rem'
+            gap: '1.5rem',
+            width: '100%',
+            maxWidth: '100%'
           }}>
-            <div className="card">
-              <div style={{
-                width: '4rem',
-                height: '4rem',
-                backgroundColor: '#dbeafe',
-                borderRadius: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem'
-              }}>
-                <Cpu style={{ color: '#3b82f6' }} size={32} />
-              </div>
-              <h3 style={{
-                fontSize: '1.25rem',
-                fontWeight: '600',
-                color: '#1e293b',
-                marginBottom: '0.5rem',
-                textAlign: 'center'
-              }}>
-                IoT Development
-              </h3>
-              <p style={{
-                color: '#64748b',
-                textAlign: 'center'
-              }}>
-                Arduino, Raspberry Pi, sensors, and embedded systems
-              </p>
-            </div>
-
-            <div className="card">
-              <div style={{
-                width: '4rem',
-                height: '4rem',
-                backgroundColor: '#dcfce7',
-                borderRadius: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem'
-              }}>
-                <Code style={{ color: '#16a34a' }} size={32} />
-              </div>
-              <h3 style={{
-                fontSize: '1.25rem',
-                fontWeight: '600',
-                color: '#1e293b',
-                marginBottom: '0.5rem',
-                textAlign: 'center'
-              }}>
-                Mobile Apps
-              </h3>
-              <p style={{
-                color: '#64748b',
-                textAlign: 'center'
-              }}>
-                Flutter, Dart, cross-platform development
-              </p>
-            </div>
-
-            <div className="card">
-              <div style={{
-                width: '4rem',
-                height: '4rem',
-                backgroundColor: '#f3e8ff',
-                borderRadius: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem'
-              }}>
-                <Database style={{ color: '#9333ea' }} size={32} />
-              </div>
-              <h3 style={{
-                fontSize: '1.25rem',
-                fontWeight: '600',
-                color: '#1e293b',
-                marginBottom: '0.5rem',
-                textAlign: 'center'
-              }}>
-                Research
-              </h3>
-              <p style={{
-                color: '#64748b',
-                textAlign: 'center'
-              }}>
-                Published papers, data analysis, innovation
-              </p>
-            </div>
+            {coreExpertise.map((expertise, index) => {
+              const Icon = getIcon(expertise.icon)
+              return (
+                <div key={index} className="card">
+                  <div style={{
+                    width: '4rem',
+                    height: '4rem',
+                    backgroundColor: `${expertise.color}20`,
+                    borderRadius: '1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 1rem'
+                  }}>
+                    <Icon style={{ color: expertise.color }} size={32} />
+                  </div>
+                  <h3 style={{
+                    fontSize: '1.25rem',
+                    fontWeight: '600',
+                    color: '#1e293b',
+                    marginBottom: '0.5rem',
+                    textAlign: 'center'
+                  }}>
+                    {expertise.title}
+                  </h3>
+                  <p style={{
+                    color: '#64748b',
+                    textAlign: 'center'
+                  }}>
+                    {expertise.description}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

@@ -11,24 +11,11 @@ import {
   BookOpen
 } from 'lucide-react'
 import SEO from '../components/SEO'
+import aboutData from '../data/about.json'
+import { getIcon } from '../utils/iconMapper'
 
 const About = () => {
-  const education = [
-    {
-      degree: "Bachelor of Technology in Computer Science Engineering (IoT)",
-      school: "Christ (Deemed to be) University",
-      year: "2018 - 2022",
-      gpa: "First Class",
-      description: "Specialized in IoT and Embedded Systems with focus on smart agriculture, healthcare monitoring, and mobile application development"
-    }
-  ]
-
-  const personalInfo = [
-    { label: "Location", value: "Kerala, India", icon: MapPin },
-    { label: "Phone", value: "+91-7306525489", icon: Phone },
-    { label: "Email", value: "fuhadcs@icloud.com", icon: Mail },
-    { label: "Experience", value: "1+ years", icon: Calendar }
-  ]
+  const { personalInfo, education } = aboutData
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
@@ -63,11 +50,11 @@ const About = () => {
             </div>
             
             <h2 className="hero-title">
-              Muhammed Fuhad C
+              {personalInfo.name}
             </h2>
             
             <p className="hero-subtitle" style={{ marginBottom: '1.5rem' }}>
-              IoT & Embedded Systems Enthusiast
+              {personalInfo.title}
             </p>
             
             <p className="text-responsive" style={{
@@ -76,9 +63,7 @@ const About = () => {
               maxWidth: '48rem',
               margin: '0 auto 2rem'
             }}>
-              Hello! I'm Muhammed Fuhad C, a passionate IoT and Embedded Systems enthusiast, researcher, and developer
-              based in Kerala, India. I graduated with a B.Tech in Computer Science Engineering (IoT) from Christ (Deemed to be) University,
-              where I discovered my love for creating innovative solutions that bridge the gap between hardware and software.
+              {personalInfo.description}
             </p>
 
             <p style={{
@@ -88,10 +73,7 @@ const About = () => {
               maxWidth: '48rem',
               margin: '0 auto'
             }}>
-              I'm passionate about IoT, embedded systems, mobile app development, and AI/ML integration. 
-              I love building smart solutions that combine hardware + software to solve real-world problems. 
-              With experience at Toyota Industries and published research in IEEE and Springer conferences, 
-              I'm committed to creating technology that makes a real difference in people's lives.
+              {personalInfo.detailedDescription}
             </p>
           </div>
         </div>
@@ -113,8 +95,8 @@ const About = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '1.5rem'
           }}>
-            {personalInfo.map((info, index) => {
-              const Icon = info.icon
+            {personalInfo.contactInfo.map((info, index) => {
+              const Icon = getIcon(info.icon)
               return (
                 <div key={index} className="card" style={{
                   display: 'flex',

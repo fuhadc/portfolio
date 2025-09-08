@@ -11,78 +11,11 @@ import {
   Download
 } from 'lucide-react'
 import SEO from '../components/SEO'
+import achievementsData from '../data/achievements.json'
+import { getIcon } from '../utils/iconMapper'
 
 const Achievements = () => {
-  const achievements = [
-    {
-      title: "AI Integrated IoT Device for Voice Assistant",
-      description: "Secured 4th place with A Grade in the Working Model event at Kerala School Sasthrolsavam 2019-2020 (State-Level). Developed an innovative AI-powered IoT device that combines voice recognition with smart home automation capabilities.",
-      year: "2019-2020",
-      category: "Competition",
-      level: "State Level",
-      position: "4th Place (A Grade)",
-      organization: "Kerala School Sasthrolsavam",
-      location: "Kerala, India",
-      icon: Trophy,
-      color: "#f59e0b",
-      featured: true,
-      details: [
-        "Secured 4th place with A Grade in Working Model event",
-        "Designed and built a complete voice assistant system",
-        "Integrated AI voice recognition with IoT sensors",
-        "Implemented smart home automation features",
-        "Demonstrated at state-level science exhibition",
-        "Received recognition for innovation and technical excellence"
-      ]
-    },
-    {
-      title: "Poster Presentation at Bangalore Tech Summit",
-      description: "Presented research work on Contactless Continuous Temperature Monitoring System at the prestigious Bangalore Tech Summit 2022, showcasing innovative IoT solutions for pandemic control.",
-      year: "2022",
-      category: "Conference",
-      level: "National Level",
-      position: "Presented",
-      organization: "Bangalore Tech Summit",
-      location: "Bangalore, India",
-      icon: Award,
-      color: "#3b82f6",
-      featured: false,
-      details: [
-        "Presented research on Contactless Continuous Temperature Monitoring System",
-        "Showcased IoT solutions for pandemic control",
-        "Networked with industry professionals",
-        "Received positive feedback from experts"
-      ]
-    }
-  ]
-
-  const volunteering = [
-    {
-      title: "Congress on Intelligent Systems 2022 (CIS 2022)",
-      organization: "CIS 2022 Conference",
-      duration: "September 2022",
-      description: "Volunteered at the Congress on Intelligent Systems 2022, contributing to the organization and execution of this prestigious academic conference.",
-      impact: "Helped organize conference sessions and assisted attendees",
-      icon: Users,
-      color: "#3b82f6"
-    },
-    {
-      title: "Tech Workshop for Students",
-      organization: "Local Community Center",
-      duration: "2021-2022",
-      description: "Conducted workshops on IoT and programming for high school students, sharing knowledge and inspiring the next generation of technologists.",
-      impact: "Trained 50+ students in basic IoT concepts and programming",
-      icon: Users,
-      color: "#10b981"
-    }
-  ]
-
-  const stats = [
-    { label: "Awards Won", value: "1", icon: Trophy },
-    { label: "Competitions", value: "1", icon: Medal },
-    { label: "Volunteering Events", value: "2+", icon: Users },
-    { label: "Conference Presentations", value: "2+", icon: Star }
-  ]
+  const { achievements, volunteering, stats } = achievementsData
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
@@ -108,7 +41,7 @@ const Achievements = () => {
             gap: '2rem'
           }}>
             {stats.map((stat, index) => {
-              const Icon = stat.icon
+              const Icon = getIcon(stat.icon)
               return (
                 <div key={index} style={{ textAlign: 'center' }}>
                   <div style={{
@@ -161,7 +94,7 @@ const Achievements = () => {
             gap: '2rem'
           }}>
             {achievements.filter(ach => ach.featured).map((achievement, index) => {
-              const Icon = achievement.icon
+              const Icon = getIcon(achievement.icon)
               return (
                 <div key={index} className="card" style={{
                   border: `2px solid ${achievement.color}20`,
@@ -368,7 +301,7 @@ const Achievements = () => {
             gap: '1.5rem'
           }}>
             {achievements.filter(ach => !ach.featured).map((achievement, index) => {
-              const Icon = achievement.icon
+              const Icon = getIcon(achievement.icon)
               return (
                 <div key={index} className="card">
                   <div style={{
@@ -474,7 +407,7 @@ const Achievements = () => {
             gap: '1.5rem'
           }}>
             {volunteering.map((volunteer, index) => {
-              const Icon = volunteer.icon
+              const Icon = getIcon(volunteer.icon)
               return (
                 <div key={index} className="card">
                   <div style={{

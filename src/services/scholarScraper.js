@@ -1,3 +1,4 @@
+
 // Google Scholar Scraper Service
 // Note: This is a client-side implementation. For production, this should run on a backend server
 // to avoid CORS issues and rate limiting.

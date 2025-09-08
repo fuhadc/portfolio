@@ -23,9 +23,24 @@ class CitationService {
         return cached.citations
       }
 
+      // Check if API is available before making requests
+      const isApiAvailable = await this.checkApiAvailability()
+      if (!isApiAvailable) {
+        console.warn('Citation API is not available, using mock data for:', title)
+        return this.getMockCitationCount(title)
+      }
+
       // Try to get from your specific Google Scholar profile first
       try {
-        const profileResponse = await fetch(`${this.apiBaseUrl}/scholar/profile`)
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 8000) // 8 second timeout
+        
+        const profileResponse = await fetch(`${this.apiBaseUrl}/scholar/profile`, {
+          signal: controller.signal
+        })
+        
+        clearTimeout(timeoutId)
+        
         if (profileResponse.ok) {
           const profileData = await profileResponse.json()
           if (profileData.success && profileData.data.publications) {
@@ -48,13 +63,19 @@ class CitationService {
       }
 
       // Fallback to general search
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 8000) // 8 second timeout
+      
       const response = await fetch(`${this.apiBaseUrl}/citations/search`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title, authors, doi })
+        body: JSON.stringify({ title, authors, doi }),
+        signal: controller.signal
       })
+
+      clearTimeout(timeoutId)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -120,7 +141,21 @@ class CitationService {
   // Fetch complete Google Scholar profile data
   async fetchScholarProfile() {
     try {
-      const response = await fetch(`${this.apiBaseUrl}/scholar/profile`)
+      // Check if API is available first
+      const isApiAvailable = await this.checkApiAvailability()
+      if (!isApiAvailable) {
+        console.warn('Citation API is not available, cannot fetch Google Scholar profile')
+        return null
+      }
+
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
+      
+      const response = await fetch(`${this.apiBaseUrl}/scholar/profile`, {
+        signal: controller.signal
+      })
+      
+      clearTimeout(timeoutId)
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -143,13 +178,21 @@ class CitationService {
   // Update all publications with fresh citation counts
   async updateAllCitations(publications) {
     try {
+      // Check if API is available first
+      const isApiAvailable = await this.checkApiAvailability()
+      if (!isApiAvailable) {
+        console.warn('Citation API is not available, using mock citation data')
+        return this.getPublicationsWithMockCitations(publications)
+      }
+
       // Use batch API for better performance
       const response = await fetch(`${this.apiBaseUrl}/citations/batch`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ publications })
+        body: JSON.stringify({ publications }),
+        timeout: 10000 // 10 second timeout
       })
 
       if (response.ok) {
@@ -207,6 +250,24 @@ class CitationService {
       citations: this.getMockCitationCount(pub.title),
       lastUpdated: new Date().toISOString()
     }))
+  }
+
+  // Check if API is available
+  async checkApiAvailability() {
+    try {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 5000) // 5 second timeout
+      
+      const response = await fetch(`${this.apiBaseUrl}/health`, {
+        method: 'GET',
+        signal: controller.signal
+      })
+      
+      clearTimeout(timeoutId)
+      return response.ok
+    } catch (error) {
+      return false
+    }
   }
 
   // Check if citation data needs updating

@@ -22,7 +22,7 @@ const SEO = ({
   useEffect(() => {
     // Update page title
     document.title = title || 'Muhammed Fuhad C - IoT & Embedded Systems Portfolio'
-    
+
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]')
     if (metaDescription) {

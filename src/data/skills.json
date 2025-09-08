@@ -1,0 +1,227 @@
+{
+  "skillCategories": [
+    {
+      "title": "Programming Languages",
+      "icon": "Code",
+      "color": "#3b82f6",
+      "skills": [
+        { "name": "Python", "level": 90, "years": "4+ years" },
+        { "name": "Dart", "level": 85, "years": "3+ years" },
+        { "name": "C/C++", "level": 80, "years": "3+ years" },
+        { "name": "Java", "level": 75, "years": "2+ years" },
+        { "name": "JavaScript", "level": 85, "years": "3+ years" }
+      ]
+    },
+    {
+      "title": "IoT & Embedded Systems",
+      "icon": "Cpu",
+      "color": "#10b981",
+      "skills": [
+        { "name": "Arduino", "level": 90, "years": "4+ years" },
+        { "name": "Raspberry Pi", "level": 85, "years": "3+ years" },
+        { "name": "ESP32", "level": 80, "years": "2+ years" },
+        { "name": "Sensors & Actuators", "level": 85, "years": "3+ years" },
+        { "name": "MQTT", "level": 80, "years": "2+ years" }
+      ]
+    },
+    {
+      "title": "Mobile Development",
+      "icon": "Smartphone",
+      "color": "#8b5cf6",
+      "skills": [
+        { "name": "Flutter", "level": 90, "years": "3+ years" },
+        { "name": "Android Development", "level": 80, "years": "2+ years" },
+        { "name": "Cross-platform", "level": 85, "years": "3+ years" },
+        { "name": "Firebase", "level": 80, "years": "2+ years" }
+      ]
+    },
+    {
+      "title": "Web Development",
+      "icon": "Globe",
+      "color": "#f59e0b",
+      "skills": [
+        { "name": "React", "level": 85, "years": "3+ years" },
+        { "name": "Node.js", "level": 80, "years": "2+ years" },
+        { "name": "Flask", "level": 85, "years": "3+ years" },
+        { "name": "HTML/CSS", "level": 90, "years": "4+ years" }
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "IBM AI Engineering Specialization",
+      "issuer": "IBM",
+      "date": "Sep 2020",
+      "credentialId": "KCFZLVM4Y82Q",
+      "status": "Completed",
+      "icon": "Zap",
+      "color": "#8b5cf6",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/KCFZLVM4Y82Q"
+    },
+    {
+      "title": "Introduction To Internet Of Things",
+      "issuer": "Stanford University",
+      "date": "Sep 2020",
+      "credentialId": "7r70ep",
+      "status": "Completed",
+      "icon": "Cpu",
+      "color": "#ef4444",
+      "url": "https://exchange.parchment.com/send/dds/index.php?main_page=welcome&d_id=05sjh3vjsl86m6k4i4s52uvo59"
+    },
+    {
+      "title": "Build a Face Recognition Application using Python",
+      "issuer": "GUVI Geek Networks, IITM Research Park",
+      "date": "Apr 2021",
+      "credentialId": "16Hv795t129fEV0B21",
+      "status": "Completed",
+      "icon": "Zap",
+      "color": "#8b5cf6",
+      "url": "https://www.guvi.in/verify-certificate?id=16Hv795t129fEV0B21"
+    },
+    {
+      "title": "Crash Course on Python",
+      "issuer": "Coursera",
+      "date": "Aug 2020",
+      "credentialId": "2JKDPVDMVA9A",
+      "status": "Completed",
+      "icon": "Code",
+      "color": "#10b981",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/2JKDPVDMVA9A"
+    },
+    {
+      "title": "Use WordPress to Create a Blog for your Business",
+      "issuer": "Coursera",
+      "date": "May 2021",
+      "credentialId": "L42JCR9PPDLH",
+      "status": "Completed",
+      "icon": "Globe",
+      "color": "#3b82f6",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/L42JCR9PPDLH"
+    },
+    {
+      "title": "Kerala School Sastrolsavam Working Model (AI and IoT device) 4th",
+      "issuer": "Kerala",
+      "date": "Nov 2019",
+      "credentialId": "KERALA-IOT-2019",
+      "status": "Completed",
+      "icon": "Cpu",
+      "color": "#10b981"
+    },
+    {
+      "title": "Getting Started with Azure DevOps Boards",
+      "issuer": "Coursera",
+      "date": "Mar 2022",
+      "credentialId": "NFD92KRV56HB",
+      "status": "Completed",
+      "icon": "Cloud",
+      "color": "#3b82f6",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/NFD92KRV56HB"
+    },
+    {
+      "title": "The Complete Cyber Security Course: Hackers Exposed!",
+      "issuer": "Udemy",
+      "date": "Apr 2022",
+      "credentialId": "UC-d216f9b2-f164-4fb3-b989-d7d63e9a9350",
+      "status": "Completed",
+      "icon": "Award",
+      "color": "#f59e0b",
+      "url": "https://www.udemy.com/certificate/UC-d216f9b2-f164-4fb3-b989-d7d63e9a9350/"
+    },
+    {
+      "title": "Web Design for Everybody: Basics of Web Development & Coding Specialization",
+      "issuer": "Coursera",
+      "date": "Apr 2022",
+      "credentialId": "NQFFPZSDQUKX",
+      "status": "Completed",
+      "icon": "Globe",
+      "color": "#3b82f6",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/NQFFPZSDQUKX"
+    },
+    {
+      "title": "Build a mobile app with Google Sheets on Glide and no coding",
+      "issuer": "Coursera",
+      "date": "Apr 2022",
+      "credentialId": "WNM38HEDMKZN",
+      "status": "Completed",
+      "icon": "Smartphone",
+      "color": "#06b6d4",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/WNM38HEDMKZN"
+    },
+    {
+      "title": "Increase SEO Traffic with WordPress",
+      "issuer": "Coursera",
+      "date": "Mar 2022",
+      "credentialId": "A7233QBVNHF4",
+      "status": "Completed",
+      "icon": "Globe",
+      "color": "#3b82f6",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/A7233QBVNHF4"
+    },
+    {
+      "title": "Python Programming 2022 Full Coverage: A Practical Approach",
+      "issuer": "Udemy",
+      "date": "Apr 2022",
+      "credentialId": "UC-7dd06d97-8fa2-4985-bbfe-25fb386650f",
+      "status": "Completed",
+      "icon": "Code",
+      "color": "#10b981",
+      "url": "ude.my/UC-7dd06d97-8fa2-4985-bbfe-2d5fb386650f"
+    },
+    {
+      "title": "Cloud Computing",
+      "issuer": "NPTEL",
+      "date": "Oct 2022",
+      "credentialId": "NPTEL22CS87S54751756",
+      "status": "Completed",
+      "icon": "Cloud",
+      "color": "#3b82f6",
+      "url": "https://nptel.ac.in/noc/E_Certificate/NPTEL22CS87S5475175610061067"
+    },
+    {
+      "title": "Raspberry Pi, Python, and Electronics Bootcamp",
+      "issuer": "Udemy",
+      "date": "Jun 2025",
+      "credentialId": "UC-3ff1433c-16b3-4267-88c1-37b8b554666e",
+      "status": "Completed",
+      "icon": "Cpu",
+      "color": "#10b981",
+      "url": "https://www.udemy.com/certificate/UC-3ff1433c-16b3-4267-88c1-37b8b554666e/"
+    },
+    {
+      "title": "Flutter Development Bootcamp",
+      "issuer": "Self-Study & Projects",
+      "date": "2022-2024",
+      "credentialId": "FLUTTER-SELF-2024",
+      "status": "Completed",
+      "icon": "Smartphone",
+      "color": "#8b5cf6"
+    },
+    {
+      "title": "React.js Development Certification",
+      "issuer": "Self-Study & Projects",
+      "date": "2021-2024",
+      "credentialId": "REACT-SELF-2024",
+      "status": "Completed",
+      "icon": "Globe",
+      "color": "#3b82f6"
+    },
+    {
+      "title": "Node.js Backend Development",
+      "issuer": "Self-Study & Projects",
+      "date": "2022-2024",
+      "credentialId": "NODEJS-SELF-2024",
+      "status": "Completed",
+      "icon": "Database",
+      "color": "#10b981"
+    },
+    {
+      "title": "Firebase Integration & Development",
+      "issuer": "Self-Study & Projects",
+      "date": "2022-2024",
+      "credentialId": "FIREBASE-SELF-2024",
+      "status": "Completed",
+      "icon": "Cloud",
+      "color": "#f59e0b"
+    }
+  ]
+}

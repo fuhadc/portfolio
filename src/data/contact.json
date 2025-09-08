@@ -1,0 +1,86 @@
+{
+  "contactInfo": [
+    {
+      "label": "Email",
+      "value": "fuhadcs@icloud.com",
+      "href": "mailto:fuhadcs@icloud.com",
+      "icon": "Mail",
+      "color": "#ef4444"
+    },
+    {
+      "label": "Phone",
+      "value": "+91-7306525489",
+      "href": "tel:+917306525489",
+      "icon": "Phone",
+      "color": "#10b981"
+    },
+    {
+      "label": "Location",
+      "value": "Kerala, India",
+      "href": "#",
+      "icon": "MapPin",
+      "color": "#3b82f6"
+    }
+  ],
+  "socialLinks": [
+    {
+      "name": "GitHub",
+      "href": "https://github.com/fuhadc",
+      "icon": "Github",
+      "color": "#1f2937",
+      "description": "View my code repositories"
+    },
+    {
+      "name": "LinkedIn",
+      "href": "https://linkedin.com/in/fuhadc",
+      "icon": "Linkedin",
+      "color": "#0077b5",
+      "description": "Connect with me professionally"
+    },
+    {
+      "name": "ResearchGate",
+      "href": "https://www.researchgate.net/profile/Muhammed-Fuhad",
+      "icon": "ExternalLink",
+      "color": "#00d4aa",
+      "description": "Check out my research"
+    },
+    {
+      "name": "Instagram",
+      "href": "https://www.instagram.com/_fuhad_c/",
+      "icon": "ExternalLink",
+      "color": "#E4405F",
+      "description": "Follow me on Instagram"
+    },
+    {
+      "name": "Facebook",
+      "href": "https://www.facebook.com/fuhadcs3/",
+      "icon": "ExternalLink",
+      "color": "#1877F2",
+      "description": "Connect on Facebook"
+    },
+    {
+      "name": "Twitter/X",
+      "href": "https://x.com/_fuhad_c",
+      "icon": "ExternalLink",
+      "color": "#1DA1F2",
+      "description": "Follow me on Twitter"
+    }
+  ],
+  "availability": [
+    {
+      "day": "Monday - Friday",
+      "time": "9:00 AM - 6:00 PM",
+      "timezone": "IST"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00 AM - 4:00 PM",
+      "timezone": "IST"
+    },
+    {
+      "day": "Sunday",
+      "time": "Available for urgent matters",
+      "timezone": "IST"
+    }
+  ]
+}

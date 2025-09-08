@@ -10,74 +10,11 @@ import {
   Award
 } from 'lucide-react'
 import SEO from '../components/SEO'
+import experienceData from '../data/experience.json'
+import { getIcon } from '../utils/iconMapper'
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: "Software Engineer Intern",
-      company: "Toyota Industries Engine India Private Limited",
-      location: "Bengaluru, Karnataka, India",
-      type: "Internship",
-      duration: "Jan 2023 – Mar 2024",
-      description: "Built tools for engine testing automation and error analytics (TNGA project). Developed APIs using Flask Restful. Designed a Flutter app for production activity management (HCPS project).",
-      achievements: [
-        "Demonstrated strong programming skills by developing software tools to automate engine testing, error detection, and analytics for the TNGA project.",
-        "Proven experience in API development using Flask Restful to enhance project functionality and performance.",
-        "Successfully improved company efficiency and productivity by creating a user-friendly Flutter application for managing production activity as part of the HCPS project."
-      ],
-      technologies: ["Python", "Flask", "Flutter", "Dart", "SQL", "Automation"],
-      icon: Code,
-      color: "#3b82f6"
-    },
-    {
-      title: "Digital Marketing In-Charge",
-      company: "Henna Maternity Corner",
-      location: "Malappuram, Kerala, India",
-      type: "Full-time",
-      duration: "Aug 2022 – Dec 2022",
-      description: "Oversaw digital marketing campaigns and improved online presence. Analyzed and reported marketing metrics for better decision-making.",
-      achievements: [
-        "Oversaw the digital marketing campaigns and improved online presence",
-        "Analyzed and reported marketing metrics for better decision-making",
-        "Managed social media presence and content strategy"
-      ],
-      technologies: ["Digital Marketing", "SEO", "Analytics", "Social Media"],
-      icon: BarChart3,
-      color: "#10b981"
-    },
-    {
-      title: "Machine Learning Intern",
-      company: "Futurism Technologies and Consulting Private Limited",
-      location: "Bengaluru, Karnataka, India",
-      type: "Internship",
-      duration: "Jun 2022 – Jul 2022",
-      description: "Designed and implemented machine learning models for IoT-based data collection and processing. Conducted data preprocessing and model evaluation.",
-      achievements: [
-        "Designed and implemented machine learning models for IoT-based data collection and processing",
-        "Conducted data preprocessing and model evaluation",
-        "Worked on real-world IoT data analysis projects"
-      ],
-      technologies: ["Machine Learning", "Python", "IoT", "Data Processing"],
-      icon: Database,
-      color: "#8b5cf6"
-    },
-    {
-      title: "IoT Intern",
-      company: "Industry Institute Interaction Cell (IIIC) - JNEC",
-      location: "Bengaluru, Karnataka, India",
-      type: "Internship",
-      duration: "May 2022 – Jun 2022",
-      description: "Developed IoT prototypes for smart applications. Collaborated with teams to build real-world IoT solutions.",
-      achievements: [
-        "Developed IoT prototypes for smart applications",
-        "Collaborated with teams to build real-world IoT solutions",
-        "Gained hands-on experience with IoT hardware and software integration"
-      ],
-      technologies: ["IoT", "Arduino", "Raspberry Pi", "Sensors", "Prototyping"],
-      icon: Smartphone,
-      color: "#f59e0b"
-    }
-  ]
+  const { experiences, summaryStats } = experienceData
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
@@ -109,7 +46,7 @@ const Experience = () => {
           }}></div>
 
           {experiences.map((exp, index) => {
-            const Icon = exp.icon
+            const Icon = getIcon(exp.icon)
             return (
               <div key={index} style={{
                 position: 'relative',
@@ -312,53 +249,19 @@ const Experience = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '2rem'
           }}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '2rem',
-                fontWeight: '700',
-                color: '#3b82f6',
-                marginBottom: '0.5rem'
-              }}>
-                1+
+            {summaryStats.map((stat, index) => (
+              <div key={index} style={{ textAlign: 'center' }}>
+                <div style={{
+                  fontSize: '2rem',
+                  fontWeight: '700',
+                  color: stat.color,
+                  marginBottom: '0.5rem'
+                }}>
+                  {stat.value}
+                </div>
+                <div style={{ color: '#64748b' }}>{stat.label}</div>
               </div>
-              <div style={{ color: '#64748b' }}>Years Experience</div>
-            </div>
-            
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '2rem',
-                fontWeight: '700',
-                color: '#10b981',
-                marginBottom: '0.5rem'
-              }}>
-                4
-              </div>
-              <div style={{ color: '#64748b' }}>Companies</div>
-            </div>
-            
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '2rem',
-                fontWeight: '700',
-                color: '#8b5cf6',
-                marginBottom: '0.5rem'
-              }}>
-                7+
-              </div>
-              <div style={{ color: '#64748b' }}>Projects Completed</div>
-            </div>
-            
-            <div style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '2rem',
-                fontWeight: '700',
-                color: '#f59e0b',
-                marginBottom: '0.5rem'
-              }}>
-                10+
-              </div>
-              <div style={{ color: '#64748b' }}>Technologies</div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

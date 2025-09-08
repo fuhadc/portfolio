@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "name": "Muhammed Fuhad C",
+    "title": "IoT & Embedded Systems Enthusiast",
+    "subtitle": "Researcher • Developer • Innovator",
+    "description": "I'm passionate about IoT, embedded systems, mobile app development, and AI/ML integration. I love building smart solutions that combine hardware + software to solve real-world problems. With experience at Toyota Industries and published research, I'm committed to creating innovative technology solutions."
+  },
+  "socialLinks": [
+    { "name": "GitHub", "href": "https://github.com/fuhadc", "icon": "Github" },
+    { "name": "LinkedIn", "href": "https://linkedin.com/in/fuhadc", "icon": "Linkedin" },
+    { "name": "ResearchGate", "href": "https://www.researchgate.net/profile/Muhammed-Fuhad", "icon": "ExternalLink" },
+    { "name": "Email", "href": "mailto:fuhadcs@icloud.com", "icon": "Mail" }
+  ],
+  "quickStats": [
+    { "label": "Projects Completed", "value": "7+", "icon": "Code" },
+    { "label": "IoT Solutions", "value": "4+", "icon": "Cpu" },
+    { "label": "Mobile Apps", "value": "3+", "icon": "Globe" },
+    { "label": "Research Papers", "value": "3+", "icon": "Database" }
+  ],
+  "coreExpertise": [
+    {
+      "title": "IoT Development",
+      "description": "Arduino, Raspberry Pi, sensors, and embedded systems",
+      "icon": "Cpu",
+      "color": "#3b82f6"
+    },
+    {
+      "title": "Mobile Apps",
+      "description": "Flutter, Dart, cross-platform development",
+      "icon": "Code",
+      "color": "#16a34a"
+    },
+    {
+      "title": "Research",
+      "description": "Published papers, data analysis, innovation",
+      "icon": "Database",
+      "color": "#9333ea"
+    }
+  ]
+}

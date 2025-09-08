@@ -10,91 +10,15 @@ import {
 } from 'lucide-react'
 import SEO from '../components/SEO'
 import citationService from '../services/citationService'
+import publicationsData from '../data/publications.json'
+import { getIcon } from '../utils/iconMapper'
 
 
 const Publications = () => {
-  const [publications, setPublications] = useState([
-    {
-      title: "Cost Effective and Energy Efficient Drip Irrigation System for IoT Enabled Smart Agriculture",
-      authors: "Muhammed Fuhad C, Stenin George, Manu Elappila, Sachin Malayath Jose",
-      venue: "Proceedings of the International Conference on Smart Technologies for Smart Nation (SmartTechCon 2024)",
-      publisher: "Springer Nature Singapore",
-      year: "2024",
-      type: "Conference Paper",
-      doi: "10.1007/978-981-97-1841-2_14",
-      pages: "189-201",
-      isbn: "978-981-97-1841-2",
-      abstract: "This work addresses the inefficiencies in traditional smart farming methods by proposing a drip irrigation system that utilizes IoT technologies and solenoid valves to control water flow, aiming to reduce resource consumption and operational costs while optimizing crop growth.",
-      keywords: ["IoT", "Smart Agriculture", "Drip Irrigation", "Energy Efficiency", "Cost Optimization", "Solenoid Valves"],
-      status: "Published",
-      impact: "High",
-      citations: 2, // Google Scholar: https://scholar.google.com/citations?user=rC6hYXwAAAAJ
-      lastUpdated: new Date().toISOString(),
-      icon: BookOpen,
-      color: "#10b981",
-      googleScholarId: "cost-effective-energy-efficient-drip-irrigation-2024"
-    },
-    {
-      title: "Automated Contactless Continuous Temperature Monitoring System for Pandemic Disease Controlling Infrastructures",
-      authors: "Muhammed Fuhad C, Stenin George, Manu Elappila, Sachin Malayath Jose",
-      venue: "2023 International Conference on Recent Trends in Electronics and Communication (ICRTEC)",
-      publisher: "IEEE",
-      year: "2023",
-      type: "Conference Paper",
-      doi: "10.1109/ICRTEC56977.2023.10111891",
-      pages: "1-6",
-      isbn: "978-1-6654-1234-5",
-      abstract: "A comprehensive IoT-based automated temperature monitoring system designed for pandemic control infrastructures, providing contactless continuous monitoring with real-time alerts and data analytics capabilities.",
-      keywords: ["IoT", "Temperature Monitoring", "Pandemic Control", "Contactless", "Real-time Alerts", "Data Analytics"],
-      status: "Published",
-      impact: "High",
-      citations: 2, // Google Scholar: https://scholar.google.com/citations?user=rC6hYXwAAAAJ
-      lastUpdated: new Date().toISOString(),
-      icon: BookOpen,
-      color: "#3b82f6",
-      googleScholarId: "automated-contactless-temperature-monitoring-2023"
-    },
-    {
-      title: "A Study on Potential Integration of Generative AI and IoT with a Real-world Example of Voice Assistance Application",
-      authors: "Muhammed Fuhad C",
-      venue: "Under Review",
-      publisher: "TBD",
-      year: "2024",
-      type: "Research Paper",
-      doi: null,
-      pages: null,
-      isbn: null,
-      abstract: "This study explores the potential integration of Generative AI and IoT technologies, demonstrating practical applications through a voice assistance system that combines AI capabilities with IoT infrastructure.",
-      keywords: ["Generative AI", "IoT", "Voice Assistance", "AI Integration", "Smart Systems"],
-      status: "Submitted",
-      impact: "High",
-      citations: 0,
-      lastUpdated: new Date().toISOString(),
-      icon: BookOpen,
-      color: "#8b5cf6",
-      googleScholarId: null
-    },
-    {
-      title: "Developing IoT Visualization and Control System for Fog Computing Infrastructure",
-      authors: "Muhammed Fuhad C",
-      venue: "ARAIMESF 2024 - Annual Research and Innovation Meet in Engineering and Science Festival",
-      publisher: "National Institute of Technology, Rourkela",
-      year: "2024",
-      type: "Abstract",
-      doi: null,
-      pages: null,
-      isbn: null,
-      abstract: "Abstract presented at ARAIMESF 2024, National Institute of Technology, Rourkela, focusing on IoT visualization and control systems for fog computing infrastructure.",
-      keywords: ["IoT", "Fog Computing", "Visualization", "Control Systems", "Infrastructure"],
-      status: "Presented",
-      impact: "Medium",
-      citations: 0,
-      lastUpdated: new Date().toISOString(),
-      icon: BookOpen,
-      color: "#f59e0b",
-      googleScholarId: null
-    }
-  ])
+  const [publications, setPublications] = useState(publicationsData.publications.map(pub => ({
+    ...pub,
+    lastUpdated: new Date().toISOString()
+  })))
   
   const [lastUpdated, setLastUpdated] = useState(null)
 
@@ -205,10 +129,12 @@ const Publications = () => {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '2rem'
+            gap: '2rem',
+            width: '100%',
+            maxWidth: '100%'
           }}>
             {researchStats.map((stat, index) => {
-              const Icon = stat.icon
+              const Icon = getIcon(stat.icon)
               return (
                 <div key={index} style={{ textAlign: 'center' }}>
                   <div style={{
@@ -261,7 +187,7 @@ const Publications = () => {
             gap: '2rem'
           }}>
             {publications.map((pub, index) => {
-              const Icon = pub.icon
+              const Icon = getIcon(pub.icon)
               return (
                 <div key={index} className="card">
                   {/* Header */}
@@ -271,15 +197,18 @@ const Publications = () => {
                     alignItems: 'flex-start',
                     marginBottom: '1rem',
                     flexWrap: 'wrap',
-                    gap: '1rem'
+                    gap: '1rem',
+                    width: '100%'
                   }}>
-                    <div style={{ flex: 1, minWidth: '300px' }}>
+                    <div style={{ flex: 1, minWidth: '250px', maxWidth: '100%' }}>
                       <h3 style={{
                         fontSize: '1.25rem',
                         fontWeight: '600',
                         color: '#1e293b',
                         marginBottom: '0.5rem',
-                        lineHeight: '1.4'
+                        lineHeight: '1.4',
+                        wordWrap: 'break-word',
+                        overflowWrap: 'break-word'
                       }}>
                         {pub.title}
                       </h3>
@@ -479,112 +408,49 @@ const Publications = () => {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '1.5rem'
+            gap: '1.5rem',
+            width: '100%',
+            maxWidth: '100%'
           }}>
-            <div style={{
-              padding: '1.5rem',
-              backgroundColor: 'white',
-              borderRadius: '0.75rem',
-              border: '1px solid #e2e8f0',
-              textAlign: 'center'
-            }}>
-              <div style={{
-                width: '3rem',
-                height: '3rem',
-                backgroundColor: '#dcfce7',
-                borderRadius: '0.75rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem'
-              }}>
-                <BookOpen size={24} color="#16a34a" />
-              </div>
-              <h4 style={{
-                fontSize: '1.125rem',
-                fontWeight: '600',
-                color: '#1e293b',
-                marginBottom: '0.5rem'
-              }}>
-                Smart Agriculture
-              </h4>
-              <p style={{
-                color: '#64748b',
-                fontSize: '0.875rem'
-              }}>
-                IoT-based irrigation systems and crop monitoring solutions
-              </p>
-            </div>
-            
-            <div style={{
-              padding: '1.5rem',
-              backgroundColor: 'white',
-              borderRadius: '0.75rem',
-              border: '1px solid #e2e8f0',
-              textAlign: 'center'
-            }}>
-              <div style={{
-                width: '3rem',
-                height: '3rem',
-                backgroundColor: '#dbeafe',
-                borderRadius: '0.75rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem'
-              }}>
-                <Award size={24} color="#3b82f6" />
-              </div>
-              <h4 style={{
-                fontSize: '1.125rem',
-                fontWeight: '600',
-                color: '#1e293b',
-                marginBottom: '0.5rem'
-              }}>
-                Healthcare Monitoring
-              </h4>
-              <p style={{
-                color: '#64748b',
-                fontSize: '0.875rem'
-              }}>
-                Contactless monitoring systems for health and safety
-              </p>
-            </div>
-            
-            <div style={{
-              padding: '1.5rem',
-              backgroundColor: 'white',
-              borderRadius: '0.75rem',
-              border: '1px solid #e2e8f0',
-              textAlign: 'center'
-            }}>
-              <div style={{
-                width: '3rem',
-                height: '3rem',
-                backgroundColor: '#f3e8ff',
-                borderRadius: '0.75rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 1rem'
-              }}>
-                <FileText size={24} color="#8b5cf6" />
-              </div>
-              <h4 style={{
-                fontSize: '1.125rem',
-                fontWeight: '600',
-                color: '#1e293b',
-                marginBottom: '0.5rem'
-              }}>
-                IoT Systems
-              </h4>
-              <p style={{
-                color: '#64748b',
-                fontSize: '0.875rem'
-              }}>
-                Energy-efficient and cost-effective IoT solutions
-              </p>
-            </div>
+            {publicationsData.researchFocusAreas.map((area, index) => {
+              const Icon = getIcon(area.icon)
+              return (
+                <div key={index} style={{
+                  padding: '1.5rem',
+                  backgroundColor: 'white',
+                  borderRadius: '0.75rem',
+                  border: '1px solid #e2e8f0',
+                  textAlign: 'center'
+                }}>
+                  <div style={{
+                    width: '3rem',
+                    height: '3rem',
+                    backgroundColor: `${area.color}20`,
+                    borderRadius: '0.75rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 1rem'
+                  }}>
+                    <Icon size={24} color={area.color} />
+                  </div>
+                  <h4 style={{
+                    fontSize: '1.125rem',
+                    fontWeight: '600',
+                    color: '#1e293b',
+                    marginBottom: '0.5rem'
+                  }}>
+                    {area.title}
+                  </h4>
+                  <p style={{
+                    color: '#64748b',
+                    fontSize: '0.875rem'
+                  }}>
+                    {area.description}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

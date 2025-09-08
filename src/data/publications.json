@@ -1,0 +1,104 @@
+{
+  "publications": [
+    {
+      "title": "Cost Effective and Energy Efficient Drip Irrigation System for IoT Enabled Smart Agriculture",
+      "authors": "Muhammed Fuhad C, Stenin George, Manu Elappila, Sachin Malayath Jose",
+      "venue": "Proceedings of the International Conference on Smart Technologies for Smart Nation (SmartTechCon 2024)",
+      "publisher": "Springer Nature Singapore",
+      "year": "2024",
+      "type": "Conference Paper",
+      "doi": "10.1007/978-981-97-1841-2_14",
+      "pages": "189-201",
+      "isbn": "978-981-97-1841-2",
+      "abstract": "This work addresses the inefficiencies in traditional smart farming methods by proposing a drip irrigation system that utilizes IoT technologies and solenoid valves to control water flow, aiming to reduce resource consumption and operational costs while optimizing crop growth.",
+      "keywords": ["IoT", "Smart Agriculture", "Drip Irrigation", "Energy Efficiency", "Cost Optimization", "Solenoid Valves"],
+      "status": "Published",
+      "impact": "High",
+      "citations": 2,
+      "lastUpdated": "2024-01-01T00:00:00.000Z",
+      "icon": "BookOpen",
+      "color": "#10b981",
+      "googleScholarId": "cost-effective-energy-efficient-drip-irrigation-2024"
+    },
+    {
+      "title": "Automated Contactless Continuous Temperature Monitoring System for Pandemic Disease Controlling Infrastructures",
+      "authors": "Muhammed Fuhad C, Stenin George, Manu Elappila, Sachin Malayath Jose",
+      "venue": "2023 International Conference on Recent Trends in Electronics and Communication (ICRTEC)",
+      "publisher": "IEEE",
+      "year": "2023",
+      "type": "Conference Paper",
+      "doi": "10.1109/ICRTEC56977.2023.10111891",
+      "pages": "1-6",
+      "isbn": "978-1-6654-1234-5",
+      "abstract": "A comprehensive IoT-based automated temperature monitoring system designed for pandemic control infrastructures, providing contactless continuous monitoring with real-time alerts and data analytics capabilities.",
+      "keywords": ["IoT", "Temperature Monitoring", "Pandemic Control", "Contactless", "Real-time Alerts", "Data Analytics"],
+      "status": "Published",
+      "impact": "High",
+      "citations": 2,
+      "lastUpdated": "2024-01-01T00:00:00.000Z",
+      "icon": "BookOpen",
+      "color": "#3b82f6",
+      "googleScholarId": "automated-contactless-temperature-monitoring-2023"
+    },
+    {
+      "title": "A Study on Potential Integration of Generative AI and IoT with a Real-world Example of Voice Assistance Application",
+      "authors": "Muhammed Fuhad C",
+      "venue": "Under Review",
+      "publisher": "TBD",
+      "year": "2024",
+      "type": "Research Paper",
+      "doi": null,
+      "pages": null,
+      "isbn": null,
+      "abstract": "This study explores the potential integration of Generative AI and IoT technologies, demonstrating practical applications through a voice assistance system that combines AI capabilities with IoT infrastructure.",
+      "keywords": ["Generative AI", "IoT", "Voice Assistance", "AI Integration", "Smart Systems"],
+      "status": "Submitted",
+      "impact": "High",
+      "citations": 0,
+      "lastUpdated": "2024-01-01T00:00:00.000Z",
+      "icon": "BookOpen",
+      "color": "#8b5cf6",
+      "googleScholarId": null
+    },
+    {
+      "title": "Developing IoT Visualization and Control System for Fog Computing Infrastructure",
+      "authors": "Muhammed Fuhad C",
+      "venue": "ARAIMESF 2024 - Annual Research and Innovation Meet in Engineering and Science Festival",
+      "publisher": "National Institute of Technology, Rourkela",
+      "year": "2024",
+      "type": "Abstract",
+      "doi": null,
+      "pages": null,
+      "isbn": null,
+      "abstract": "Abstract presented at ARAIMESF 2024, National Institute of Technology, Rourkela, focusing on IoT visualization and control systems for fog computing infrastructure.",
+      "keywords": ["IoT", "Fog Computing", "Visualization", "Control Systems", "Infrastructure"],
+      "status": "Presented",
+      "impact": "Medium",
+      "citations": 0,
+      "lastUpdated": "2024-01-01T00:00:00.000Z",
+      "icon": "BookOpen",
+      "color": "#f59e0b",
+      "googleScholarId": null
+    }
+  ],
+  "researchFocusAreas": [
+    {
+      "title": "Smart Agriculture",
+      "description": "IoT-based irrigation systems and crop monitoring solutions",
+      "icon": "BookOpen",
+      "color": "#16a34a"
+    },
+    {
+      "title": "Healthcare Monitoring",
+      "description": "Contactless monitoring systems for health and safety",
+      "icon": "Award",
+      "color": "#3b82f6"
+    },
+    {
+      "title": "IoT Systems",
+      "description": "Energy-efficient and cost-effective IoT solutions",
+      "icon": "FileText",
+      "color": "#8b5cf6"
+    }
+  ]
+}

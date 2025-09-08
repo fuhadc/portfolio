@@ -1,0 +1,24 @@
+{
+  "personalInfo": {
+    "name": "Muhammed Fuhad C",
+    "title": "IoT & Embedded Systems Enthusiast",
+    "subtitle": "Researcher • Developer • Innovator",
+    "description": "Hello! I'm Muhammed Fuhad C, a passionate IoT and Embedded Systems enthusiast, researcher, and developer based in Kerala, India. I graduated with a B.Tech in Computer Science Engineering (IoT) from Christ (Deemed to be) University, where I discovered my love for creating innovative solutions that bridge the gap between hardware and software.",
+    "detailedDescription": "I'm passionate about IoT, embedded systems, mobile app development, and AI/ML integration. I love building smart solutions that combine hardware + software to solve real-world problems. With experience at Toyota Industries and published research in IEEE and Springer conferences, I'm committed to creating technology that makes a real difference in people's lives.",
+    "contactInfo": [
+      { "label": "Location", "value": "Kerala, India", "icon": "MapPin" },
+      { "label": "Phone", "value": "+91-7306525489", "icon": "Phone" },
+      { "label": "Email", "value": "fuhadcs@icloud.com", "icon": "Mail" },
+      { "label": "Experience", "value": "1+ years", "icon": "Calendar" }
+    ]
+  },
+  "education": [
+    {
+      "degree": "Bachelor of Technology in Computer Science Engineering (IoT)",
+      "school": "Christ (Deemed to be) University",
+      "year": "2018 - 2022",
+      "gpa": "First Class",
+      "description": "Specialized in IoT and Embedded Systems with focus on smart agriculture, healthcare monitoring, and mobile application development"
+    }
+  ]
+}

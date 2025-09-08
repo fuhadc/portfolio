@@ -1,0 +1,73 @@
+import { 
+  Code, 
+  ExternalLink, 
+  Github, 
+  Smartphone, 
+  Cpu, 
+  Globe,
+  Database,
+  FileText,
+  Calendar,
+  Award,
+  BookOpen,
+  Zap,
+  Cloud,
+  User, 
+  GraduationCap, 
+  MapPin, 
+  Phone, 
+  Mail, 
+  Download,
+  Briefcase, 
+  BarChart3,
+  Trophy, 
+  Medal, 
+  Users, 
+  Star,
+  MessageCircle,
+  Clock,
+  CheckCircle,
+  Linkedin,
+  ArrowRight,
+  Eye
+} from 'lucide-react'
+
+const iconMap = {
+  Code,
+  ExternalLink,
+  Github,
+  Smartphone,
+  Cpu,
+  Globe,
+  Database,
+  FileText,
+  Calendar,
+  Award,
+  BookOpen,
+  Zap,
+  Cloud,
+  User,
+  GraduationCap,
+  MapPin,
+  Phone,
+  Mail,
+  Download,
+  Briefcase,
+  BarChart3,
+  Trophy,
+  Medal,
+  Users,
+  Star,
+  MessageCircle,
+  Clock,
+  CheckCircle,
+  Linkedin,
+  ArrowRight,
+  Eye
+}
+
+export const getIcon = (iconName) => {
+  return iconMap[iconName] || Code // fallback to Code icon
+}
+
+export default iconMap

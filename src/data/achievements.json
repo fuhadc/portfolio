@@ -1,0 +1,70 @@
+{
+  "achievements": [
+    {
+      "title": "AI Integrated IoT Device for Voice Assistant",
+      "description": "Secured 4th place with A Grade in the Working Model event at Kerala School Sasthrolsavam 2019-2020 (State-Level). Developed an innovative AI-powered IoT device that combines voice recognition with smart home automation capabilities.",
+      "year": "2019-2020",
+      "category": "Competition",
+      "level": "State Level",
+      "position": "4th Place (A Grade)",
+      "organization": "Kerala School Sasthrolsavam",
+      "location": "Kerala, India",
+      "icon": "Trophy",
+      "color": "#f59e0b",
+      "featured": true,
+      "details": [
+        "Secured 4th place with A Grade in Working Model event",
+        "Designed and built a complete voice assistant system",
+        "Integrated AI voice recognition with IoT sensors",
+        "Implemented smart home automation features",
+        "Demonstrated at state-level science exhibition",
+        "Received recognition for innovation and technical excellence"
+      ]
+    },
+    {
+      "title": "Poster Presentation at Bangalore Tech Summit",
+      "description": "Presented research work on Contactless Continuous Temperature Monitoring System at the prestigious Bangalore Tech Summit 2022, showcasing innovative IoT solutions for pandemic control.",
+      "year": "2022",
+      "category": "Conference",
+      "level": "National Level",
+      "position": "Presented",
+      "organization": "Bangalore Tech Summit",
+      "location": "Bangalore, India",
+      "icon": "Award",
+      "color": "#3b82f6",
+      "featured": false,
+      "details": [
+        "Presented research on Contactless Continuous Temperature Monitoring System",
+        "Showcased IoT solutions for pandemic control",
+        "Networked with industry professionals",
+        "Received positive feedback from experts"
+      ]
+    }
+  ],
+  "volunteering": [
+    {
+      "title": "Congress on Intelligent Systems 2022 (CIS 2022)",
+      "organization": "CIS 2022 Conference",
+      "duration": "September 2022",
+      "description": "Volunteered at the Congress on Intelligent Systems 2022, contributing to the organization and execution of this prestigious academic conference.",
+      "impact": "Helped organize conference sessions and assisted attendees",
+      "icon": "Users",
+      "color": "#3b82f6"
+    },
+    {
+      "title": "Tech Workshop for Students",
+      "organization": "Local Community Center",
+      "duration": "2021-2022",
+      "description": "Conducted workshops on IoT and programming for high school students, sharing knowledge and inspiring the next generation of technologists.",
+      "impact": "Trained 50+ students in basic IoT concepts and programming",
+      "icon": "Users",
+      "color": "#10b981"
+    }
+  ],
+  "stats": [
+    { "label": "Awards Won", "value": "1", "icon": "Trophy" },
+    { "label": "Competitions", "value": "1", "icon": "Medal" },
+    { "label": "Volunteering Events", "value": "2+", "icon": "Users" },
+    { "label": "Conference Presentations", "value": "2+", "icon": "Star" }
+  ]
+}
