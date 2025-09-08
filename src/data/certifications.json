@@ -1,0 +1,202 @@
+{
+  "certifications": [
+    {
+      "name": "IBM AI Engineering Specialization",
+      "authority": "IBM",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/KCFZLVM4Y82Q",
+      "licenseNumber": "KCFZLVM4Y82Q",
+      "startedOn": "Sep 2020",
+      "finishedOn": "Dec 2020",
+      "image": "",
+      "icon": "Award",
+      "color": "#10b981"
+    },
+    {
+      "name": "Introduction To Internet Of Things",
+      "authority": "Stanford University",
+      "url": "https://exchange.parchment.com/send/dds/index.php?main_page=welcome&d_id=05sjh3vjsl86m6k4i4s52uvo59",
+      "licenseNumber": "7r70ep",
+      "startedOn": "Sep 2020",
+      "finishedOn": "Dec 2020",
+      "image": "",
+      "icon": "Cpu",
+      "color": "#3b82f6"
+    },
+    {
+      "name": "Build a Face Recognition Application using Python",
+      "authority": "GUVI Geek Networks, IITM Research Park",
+      "url": "https://www.guvi.in/verify-certificate?id=16Hv795t129fEV0B21",
+      "licenseNumber": "16Hv795t129fEV0B21",
+      "startedOn": "Apr 2021",
+      "finishedOn": "May 2021",
+      "image": "",
+      "icon": "Award",
+      "color": "#8b5cf6"
+    },
+    {
+      "name": "Crash Course on Python",
+      "authority": "Coursera",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/2JKDPVDMVA9A",
+      "licenseNumber": "2JKDPVDMVA9A",
+      "startedOn": "Aug 2020",
+      "finishedOn": "Sep 2020",
+      "image": "",
+      "icon": "Code",
+      "color": "#f59e0b"
+    },
+    {
+      "name": "Use WordPress to Create a Blog for your Business",
+      "authority": "Coursera",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/L42JCR9PPDLH",
+      "licenseNumber": "L42JCR9PPDLH",
+      "startedOn": "May 2021",
+      "finishedOn": "Jun 2021",
+      "image": "",
+      "icon": "Globe",
+      "color": "#06b6d4"
+    },
+    {
+      "name": "Getting Started with Azure DevOps Boards",
+      "authority": "Coursera",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/NFD92KRV56HB",
+      "licenseNumber": "NFD92KRV56HB",
+      "startedOn": "Mar 2022",
+      "finishedOn": "Apr 2022",
+      "image": "",
+      "icon": "Cloud",
+      "color": "#ef4444"
+    },
+    {
+      "name": "The Complete Cyber Security Course : Hackers Exposed!",
+      "authority": "Udemy",
+      "url": "https://www.udemy.com/certificate/UC-d216f9b2-f164-4fb3-b989-d7d63e9a9350/",
+      "licenseNumber": "UC-d216f9b2-f164-4fb3-b989-d7d63e9a9350",
+      "startedOn": "Apr 2022",
+      "finishedOn": "May 2022",
+      "image": "",
+      "icon": "Award",
+      "color": "#059669"
+    },
+    {
+      "name": "Web Design for Everybody: Basics of Web Development & Coding Specialization",
+      "authority": "Coursera",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/NQFFPZSDQUKX",
+      "licenseNumber": "NQFFPZSDQUKX",
+      "startedOn": "Apr 2022",
+      "finishedOn": "Jul 2022",
+      "image": "",
+      "icon": "Globe",
+      "color": "#7c3aed"
+    },
+    {
+      "name": "Build a mobile app with Google Sheets on Glide and no coding",
+      "authority": "Coursera",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/WNM38HEDMKZN",
+      "licenseNumber": "WNM38HEDMKZN",
+      "startedOn": "Apr 2022",
+      "finishedOn": "May 2022",
+      "image": "",
+      "icon": "Smartphone",
+      "color": "#dc2626"
+    },
+    {
+      "name": "Increase SEO Traffic with WordPress",
+      "authority": "Coursera",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/A7233QBVNHF4",
+      "licenseNumber": "A7233QBVNHF4",
+      "startedOn": "Mar 2022",
+      "finishedOn": "Apr 2022",
+      "image": "",
+      "icon": "Globe",
+      "color": "#0891b2"
+    },
+    {
+      "name": "Python Programming 2022 Full Coverage: A Practical Approach",
+      "authority": "Udemy",
+      "url": "ude.my/UC-7dd06d97-8fa2-4985-bbfe-2d5fb386650f",
+      "licenseNumber": "UC-7dd06d97-8fa2-4985-bbfe-25fb386650f",
+      "startedOn": "Apr 2022",
+      "finishedOn": "Jun 2022",
+      "image": "",
+      "icon": "Code",
+      "color": "#be123c"
+    },
+    {
+      "name": "Cloud Computing",
+      "authority": "NPTEL",
+      "url": "https://nptel.ac.in/noc/E_Certificate/NPTEL22CS87S5475175610061067",
+      "licenseNumber": "NPTEL22CS87S54751756",
+      "startedOn": "Oct 2022",
+      "finishedOn": "Dec 2022",
+      "image": "",
+      "icon": "Cloud",
+      "color": "#0d9488"
+    },
+    {
+      "name": "Raspberry Pi, Python, and Electronics Bootcamp",
+      "authority": "Udemy",
+      "url": "https://www.udemy.com/certificate/UC-3ff1433c-16b3-4267-88c1-37b8b554666e/",
+      "licenseNumber": "UC-3ff1433c-16b3-4267-88c1-37b8b554666e",
+      "startedOn": "Jun 2025",
+      "finishedOn": "Aug 2025",
+      "image": "",
+      "icon": "Cpu",
+      "color": "#c2410c"
+    },
+    {
+      "name": "Kerala School Sastrolsavam Working Model (AI and IoT device) 4th",
+      "authority": "Kerala",
+      "url": "",
+      "licenseNumber": "KERALA-IOT-2019",
+      "startedOn": "Nov 2019",
+      "finishedOn": "Nov 2019",
+      "image": "",
+      "icon": "Cpu",
+      "color": "#10b981"
+    },
+    {
+      "name": "Flutter Development Bootcamp",
+      "authority": "Self-Study & Projects",
+      "url": "",
+      "licenseNumber": "FLUTTER-SELF-2024",
+      "startedOn": "2022",
+      "finishedOn": "2024",
+      "image": "",
+      "icon": "Smartphone",
+      "color": "#8b5cf6"
+    },
+    {
+      "name": "React.js Development Certification",
+      "authority": "Self-Study & Projects",
+      "url": "",
+      "licenseNumber": "REACT-SELF-2024",
+      "startedOn": "2021",
+      "finishedOn": "2024",
+      "image": "",
+      "icon": "Globe",
+      "color": "#3b82f6"
+    },
+    {
+      "name": "Node.js Backend Development",
+      "authority": "Self-Study & Projects",
+      "url": "",
+      "licenseNumber": "NODEJS-SELF-2024",
+      "startedOn": "2022",
+      "finishedOn": "2024",
+      "image": "",
+      "icon": "Database",
+      "color": "#10b981"
+    },
+    {
+      "name": "Firebase Integration & Development",
+      "authority": "Self-Study & Projects",
+      "url": "",
+      "licenseNumber": "FIREBASE-SELF-2024",
+      "startedOn": "2022",
+      "finishedOn": "2024",
+      "image": "",
+      "icon": "Cloud",
+      "color": "#f59e0b"
+    }
+  ]
+}

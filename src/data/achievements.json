@@ -12,6 +12,7 @@
       "icon": "Trophy",
       "color": "#f59e0b",
       "featured": true,
+      "image": "/ai-iot-device.jpeg",
       "details": [
         "Secured 4th place with A Grade in Working Model event",
         "Designed and built a complete voice assistant system",
@@ -19,6 +20,28 @@
         "Implemented smart home automation features",
         "Demonstrated at state-level science exhibition",
         "Received recognition for innovation and technical excellence"
+      ]
+    },
+    {
+      "title": "Certificate of Appreciation - CIS 2022",
+      "description": "Received Certificate of Appreciation for dedicated service as a student volunteer at the 3rd Congress on Intelligent Systems (CIS 2022) held at CHRIST (Deemed to be University), Bengaluru. Recognized for outstanding contribution to the organization and execution of this prestigious academic conference.",
+      "year": "2022",
+      "category": "Volunteering",
+      "level": "International Conference",
+      "position": "Student Volunteer",
+      "organization": "CIS 2022 - CHRIST (Deemed to be University)",
+      "location": "Bengaluru, India",
+      "icon": "Award",
+      "color": "#3b82f6",
+      "featured": true,
+      "image": "/cis2022-certificate.jpeg",
+      "details": [
+        "Volunteered at 3rd Congress on Intelligent Systems (CIS 2022)",
+        "Held at CHRIST (Deemed to be University), Bengaluru",
+        "Technically sponsored by Soft Computing Research Society",
+        "Contributed to conference organization and execution",
+        "Recognized for dedication and service excellence",
+        "Certificate signed by three General Chairs"
       ]
     },
     {
@@ -33,6 +56,7 @@
       "icon": "Award",
       "color": "#3b82f6",
       "featured": false,
+      "image": "",
       "details": [
         "Presented research on Contactless Continuous Temperature Monitoring System",
         "Showcased IoT solutions for pandemic control",
@@ -42,15 +66,6 @@
     }
   ],
   "volunteering": [
-    {
-      "title": "Congress on Intelligent Systems 2022 (CIS 2022)",
-      "organization": "CIS 2022 Conference",
-      "duration": "September 2022",
-      "description": "Volunteered at the Congress on Intelligent Systems 2022, contributing to the organization and execution of this prestigious academic conference.",
-      "impact": "Helped organize conference sessions and assisted attendees",
-      "icon": "Users",
-      "color": "#3b82f6"
-    },
     {
       "title": "Tech Workshop for Students",
       "organization": "Local Community Center",
@@ -62,9 +77,9 @@
     }
   ],
   "stats": [
-    { "label": "Awards Won", "value": "1", "icon": "Trophy" },
+    { "label": "Awards Won", "value": "2", "icon": "Trophy" },
     { "label": "Competitions", "value": "1", "icon": "Medal" },
-    { "label": "Volunteering Events", "value": "2+", "icon": "Users" },
+    { "label": "Volunteering Events", "value": "1+", "icon": "Users" },
     { "label": "Conference Presentations", "value": "2+", "icon": "Star" }
   ]
 }

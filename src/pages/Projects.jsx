@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { 
   Code, 
   ExternalLink, 
@@ -9,14 +9,25 @@ import {
   Database,
   FileText,
   Calendar,
-  Award
+  Award,
+  Eye
 } from 'lucide-react'
 import SEO from '../components/SEO'
-import projectsData from '../data/projects.json'
+import { getDataByType, DATA_TYPES } from '../utils/dataManager'
 import { getIcon } from '../utils/iconMapper'
 
 const Projects = () => {
+  const projectsData = getDataByType(DATA_TYPES.PROJECTS)
   const { projects, projectStats, categories } = projectsData
+  const [selectedImage, setSelectedImage] = useState(null)
+
+  const openImageModal = (imageUrl) => {
+    setSelectedImage(imageUrl)
+  }
+
+  const closeImageModal = () => {
+    setSelectedImage(null)
+  }
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
@@ -103,13 +114,22 @@ const Projects = () => {
           <div className="grid-responsive">
             {projects.map((project, index) => {
               const Icon = getIcon(project.icon)
+              // Debug: Log project image data
+              if (project.image) {
+                console.log(`Project ${index} (${project.title}):`, {
+                  hasImage: !!project.image,
+                  imageLength: project.image.length,
+                  isDataUrl: project.image.startsWith('data:image/'),
+                  imagePreview: project.image.substring(0, 50) + '...'
+                })
+              }
               return (
                 <div key={index} className="card" style={{
                   display: 'flex',
                   flexDirection: 'column',
                   height: '100%'
                 }}>
-                  {/* Project Image Placeholder */}
+                  {/* Project Image - Hidden by default, shown only in modal */}
                   <div style={{
                     width: '100%',
                     height: '200px',
@@ -119,9 +139,78 @@ const Projects = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: '1px solid #e2e8f0'
+                    border: '1px solid #e2e8f0',
+                    position: 'relative',
+                    overflow: 'hidden'
                   }}>
-                    <Icon size={48} color={project.color} />
+                    {project.image && project.image.trim() !== '' && !project.image.includes('/api/placeholder') ? (
+                      <>
+                        {/* Hidden image placeholder with view button */}
+                        <div style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '1rem',
+                          color: '#64748b'
+                        }}>
+                          <div style={{
+                            width: '4rem',
+                            height: '4rem',
+                            backgroundColor: project.color + '20',
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                          }}>
+                            <Icon size={24} color={project.color} />
+                          </div>
+                          <div style={{ textAlign: 'center' }}>
+                            <div style={{ 
+                              fontSize: '0.875rem', 
+                              fontWeight: '500', 
+                              marginBottom: '0.25rem' 
+                            }}>
+                              Project Image Available
+                            </div>
+                            <div style={{ fontSize: '0.75rem', opacity: 0.7 }}>
+                              Click to view
+                            </div>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => openImageModal(project.image)}
+                          style={{
+                            position: 'absolute',
+                            top: '0.5rem',
+                            right: '0.5rem',
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '0.375rem',
+                            padding: '0.5rem',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.25rem',
+                            fontSize: '0.75rem',
+                            fontWeight: '500',
+                            transition: 'all 0.2s ease'
+                          }}
+                          onMouseOver={(e) => {
+                            e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.9)'
+                          }}
+                          onMouseOut={(e) => {
+                            e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+                          }}
+                        >
+                          <Eye size={14} />
+                          View
+                        </button>
+                      </>
+                    ) : (
+                      <Icon size={48} color={project.color} />
+                    )}
                   </div>
 
                   {/* Project Header */}
@@ -374,6 +463,65 @@ const Projects = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.9)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+          padding: '2rem'
+        }}>
+          <div style={{
+            position: 'relative',
+            maxWidth: '90vw',
+            maxHeight: '90vh'
+          }}>
+            <img 
+              src={selectedImage} 
+              alt="Project" 
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain',
+                borderRadius: '0.5rem'
+              }}
+            />
+            <button
+              onClick={closeImageModal}
+              style={{
+                position: 'absolute',
+                top: '-2.5rem',
+                right: '0',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0.375rem',
+                padding: '0.5rem 1rem',
+                cursor: 'pointer',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -16,10 +16,12 @@ import {
 } from 'lucide-react'
 import SEO from '../components/SEO'
 import skillsData from '../data/skills.json'
+import certificationsData from '../data/certifications.json'
 import { getIcon } from '../utils/iconMapper'
 
 const Skills = () => {
-  const { skillCategories, certifications } = skillsData
+  const { skillCategories } = skillsData
+  const { certifications } = certificationsData
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
@@ -195,11 +197,11 @@ const Skills = () => {
                             gap: '0.5rem'
                           }}
                         >
-                          {cert.title}
+                          {cert.name}
                           <ExternalLink size={14} style={{ color: '#6b7280' }} />
                         </a>
                       ) : (
-                        cert.title
+                        cert.name
                       )}
                     </h3>
                     <p style={{
@@ -207,7 +209,7 @@ const Skills = () => {
                       color: '#6b7280',
                       marginBottom: '0.5rem'
                     }}>
-                      {cert.issuer}
+                      {cert.authority}
                     </p>
                     <div style={{
                       display: 'flex',
@@ -218,14 +220,15 @@ const Skills = () => {
                         fontSize: '0.75rem',
                         color: '#9ca3af'
                       }}>
-                        {cert.date}
+                        {cert.startedOn}
+                        {cert.finishedOn && ` - ${cert.finishedOn}`}
                       </span>
                       <span style={{
                         fontSize: '0.75rem',
                         color: '#10b981',
                         fontWeight: '500'
                       }}>
-                        {cert.status}
+                        Completed
                       </span>
                     </div>
                   </div>

@@ -6,6 +6,7 @@ import experienceData from '../data/experience.json'
 import aboutData from '../data/about.json'
 import homeData from '../data/home.json'
 import achievementsData from '../data/achievements.json'
+import certificationsData from '../data/certifications.json'
 import contactData from '../data/contact.json'
 
 // Data types mapping
@@ -17,6 +18,7 @@ export const DATA_TYPES = {
   ABOUT: 'about',
   HOME: 'home',
   ACHIEVEMENTS: 'achievements',
+  CERTIFICATIONS: 'certifications',
   CONTACT: 'contact'
 }
 
@@ -29,11 +31,23 @@ export const getAllData = () => ({
   about: aboutData,
   home: homeData,
   achievements: achievementsData,
+  certifications: certificationsData,
   contact: contactData
 })
 
-// Get specific data type
+// Get specific data type - checks localStorage first, then falls back to static JSON
 export const getDataByType = (type) => {
+  // First check localStorage for admin panel updates
+  const saved = localStorage.getItem(`portfolio_${type}`)
+  if (saved) {
+    try {
+      return JSON.parse(saved)
+    } catch (error) {
+      console.error(`Error parsing ${type} data from localStorage:`, error)
+    }
+  }
+  
+  // Fall back to static JSON files
   const dataMap = {
     [DATA_TYPES.PROJECTS]: projectsData,
     [DATA_TYPES.PUBLICATIONS]: publicationsData,
@@ -42,6 +56,7 @@ export const getDataByType = (type) => {
     [DATA_TYPES.ABOUT]: aboutData,
     [DATA_TYPES.HOME]: homeData,
     [DATA_TYPES.ACHIEVEMENTS]: achievementsData,
+    [DATA_TYPES.CERTIFICATIONS]: certificationsData,
     [DATA_TYPES.CONTACT]: contactData
   }
   return dataMap[type] || null

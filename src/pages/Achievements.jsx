@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { 
   Trophy, 
   Award, 
@@ -8,14 +8,29 @@ import {
   MapPin,
   Star,
   ExternalLink,
-  Download
+  Download,
+  Eye
 } from 'lucide-react'
 import SEO from '../components/SEO'
-import achievementsData from '../data/achievements.json'
+import { getDataByType, DATA_TYPES } from '../utils/dataManager'
 import { getIcon } from '../utils/iconMapper'
 
 const Achievements = () => {
+  const achievementsData = getDataByType(DATA_TYPES.ACHIEVEMENTS)
   const { achievements, volunteering, stats } = achievementsData
+  const [selectedImage, setSelectedImage] = useState(null)
+
+  // Debug: Log achievements data to see if images are loaded
+  console.log('Achievements data loaded:', achievementsData)
+  console.log('Achievements with images:', achievements.filter(ach => ach.image && ach.image.trim() !== ''))
+
+  const openImageModal = (imageUrl) => {
+    setSelectedImage(imageUrl)
+  }
+
+  const closeImageModal = () => {
+    setSelectedImage(null)
+  }
 
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
@@ -100,6 +115,110 @@ const Achievements = () => {
                   border: `2px solid ${achievement.color}20`,
                   backgroundColor: `${achievement.color}05`
                 }}>
+                  {/* Achievement Image - Show thumbnail with view button */}
+                  {achievement.image && achievement.image.trim() !== '' && (
+                    <div style={{
+                      width: '100%',
+                      height: '200px',
+                      backgroundColor: '#f1f5f9',
+                      borderRadius: '0.75rem',
+                      marginBottom: '1.5rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      border: '1px solid #e2e8f0',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      cursor: 'pointer'
+                    }}
+                    onClick={() => openImageModal(achievement.image)}
+                    >
+                      {/* Show actual image as thumbnail */}
+                      <img 
+                        src={achievement.image} 
+                        alt={achievement.title}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          borderRadius: '0.75rem'
+                        }}
+                        onError={(e) => {
+                          // Fallback to placeholder if image fails to load
+                          e.target.style.display = 'none'
+                          e.target.nextSibling.style.display = 'flex'
+                        }}
+                      />
+                      {/* Fallback placeholder (hidden by default) */}
+                      <div style={{
+                        display: 'none',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '1rem',
+                        color: '#64748b',
+                        width: '100%',
+                        height: '100%'
+                      }}>
+                        <div style={{
+                          width: '4rem',
+                          height: '4rem',
+                          backgroundColor: achievement.color + '20',
+                          borderRadius: '50%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}>
+                          <Icon size={24} color={achievement.color} />
+                        </div>
+                        <div style={{ textAlign: 'center' }}>
+                          <div style={{ 
+                            fontSize: '0.875rem', 
+                            fontWeight: '500', 
+                            marginBottom: '0.25rem' 
+                          }}>
+                            Image not available
+                          </div>
+                          <div style={{ fontSize: '0.75rem', opacity: 0.7 }}>
+                            Click to view details
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          openImageModal(achievement.image)
+                        }}
+                        style={{
+                          position: 'absolute',
+                          top: '0.5rem',
+                          right: '0.5rem',
+                          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '0.375rem',
+                          padding: '0.5rem',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.25rem',
+                          fontSize: '0.75rem',
+                          fontWeight: '500',
+                          transition: 'all 0.2s ease'
+                        }}
+                        onMouseOver={(e) => {
+                          e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.9)'
+                        }}
+                        onMouseOut={(e) => {
+                          e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+                        }}
+                      >
+                        <Eye size={14} />
+                        View
+                      </button>
+                    </div>
+                  )}
+
                   {/* Header */}
                   <div style={{
                     display: 'flex',
@@ -481,6 +600,65 @@ const Achievements = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.9)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+          padding: '2rem'
+        }}>
+          <div style={{
+            position: 'relative',
+            maxWidth: '90vw',
+            maxHeight: '90vh'
+          }}>
+            <img 
+              src={selectedImage} 
+              alt="Achievement" 
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain',
+                borderRadius: '0.5rem'
+              }}
+            />
+            <button
+              onClick={closeImageModal}
+              style={{
+                position: 'absolute',
+                top: '-2.5rem',
+                right: '0',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0.375rem',
+                padding: '0.5rem 1rem',
+                cursor: 'pointer',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

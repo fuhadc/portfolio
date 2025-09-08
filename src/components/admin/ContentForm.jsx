@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { X, Save, Plus, Minus } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { adminConfig } from '../../config/admin'
+import { getDefaultFormData, validateFormData } from '../../utils/adminUtils'
 
 const ContentForm = ({ 
   type, 
@@ -18,104 +20,11 @@ const ContentForm = ({
     if (editingItem) {
       setFormData(editingItem)
     } else {
-      setFormData(getDefaultFormData(type))
+      setFormData(getDefaultFormData(type, adminConfig))
     }
     setErrors({})
   }, [type, editingItem, isOpen])
 
-  const getDefaultFormData = (contentType) => {
-    const defaults = {
-      home: {
-        hero: {
-          name: '',
-          title: '',
-          subtitle: '',
-          description: ''
-        },
-        socialLinks: [],
-        quickStats: [],
-        coreExpertise: []
-      },
-      projects: {
-        title: '',
-        description: '',
-        image: '',
-        technologies: [],
-        features: [],
-        links: {
-          code: '',
-          demo: '',
-          paper: '',
-          app: ''
-        },
-        status: 'Completed',
-        year: new Date().getFullYear().toString(),
-        category: 'Web App',
-        icon: 'Code',
-        color: '#3b82f6'
-      },
-      publications: {
-        title: '',
-        authors: '',
-        venue: '',
-        publisher: '',
-        year: new Date().getFullYear().toString(),
-        type: 'Conference Paper',
-        doi: '',
-        pages: '',
-        isbn: '',
-        abstract: '',
-        keywords: [],
-        status: 'Published',
-        impact: 'High',
-        citations: 0,
-        lastUpdated: new Date().toISOString(),
-        icon: 'BookOpen',
-        color: '#10b981',
-        googleScholarId: ''
-      },
-      skills: {
-        name: '',
-        level: 'Intermediate',
-        category: 'Technical',
-        description: '',
-        icon: 'Code',
-        color: '#3b82f6'
-      },
-      experience: {
-        company: '',
-        position: '',
-        duration: '',
-        description: '',
-        technologies: [],
-        achievements: [],
-        icon: 'Building',
-        color: '#3b82f6'
-      },
-      achievements: {
-        title: '',
-        description: '',
-        year: new Date().getFullYear().toString(),
-        category: 'Academic',
-        icon: 'Award',
-        color: '#10b981'
-      },
-      about: {
-        title: '',
-        content: '',
-        image: '',
-        icon: 'User',
-        color: '#3b82f6'
-      },
-      contact: {
-        type: 'Email',
-        value: '',
-        icon: 'Mail',
-        color: '#3b82f6'
-      }
-    }
-    return defaults[contentType] || {}
-  }
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -166,25 +75,7 @@ const ContentForm = ({
   }
 
   const validateForm = () => {
-    const newErrors = {}
-    
-    // Basic validation for required fields
-    if (type === 'projects') {
-      if (!formData.title) newErrors.title = 'Title is required'
-      if (!formData.description) newErrors.description = 'Description is required'
-    } else if (type === 'publications') {
-      if (!formData.title) newErrors.title = 'Title is required'
-      if (!formData.authors) newErrors.authors = 'Authors are required'
-      if (!formData.venue) newErrors.venue = 'Venue is required'
-    } else if (type === 'skills') {
-      if (!formData.name) newErrors.name = 'Skill name is required'
-    } else if (type === 'experience') {
-      if (!formData.company) newErrors.company = 'Company is required'
-      if (!formData.position) newErrors.position = 'Position is required'
-    } else if (type === 'achievements') {
-      if (!formData.title) newErrors.title = 'Title is required'
-    }
-    
+    const newErrors = validateFormData(formData, type, adminConfig)
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -193,6 +84,21 @@ const ContentForm = ({
     e.preventDefault()
     if (validateForm()) {
       onSave(formData)
+    }
+  }
+
+  const handleImageUpload = (field, file) => {
+    if (file) {
+      console.log('Uploading image for field:', field, 'File:', file.name, 'Size:', file.size)
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        console.log('Image uploaded successfully, data URL length:', e.target.result.length)
+        handleInputChange(field, e.target.result)
+      }
+      reader.onerror = (error) => {
+        console.error('Error reading file:', error)
+      }
+      reader.readAsDataURL(file)
     }
   }
 
@@ -224,6 +130,39 @@ const ContentForm = ({
             </option>
           ))}
         </select>
+      ) : type === 'image' ? (
+        <div>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => handleImageUpload(field, e.target.files[0])}
+            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              errors[field] ? 'border-red-500' : 'border-gray-300'
+            }`}
+          />
+          {formData[field] && formData[field].trim() !== '' && (
+            <div className="mt-3">
+              <div className="relative inline-block">
+                <img 
+                  src={formData[field]} 
+                  alt="Preview" 
+                  className="w-32 h-32 object-cover rounded-md border shadow-sm"
+                />
+                <div className="absolute top-1 right-1">
+                  <button
+                    type="button"
+                    onClick={() => handleInputChange(field, '')}
+                    className="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-red-600 transition-colors"
+                    title="Remove image"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+              <p className="text-sm text-gray-500 mt-1">Image preview - Click × to remove</p>
+            </div>
+          )}
+        </div>
       ) : (
         <input
           type={type}
@@ -241,38 +180,7 @@ const ContentForm = ({
   )
 
   const getSelectOptions = (field) => {
-    const options = {
-      status: [
-        { value: 'Completed', label: 'Completed' },
-        { value: 'In Development', label: 'In Development' },
-        { value: 'Planned', label: 'Planned' }
-      ],
-      category: [
-        { value: 'Web App', label: 'Web App' },
-        { value: 'Mobile App', label: 'Mobile App' },
-        { value: 'IoT', label: 'IoT' },
-        { value: 'AI/ML', label: 'AI/ML' },
-        { value: 'CRM', label: 'CRM' }
-      ],
-      type: [
-        { value: 'Conference Paper', label: 'Conference Paper' },
-        { value: 'Journal Article', label: 'Journal Article' },
-        { value: 'Abstract', label: 'Abstract' },
-        { value: 'Research Paper', label: 'Research Paper' }
-      ],
-      impact: [
-        { value: 'High', label: 'High' },
-        { value: 'Medium', label: 'Medium' },
-        { value: 'Low', label: 'Low' }
-      ],
-      level: [
-        { value: 'Beginner', label: 'Beginner' },
-        { value: 'Intermediate', label: 'Intermediate' },
-        { value: 'Advanced', label: 'Advanced' },
-        { value: 'Expert', label: 'Expert' }
-      ]
-    }
-    return options[field] || []
+    return adminConfig.formOptions[field] || []
   }
 
   const renderArrayField = (field, label, itemFields) => (
@@ -322,28 +230,31 @@ const ContentForm = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] p-4"
+        style={{ top: '64px' }}
       >
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+          className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[calc(100vh-120px)] flex flex-col"
         >
-          <div className="p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-lg font-semibold text-gray-900">
-                {editingItem ? 'Edit' : 'Add New'} {type.charAt(0).toUpperCase() + type.slice(1)}
-              </h3>
-              <button
-                onClick={onCancel}
-                className="text-gray-400 hover:text-gray-600"
-              >
-                <X className="h-6 w-6" />
-              </button>
-            </div>
+          {/* Modal Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50 rounded-t-xl">
+            <h3 className="text-xl font-semibold text-gray-900">
+              {editingItem ? 'Edit' : 'Add New'} {type.charAt(0).toUpperCase() + type.slice(1)}
+            </h3>
+            <button
+              onClick={onCancel}
+              className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-200 rounded-lg transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Modal Body - Scrollable */}
+          <div className="flex-1 overflow-y-auto">
+            <form id="content-form" onSubmit={handleSubmit} className="p-6 space-y-6">
               {type === 'projects' && (
                 <>
                   {renderField('title', 'Project Title', 'text', true)}
@@ -423,26 +334,44 @@ const ContentForm = ({
                   {renderField('year', 'Year', 'text')}
                   {renderField('category', 'Category', 'text')}
                   {renderField('color', 'Color', 'color')}
+                  {renderField('image', 'Achievement Image', 'image')}
                 </>
               )}
 
-              <div className="flex justify-end space-x-4 pt-4 border-t">
-                <button
-                  type="button"
-                  onClick={onCancel}
-                  className="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-                >
-                  <Save className="h-4 w-4 mr-2" />
-                  {editingItem ? 'Update' : 'Create'}
-                </button>
-              </div>
+              {type === 'certifications' && (
+                <>
+                  {renderField('name', 'Certification Name', 'text', true)}
+                  {renderField('authority', 'Authority/Issuer', 'text', true)}
+                  {renderField('url', 'Certificate URL', 'url')}
+                  {renderField('licenseNumber', 'License Number', 'text')}
+                  <div className="grid grid-cols-2 gap-4">
+                    {renderField('startedOn', 'Started On', 'text')}
+                    {renderField('finishedOn', 'Finished On', 'text')}
+                  </div>
+                  {renderField('image', 'Certificate Image', 'image')}
+                </>
+              )}
+
             </form>
+          </div>
+
+          {/* Modal Footer */}
+          <div className="flex justify-end space-x-4 p-6 border-t border-gray-200 bg-gray-50 rounded-b-xl">
+            <button
+              type="button"
+              onClick={onCancel}
+              className="px-6 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              form="content-form"
+              className="flex items-center px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              <Save className="h-4 w-4 mr-2" />
+              {editingItem ? 'Update' : 'Create'}
+            </button>
           </div>
         </motion.div>
       </motion.div>

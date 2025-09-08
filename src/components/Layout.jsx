@@ -13,6 +13,7 @@ import {
   Code, 
   Award, 
   Trophy, 
+  GraduationCap,
   Mail 
 } from 'lucide-react'
 
@@ -29,6 +30,7 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
     { name: 'Projects', href: '/projects', icon: Code },
     { name: 'Skills', href: '/skills', icon: Award },
     { name: 'Achievements', href: '/achievements', icon: Trophy },
+    { name: 'Certifications', href: '/certifications', icon: GraduationCap },
     { name: 'Contact', href: '/contact', icon: Mail },
   ]
 
@@ -72,7 +74,9 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '1.5rem'
+            gap: '1.5rem',
+            flex: 1,
+            justifyContent: 'flex-end'
           }} className="desktop-nav">
             <ul className="navbar-nav">
               {navigation.map((item) => {

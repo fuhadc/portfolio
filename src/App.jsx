@@ -11,6 +11,7 @@ import Publications from './pages/Publications'
 import Projects from './pages/Projects'
 import Skills from './pages/Skills'
 import Achievements from './pages/Achievements'
+import Certifications from './pages/Certifications'
 import Contact from './pages/Contact'
 import Admin from './pages/Admin'
 
@@ -48,6 +49,7 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/achievements" element={<Achievements />} />
+                <Route path="/certifications" element={<Certifications />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/admin" element={<Admin />} />
               </Routes>

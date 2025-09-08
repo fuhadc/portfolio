@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { 
   BarChart3, 
   TrendingUp, 
@@ -19,65 +19,17 @@ import {
   Clock
 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useAdmin } from '../../contexts/AdminContext'
+import { calculateStats, generateRecentActivity, checkSystemHealth, getHealthStatusStyle, getHealthStatusIcon } from '../../utils/adminUtils'
 
-const AdminDashboard = ({ data, onNavigate }) => {
-  const [stats, setStats] = useState({})
-  const [recentActivity, setRecentActivity] = useState([])
-  const [systemHealth, setSystemHealth] = useState('good')
+const AdminDashboard = () => {
+  const { setActiveTab, data } = useAdmin()
+  
+  // Memoize calculations to prevent unnecessary re-renders
+  const stats = useMemo(() => calculateStats(data), [data])
+  const recentActivity = useMemo(() => generateRecentActivity(), [])
+  const systemHealth = useMemo(() => checkSystemHealth(), [])
 
-  useEffect(() => {
-    calculateStats()
-    generateRecentActivity()
-    checkSystemHealth()
-  }, [data])
-
-  const calculateStats = () => {
-    const newStats = {
-      projects: data.projects?.projects?.length || 0,
-      publications: data.publications?.publications?.length || 0,
-      skills: data.skills?.skills?.length || 0,
-      experience: data.experience?.experience?.length || 0,
-      achievements: data.achievements?.achievements?.length || 0,
-      totalViews: Math.floor(Math.random() * 10000) + 5000, // Mock data
-      monthlyGrowth: Math.floor(Math.random() * 20) + 5 // Mock data
-    }
-    setStats(newStats)
-  }
-
-  const generateRecentActivity = () => {
-    const activities = [
-      { type: 'edit', item: 'Home Automation IoT System', time: '2 hours ago', icon: Edit },
-      { type: 'add', item: 'New Publication Added', time: '1 day ago', icon: Plus },
-      { type: 'view', item: 'Portfolio Viewed', time: '3 hours ago', icon: Eye },
-      { type: 'edit', item: 'Skills Updated', time: '2 days ago', icon: Edit },
-      { type: 'add', item: 'New Project Added', time: '1 week ago', icon: Plus }
-    ]
-    setRecentActivity(activities)
-  }
-
-  const checkSystemHealth = () => {
-    // Mock system health check
-    const healthStatuses = ['good', 'warning', 'error']
-    setSystemHealth(healthStatuses[Math.floor(Math.random() * healthStatuses.length)])
-  }
-
-  const getHealthColor = (status) => {
-    switch (status) {
-      case 'good': return 'text-green-600 bg-green-100'
-      case 'warning': return 'text-yellow-600 bg-yellow-100'
-      case 'error': return 'text-red-600 bg-red-100'
-      default: return 'text-gray-600 bg-gray-100'
-    }
-  }
-
-  const getHealthIcon = (status) => {
-    switch (status) {
-      case 'good': return CheckCircle
-      case 'warning': return AlertCircle
-      case 'error': return AlertCircle
-      default: return Activity
-    }
-  }
 
   const StatCard = ({ title, value, icon: Icon, color, change, changeType }) => (
     <motion.div
@@ -127,7 +79,14 @@ const AdminDashboard = ({ data, onNavigate }) => {
   )
 
   const ActivityItem = ({ activity, index }) => {
-    const Icon = activity.icon
+    // Map icon strings to actual components
+    const iconMap = {
+      'Edit': Edit,
+      'Plus': Plus,
+      'Eye': Eye
+    }
+    const Icon = iconMap[activity.icon] || Activity
+    
     return (
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -157,36 +116,38 @@ const AdminDashboard = ({ data, onNavigate }) => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900">Dashboard</h2>
-          <p className="text-gray-600">Welcome back! Here's what's happening with your portfolio.</p>
-        </div>
-        <div className="flex items-center space-x-2">
-          <button
-            onClick={() => window.location.reload()}
-            className="flex items-center px-3 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-          >
-            <RefreshCw className="h-4 w-4 mr-2" />
-            Refresh
-          </button>
-          <button
-            onClick={() => {
-              // Export all data
-              const allData = JSON.stringify(data, null, 2)
-              const blob = new Blob([allData], { type: 'application/json' })
-              const url = URL.createObjectURL(blob)
-              const link = document.createElement('a')
-              link.href = url
-              link.download = 'portfolio_data_backup.json'
-              link.click()
-              URL.revokeObjectURL(url)
-            }}
-            className="flex items-center px-3 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-          >
-            <Download className="h-4 w-4 mr-2" />
-            Export All
-          </button>
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900">Dashboard</h2>
+            <p className="text-gray-600 mt-1">Welcome back! Here's what's happening with your portfolio.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => window.location.reload()}
+              className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+            >
+              <RefreshCw className="h-4 w-4 mr-2" />
+              Refresh
+            </button>
+            <button
+              onClick={() => {
+                // Export all data
+                const allData = JSON.stringify(data, null, 2)
+                const blob = new Blob([allData], { type: 'application/json' })
+                const url = URL.createObjectURL(blob)
+                const link = document.createElement('a')
+                link.href = url
+                link.download = 'portfolio_data_backup.json'
+                link.click()
+                URL.revokeObjectURL(url)
+              }}
+              className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Export All
+            </button>
+          </div>
         </div>
       </div>
 
@@ -194,8 +155,12 @@ const AdminDashboard = ({ data, onNavigate }) => {
       <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className={`p-2 rounded-lg ${getHealthColor(systemHealth)}`}>
-              {React.createElement(getHealthIcon(systemHealth), { className: "h-5 w-5" })}
+            <div className={`p-2 rounded-lg ${getHealthStatusStyle(systemHealth)}`}>
+              {systemHealth === 'good' ? (
+                <CheckCircle className="h-5 w-5" />
+              ) : (
+                <AlertCircle className="h-5 w-5" />
+              )}
             </div>
             <div>
               <h3 className="font-medium text-gray-900">System Health</h3>
@@ -256,28 +221,28 @@ const AdminDashboard = ({ data, onNavigate }) => {
               description="Create a new project entry"
               icon={Plus}
               color="bg-blue-500"
-              onClick={() => onNavigate('projects')}
+              onClick={() => setActiveTab('projects')}
             />
             <QuickActionCard
               title="Update Publications"
               description="Manage research publications"
               icon={BookOpen}
               color="bg-green-500"
-              onClick={() => onNavigate('publications')}
+              onClick={() => setActiveTab('publications')}
             />
             <QuickActionCard
               title="Edit Skills"
               description="Update technical skills"
               icon={Award}
               color="bg-purple-500"
-              onClick={() => onNavigate('skills')}
+              onClick={() => setActiveTab('skills')}
             />
             <QuickActionCard
               title="Manage Experience"
               description="Update work experience"
               icon={FileText}
               color="bg-orange-500"
-              onClick={() => onNavigate('experience')}
+              onClick={() => setActiveTab('experience')}
             />
           </div>
         </div>
