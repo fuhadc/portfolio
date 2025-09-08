@@ -8,6 +8,12 @@
       }
     }
   ],
+  "functions": {
+    "app/api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "buildCommand": "npm install --legacy-peer-deps && npm run build",
   "rewrites": [
     {
       "source": "/(.*)",
