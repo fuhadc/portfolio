@@ -32,13 +32,55 @@ const Projects = () => {
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
       <SEO 
-        title="Projects - Muhammed Fuhad C | IoT, Mobile Apps & Web Development"
-        description="Explore the portfolio of projects by Muhammed Fuhad C including IoT solutions, mobile applications, web development, and smart agriculture systems."
-        keywords="Muhammed Fuhad C projects, IoT projects, mobile app development, web development, smart agriculture, healthcare monitoring, Flutter apps, React projects"
+        title="Projects - Muhammed Fuhad C (Fuad) | IoT, Mobile Apps & Web Development | Portfolio"
+        description="Explore the portfolio of projects by Muhammed Fuhad C (Fuad) including IoT solutions, mobile applications, web development, and smart agriculture systems. View code on GitHub and connect for collaborations."
+        keywords="fuad projects, fuhad projects, muhammed fuhad c projects, IoT projects, mobile app development, web development, smart agriculture, healthcare monitoring, Flutter apps, React projects, github, portfolio, developer, collaboration, open source, code, programming"
         url="/projects"
         type="article"
         section="Portfolio"
-        tags={["Projects", "IoT", "Mobile Apps", "Web Development", "Smart Agriculture", "Healthcare Monitoring"]}
+        tags={["Projects", "IoT", "Mobile Apps", "Web Development", "Smart Agriculture", "Healthcare Monitoring", "GitHub", "Portfolio", "Collaboration", "Open Source"]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Projects - Muhammed Fuhad C (Fuad) | IoT, Mobile Apps & Web Development",
+          "description": "Explore the portfolio of projects by Muhammed Fuhad C (Fuad) including IoT solutions, mobile applications, web development, and smart agriculture systems.",
+          "author": {
+            "@type": "Person",
+            "name": "Muhammed Fuhad C",
+            "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+            "sameAs": [
+              "https://github.com/fuhadc"
+            ]
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Muhammed Fuhad C"
+          },
+          "datePublished": "2024-01-01",
+          "dateModified": new Date().toISOString(),
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://muhammedfuhadc.dev/projects"
+          },
+          "about": [
+            {
+              "@type": "Thing",
+              "name": "IoT Development"
+            },
+            {
+              "@type": "Thing",
+              "name": "Mobile App Development"
+            },
+            {
+              "@type": "Thing",
+              "name": "Web Development"
+            },
+            {
+              "@type": "Thing",
+              "name": "Smart Agriculture"
+            }
+          ]
+        }}
       />
       <div className="container">
         {/* Header */}

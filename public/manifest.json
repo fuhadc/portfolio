@@ -1,17 +1,48 @@
 {
-  "name": "Muhammed Fuhad C - IoT & Embedded Systems Portfolio",
-  "short_name": "Fuhad C Portfolio",
-  "description": "Professional portfolio showcasing IoT, Embedded Systems, and Research work by Muhammed Fuhad C",
+  "name": "Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer | Portfolio | Social Media",
+  "short_name": "Fuad Portfolio",
+  "description": "Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps. View portfolio, projects, and connect on social media. Find me on Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#1f2937",
   "theme_color": "#3b82f6",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-US",
   "dir": "ltr",
-  "categories": ["portfolio", "technology", "iot", "embedded-systems", "research"],
+  "categories": ["portfolio", "technology", "iot", "embedded-systems", "research", "mobile-development", "smart-agriculture", "healthcare-monitoring", "social-media", "developer", "software-engineer"],
+  "keywords": ["fuad", "fuhad", "muhammed fuhad", "fuhad c", "muhammed fuhad c", "iot developer", "embedded systems developer", "smart agriculture", "healthcare monitoring", "mobile app developer", "flutter developer", "python developer", "arduino", "raspberry pi", "research", "ieee", "springer", "kerala", "india", "portfolio", "developer", "software engineer", "researcher", "toyota industries", "christ university", "btech", "computer science", "engineering", "instagram", "facebook", "linkedin", "github", "twitter", "researchgate", "social media", "contact", "hire", "collaboration"],
   "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/vite.svg",
       "sizes": "any",
@@ -21,58 +52,124 @@
   ],
   "shortcuts": [
     {
-      "name": "About",
+      "name": "About Fuad",
       "short_name": "About",
-      "description": "Learn about Muhammed Fuhad C",
+      "description": "Learn about Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer",
       "url": "/about",
       "icons": [
         {
-          "src": "/vite.svg",
-          "sizes": "any",
-          "type": "image/svg+xml"
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32",
+          "type": "image/png"
         }
       ]
     },
     {
       "name": "Projects",
       "short_name": "Projects",
-      "description": "View portfolio projects",
+      "description": "View IoT, Mobile Apps & Web Development projects by Fuad",
       "url": "/projects",
       "icons": [
         {
-          "src": "/vite.svg",
-          "sizes": "any",
-          "type": "image/svg+xml"
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32",
+          "type": "image/png"
         }
       ]
     },
     {
       "name": "Publications",
       "short_name": "Publications",
-      "description": "Research publications and papers",
+      "description": "Research publications and IEEE & Springer papers by Fuad",
       "url": "/publications",
       "icons": [
         {
-          "src": "/vite.svg",
-          "sizes": "any",
-          "type": "image/svg+xml"
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32",
+          "type": "image/png"
         }
       ]
     },
     {
-      "name": "Contact",
+      "name": "Contact & Social Media",
       "short_name": "Contact",
-      "description": "Get in touch",
+      "description": "Get in touch with Fuad - Find all social media links",
       "url": "/contact",
       "icons": [
         {
-          "src": "/vite.svg",
-          "sizes": "any",
-          "type": "image/svg+xml"
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Skills & Technologies",
+      "short_name": "Skills",
+      "description": "Technical skills and technologies mastered by Fuad",
+      "url": "/skills",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Experience",
+      "short_name": "Experience",
+      "description": "Professional experience and career journey of Fuad",
+      "url": "/experience",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Achievements",
+      "short_name": "Achievements",
+      "description": "Academic achievements and professional recognition of Fuad",
+      "url": "/achievements",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32",
+          "type": "image/png"
         }
       ]
     }
   ],
-  "related_applications": [],
-  "prefer_related_applications": false
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://muhammedfuhadc.dev"
+    }
+  ],
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop view of Muhammed Fuhad C Portfolio"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view of Muhammed Fuhad C Portfolio"
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  }
 }

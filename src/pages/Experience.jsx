@@ -16,8 +16,69 @@ import { getIcon } from '../utils/iconMapper'
 const Experience = () => {
   const { experiences, summaryStats } = experienceData
 
+  // Generate structured data for experience
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Professional Experience - Muhammed Fuhad C (Fuad) | Software Engineer & Researcher",
+    "description": "Professional experience and career journey of Muhammed Fuhad C (Fuad) including software engineering roles, research positions, and academic achievements.",
+    "author": {
+      "@type": "Person",
+      "name": "Muhammed Fuhad C",
+      "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Muhammed Fuhad C"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://muhammedfuhadc.dev/experience"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Software Engineering"
+      },
+      {
+        "@type": "Thing",
+        "name": "Research"
+      },
+      {
+        "@type": "Thing",
+        "name": "Professional Career"
+      },
+      {
+        "@type": "Thing",
+        "name": "Academic Achievements"
+      }
+    ],
+    "mentions": experiences.map(exp => ({
+      "@type": "Organization",
+      "name": exp.company,
+      "description": exp.description,
+      "employee": {
+        "@type": "Person",
+        "name": "Muhammed Fuhad C",
+        "jobTitle": exp.position
+      }
+    }))
+  }
+
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+      <SEO 
+        title="Professional Experience - Muhammed Fuhad C (Fuad) | Software Engineer & Researcher | Career"
+        description="Professional experience and career journey of Muhammed Fuhad C (Fuad) including software engineering roles, research positions, and academic achievements. Connect on LinkedIn for professional networking."
+        keywords="fuad experience, fuhad experience, muhammed fuhad c experience, Software Engineer, Research experience, Toyota Industries, academic achievements, professional career, linkedin, career, professional, networking, work experience, job history"
+        url="/experience"
+        type="article"
+        section="Experience"
+        tags={["Experience", "Career", "Software Engineer", "Research", "Professional", "LinkedIn", "Networking", "Work History"]}
+        structuredData={structuredData}
+      />
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>

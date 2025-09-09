@@ -55,13 +55,72 @@ const Publications = () => {
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
       <SEO 
-        title="Research Publications - Muhammed Fuhad C | IEEE & Springer Papers"
-        description="Explore the research publications of Muhammed Fuhad C, including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems."
-        keywords="Muhammed Fuhad C publications, IEEE papers, Springer papers, IoT research, Smart Agriculture research, Healthcare Monitoring, Embedded Systems research, academic papers"
+        title="Research Publications - Muhammed Fuhad C (Fuad) | IEEE & Springer Papers | Academic Profile"
+        description="Explore the research publications of Muhammed Fuhad C (Fuad), including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems. Connect on ResearchGate and other academic platforms."
+        keywords="fuad publications, fuhad publications, muhammed fuhad c publications, IEEE papers, Springer papers, IoT research, Smart Agriculture research, Healthcare Monitoring, Embedded Systems research, academic papers, researchgate, academic profile, researcher, citations, research papers, conference proceedings"
         url="/publications"
         type="article"
         section="Research"
-        tags={["Research", "Publications", "IEEE", "Springer", "IoT", "Smart Agriculture", "Healthcare Monitoring"]}
+        tags={["Research", "Publications", "IEEE", "Springer", "IoT", "Smart Agriculture", "Healthcare Monitoring", "Academic", "ResearchGate", "Citations", "Research Papers"]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Research Publications - Muhammed Fuhad C (Fuad) | IEEE & Springer Papers",
+          "description": "Explore the research publications of Muhammed Fuhad C (Fuad), including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems.",
+          "author": {
+            "@type": "Person",
+            "name": "Muhammed Fuhad C",
+            "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+            "sameAs": [
+              "https://scholar.google.com/citations?user=rC6hYXwAAAAJ&hl=en&oi=sra",
+              "https://www.researchgate.net/profile/Muhammed-Fuhad"
+            ]
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Muhammed Fuhad C"
+          },
+          "datePublished": "2024-01-01",
+          "dateModified": new Date().toISOString(),
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://muhammedfuhadc.dev/publications"
+          },
+          "about": [
+            {
+              "@type": "Thing",
+              "name": "IoT Research"
+            },
+            {
+              "@type": "Thing",
+              "name": "Smart Agriculture"
+            },
+            {
+              "@type": "Thing",
+              "name": "Healthcare Monitoring"
+            },
+            {
+              "@type": "Thing",
+              "name": "Embedded Systems"
+            }
+          ],
+          "mentions": publications.map(pub => ({
+            "@type": "ScholarlyArticle",
+            "headline": pub.title,
+            "author": {
+              "@type": "Person",
+              "name": pub.authors
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": pub.venue
+            },
+            "datePublished": pub.year,
+            "description": pub.abstract,
+            "keywords": pub.keywords.join(", "),
+            "citationCount": pub.citations
+          }))
+        }}
       />
       <div className="container">
         {/* Header */}

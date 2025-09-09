@@ -20,13 +20,64 @@ const About = () => {
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
       <SEO 
-        title="About Muhammed Fuhad C | IoT & Embedded Systems Developer"
-        description="Learn about Muhammed Fuhad C, a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India."
-        keywords="Muhammed Fuhad C about, IoT developer, Embedded Systems developer, Smart Agriculture, Healthcare Monitoring, Mobile App Developer, Kerala India"
+        title="About Muhammed Fuhad C (Fuad) | IoT & Embedded Systems Developer | Social Media Links"
+        description="Learn about Muhammed Fuhad C (Fuad), a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India. Connect on social media platforms."
+        keywords="fuad about, fuhad about, muhammed fuhad c about, IoT developer, Embedded Systems developer, Smart Agriculture, Healthcare Monitoring, Mobile App Developer, Kerala India, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, personal profile, background, education, christ university, toyota industries"
         url="/about"
         type="article"
         section="About"
-        tags={["About", "IoT Developer", "Embedded Systems", "Smart Agriculture", "Healthcare Monitoring"]}
+        tags={["About", "IoT Developer", "Embedded Systems", "Smart Agriculture", "Healthcare Monitoring", "Social Media", "Contact", "Personal Profile", "Background", "Education"]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "headline": "About Muhammed Fuhad C (Fuad) | IoT & Embedded Systems Developer",
+          "description": "Learn about Muhammed Fuhad C (Fuad), a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications.",
+          "mainEntity": {
+            "@type": "Person",
+            "name": "Muhammed Fuhad C",
+            "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+            "jobTitle": "IoT & Embedded Systems Developer | Researcher | Software Engineer",
+            "description": "Passionate IoT and Embedded Systems enthusiast, researcher, and developer specializing in smart agriculture, healthcare monitoring, and mobile applications.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Kerala",
+              "addressRegion": "Kerala",
+              "addressCountry": "India"
+            },
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "Christ (Deemed to be) University",
+              "description": "Bachelor of Technology in Computer Science Engineering (IoT)"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Toyota Industries",
+              "description": "Software Engineer"
+            },
+            "sameAs": [
+              "https://linkedin.com/in/fuhadc",
+              "https://github.com/fuhadc",
+              "https://www.researchgate.net/profile/Muhammed-Fuhad",
+              "https://www.instagram.com/_fuhad_c",
+              "https://x.com/_fuhad_c",
+              "https://www.facebook.com/fuhadcs3"
+            ]
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Muhammed Fuhad C"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Muhammed Fuhad C"
+          },
+          "datePublished": "2024-01-01",
+          "dateModified": new Date().toISOString(),
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://muhammedfuhadc.dev/about"
+          }
+        }}
       />
       <div className="container">
         {/* Header */}

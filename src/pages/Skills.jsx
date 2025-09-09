@@ -23,8 +23,67 @@ const Skills = () => {
   const { skillCategories } = skillsData
   const { certifications } = certificationsData
 
+  // Generate structured data for skills
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Skills & Technologies - Muhammed Fuhad C (Fuad) | IoT & Development Expertise",
+    "description": "Comprehensive overview of technical skills and technologies mastered by Muhammed Fuhad C (Fuad) including IoT, Embedded Systems, Mobile Development, and Research methodologies.",
+    "author": {
+      "@type": "Person",
+      "name": "Muhammed Fuhad C",
+      "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Muhammed Fuhad C"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://muhammedfuhadc.dev/skills"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "IoT Development"
+      },
+      {
+        "@type": "Thing",
+        "name": "Embedded Systems"
+      },
+      {
+        "@type": "Thing",
+        "name": "Mobile Development"
+      },
+      {
+        "@type": "Thing",
+        "name": "Programming"
+      }
+    ],
+    "mentions": skillCategories.flatMap(category => 
+      category.skills.map(skill => ({
+        "@type": "Thing",
+        "name": skill.name,
+        "description": `${skill.name} - ${skill.years} of experience`,
+        "skillLevel": skill.level
+      }))
+    )
+  }
+
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+      <SEO 
+        title="Skills & Technologies - Muhammed Fuhad C (Fuad) | IoT & Development Expertise | Technical Profile"
+        description="Comprehensive overview of technical skills and technologies mastered by Muhammed Fuhad C (Fuad) including IoT, Embedded Systems, Mobile Development, and Research methodologies. Connect for technical discussions."
+        keywords="fuad skills, fuhad skills, muhammed fuhad c skills, IoT skills, Embedded Systems skills, Mobile Development, Flutter, Python, Arduino, Raspberry Pi, Research skills, technical profile, developer skills, programming, certifications, professional skills"
+        url="/skills"
+        type="article"
+        section="Skills"
+        tags={["Skills", "Technologies", "IoT", "Embedded Systems", "Mobile Development", "Programming", "Technical", "Developer", "Certifications"]}
+        structuredData={structuredData}
+      />
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>

@@ -32,8 +32,70 @@ const Achievements = () => {
     setSelectedImage(null)
   }
 
+  // Generate structured data for achievements
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Achievements & Awards - Muhammed Fuhad C (Fuad) | Academic & Professional Recognition",
+    "description": "Academic achievements, professional awards, certifications, and recognition received by Muhammed Fuhad C (Fuad) in IoT, Embedded Systems, and Research domains.",
+    "author": {
+      "@type": "Person",
+      "name": "Muhammed Fuhad C",
+      "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad", "Fuhad Muhammed"]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Muhammed Fuhad C"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://muhammedfuhadc.dev/achievements"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "IoT Development"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Embedded Systems"
+      },
+      {
+        "@type": "Thing",
+        "name": "Academic Achievements"
+      },
+      {
+        "@type": "Thing",
+        "name": "Professional Awards"
+      }
+    ],
+    "mentions": achievements.map(achievement => ({
+      "@type": "Thing",
+      "name": achievement.title,
+      "description": achievement.description,
+      "award": {
+        "@type": "Award",
+        "name": achievement.title,
+        "description": achievement.description,
+        "dateAwarded": achievement.year
+      }
+    }))
+  }
+
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+      <SEO 
+        title="Achievements & Awards - Muhammed Fuhad C (Fuad) | Academic & Professional Recognition"
+        description="Academic achievements, professional awards, certifications, and recognition received by Muhammed Fuhad C (Fuad) in IoT, Embedded Systems, and Research domains. Connect to learn more about accomplishments."
+        keywords="fuad achievements, fuhad achievements, muhammed fuhad c achievements, awards, certifications, academic recognition, professional awards, IoT achievements, accomplishments, recognition, connect, academic excellence, research awards, technology achievements, embedded systems awards, mobile development recognition"
+        url="/achievements"
+        type="article"
+        section="Achievements"
+        tags={["Achievements", "Awards", "Certifications", "Recognition", "Academic", "Professional", "Accomplishments", "IoT", "Embedded Systems", "Research"]}
+        structuredData={structuredData}
+      />
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>

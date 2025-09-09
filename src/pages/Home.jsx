@@ -22,12 +22,51 @@ const Home = () => {
   return (
     <div style={{ minHeight: '100vh' }}>
       <SEO 
-        title="Muhammed Fuhad C - IoT & Embedded Systems Enthusiast | Researcher | Developer"
-        description="Passionate IoT and Embedded Systems enthusiast, researcher, and developer. Specializing in smart agriculture, healthcare monitoring, mobile applications, and research with published papers in IEEE and Springer conferences."
-        keywords="Muhammed Fuhad C, IoT, Embedded Systems, Smart Agriculture, Healthcare Monitoring, Mobile Apps, Research, IEEE, Springer, Flutter, Python, Arduino, Raspberry Pi"
+        title="Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer | Portfolio | Social Media Links"
+        description="Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps. View portfolio, projects, and connect on social media. Find me on Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate."
+        keywords="fuad, fuhad, muhammed fuhad, fuhad c, muhammed fuhad c, iot developer, embedded systems developer, smart agriculture, healthcare monitoring, mobile app developer, flutter developer, python developer, arduino, raspberry pi, research, ieee, springer, kerala, india, portfolio, developer, software engineer, researcher, toyota industries, christ university, btech, computer science, engineering, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, hire, collaboration"
         url="/"
         type="website"
-        tags={["IoT", "Embedded Systems", "Research", "Mobile Development", "Smart Agriculture", "Healthcare Monitoring"]}
+        tags={["IoT", "Embedded Systems", "Research", "Mobile Development", "Smart Agriculture", "Healthcare Monitoring", "Social Media", "Portfolio", "Fuad", "Fuhad"]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Muhammed Fuhad C",
+          "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+          "jobTitle": "IoT & Embedded Systems Developer | Researcher | Software Engineer",
+          "description": "Passionate IoT and Embedded Systems enthusiast, researcher, and developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India.",
+          "url": "https://muhammedfuhadc.dev",
+          "email": "fuhadcs@icloud.com",
+          "telephone": "+91-7306525489",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kerala",
+            "addressRegion": "Kerala",
+            "addressCountry": "India"
+          },
+          "sameAs": [
+            "https://linkedin.com/in/fuhadc",
+            "https://github.com/fuhadc",
+            "https://www.researchgate.net/profile/Muhammed-Fuhad",
+            "https://www.instagram.com/_fuhad_c",
+            "https://x.com/_fuhad_c",
+            "https://www.facebook.com/fuhadcs3"
+          ],
+          "knowsAbout": [
+            "IoT Development",
+            "Embedded Systems",
+            "Smart Agriculture",
+            "Healthcare Monitoring",
+            "Mobile App Development",
+            "Flutter",
+            "Python",
+            "Arduino",
+            "Raspberry Pi",
+            "Research",
+            "IEEE Publications",
+            "Springer Publications"
+          ]
+        }}
       />
       {/* Hero Section */}
       <section className="hero">
@@ -273,6 +312,116 @@ const Home = () => {
                 </div>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media & Contact Section */}
+      <section className="section" style={{ backgroundColor: '#1e293b', color: 'white' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 className="section-title" style={{ color: 'white' }}>
+              Connect with <span style={{ color: '#3b82f6' }}>Fuad</span>
+            </h2>
+            <p style={{
+              fontSize: '1.125rem',
+              color: '#cbd5e1',
+              maxWidth: '40rem',
+              margin: '0 auto'
+            }}>
+              Find me on all social media platforms and get in touch for IoT projects, 
+              collaborations, and professional networking opportunities.
+            </p>
+          </div>
+
+          {/* Social Media Links */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1.5rem',
+            marginBottom: '3rem'
+          }}>
+            {socialLinks.map((social, index) => {
+              const Icon = getIcon(social.icon)
+              return (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '1rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    borderRadius: '0.75rem',
+                    textDecoration: 'none',
+                    color: 'white',
+                    transition: 'all 0.3s ease',
+                    border: '1px solid rgba(255, 255, 255, 0.2)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'
+                    e.target.style.transform = 'translateY(-2px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
+                    e.target.style.transform = 'translateY(0)'
+                  }}
+                >
+                  <Icon size={24} style={{ marginRight: '0.75rem' }} />
+                  <div>
+                    <div style={{ fontWeight: '600', marginBottom: '0.25rem' }}>
+                      {social.name}
+                    </div>
+                    <div style={{ fontSize: '0.875rem', color: '#cbd5e1' }}>
+                      {social.username}
+                    </div>
+                  </div>
+                </a>
+              )
+            })}
+          </div>
+
+          {/* Call to Action */}
+          <div style={{ textAlign: 'center' }}>
+            <Link
+              to="/social"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '1rem 2rem',
+                backgroundColor: '#3b82f6',
+                color: 'white',
+                textDecoration: 'none',
+                borderRadius: '0.75rem',
+                fontWeight: '600',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                marginRight: '1rem'
+              }}
+            >
+              View All Social Links
+              <ExternalLink style={{ marginLeft: '0.5rem' }} size={20} />
+            </Link>
+            <Link
+              to="/contact"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '1rem 2rem',
+                backgroundColor: 'transparent',
+                color: 'white',
+                textDecoration: 'none',
+                borderRadius: '0.75rem',
+                fontWeight: '600',
+                transition: 'all 0.3s ease',
+                border: '2px solid white'
+              }}
+            >
+              Contact Me
+              <Mail style={{ marginLeft: '0.5rem' }} size={20} />
+            </Link>
           </div>
         </div>
       </section>

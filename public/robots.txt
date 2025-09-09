@@ -1,5 +1,34 @@
+# Robots.txt for Muhammed Fuhad C (Fuad) Portfolio
+# Optimized for maximum SEO and social media discoverability
+
+# Allow all search engines to crawl the site
 User-agent: *
 Allow: /
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
 
 # Disallow admin and private areas
 Disallow: /admin/
@@ -7,18 +36,49 @@ Disallow: /private/
 Disallow: /api/
 Disallow: /*.json$
 Disallow: /node_modules/
+Disallow: /.env
+Disallow: /src/
+Disallow: /package*.json
+Disallow: /vite.config.js
+Disallow: /tailwind.config.js
+Disallow: /eslint.config.js
 
-# Allow important files
+# Allow important files and directories
 Allow: /assets/
 Allow: /images/
 Allow: /css/
 Allow: /js/
+Allow: /public/
+Allow: /dist/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.pdf
+Allow: /*.ico
+Allow: /*.xml
+Allow: /*.txt
+Allow: /manifest.json
+Allow: /sitemap.xml
+Allow: /robots.txt
 
-# Sitemap
+# Sitemap location
 Sitemap: https://muhammedfuhadc.dev/sitemap.xml
 
-# Crawl-delay
+# Additional sitemaps (if you have them)
+# Sitemap: https://muhammedfuhadc.dev/sitemap-images.xml
+# Sitemap: https://muhammedfuhadc.dev/sitemap-news.xml
+
+# Crawl delay for general bots
 Crawl-delay: 1
 
-# Host
+# Host directive
 Host: https://muhammedfuhadc.dev
+
+# Additional directives for better SEO
+# Clean-param: utm_source /utm_medium /utm_campaign
+# Clean-param: fbclid /gclid /msclkid

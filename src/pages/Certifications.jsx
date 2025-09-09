@@ -26,13 +26,64 @@ const Certifications = () => {
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
       <SEO 
-        title="Certifications - Muhammed Fuhad C | Professional Certifications & Achievements"
-        description="View the professional certifications and achievements of Muhammed Fuhad C including IBM AI Engineering, Stanford IoT, Coursera specializations, and more."
-        keywords="Muhammed Fuhad C certifications, IBM AI Engineering, Stanford IoT, Coursera certificates, professional certifications, Udemy courses, NPTEL"
+        title="Certifications - Muhammed Fuhad C (Fuad) | Professional Certifications & Achievements | Skills Validation"
+        description="View the professional certifications and achievements of Muhammed Fuhad C (Fuad) including IBM AI Engineering, Stanford IoT, Coursera specializations, and more. Validated skills in IoT, AI, and development."
+        keywords="fuad certifications, fuhad certifications, muhammed fuhad c certifications, IBM AI Engineering, Stanford IoT, Coursera certificates, professional certifications, Udemy courses, NPTEL, skills validation, verified skills, professional development, AI, IoT, web development, python, machine learning"
         url="/certifications"
         type="article"
         section="Portfolio"
-        tags={["Certifications", "Professional Development", "AI Engineering", "IoT", "Web Development", "Python"]}
+        tags={["Certifications", "Professional Development", "AI Engineering", "IoT", "Web Development", "Python", "Skills Validation", "Verified Skills", "Machine Learning"]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Certifications - Muhammed Fuhad C (Fuad) | Professional Certifications & Achievements",
+          "description": "View the professional certifications and achievements of Muhammed Fuhad C (Fuad) including IBM AI Engineering, Stanford IoT, Coursera specializations, and more.",
+          "author": {
+            "@type": "Person",
+            "name": "Muhammed Fuhad C",
+            "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"]
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Muhammed Fuhad C"
+          },
+          "datePublished": "2024-01-01",
+          "dateModified": new Date().toISOString(),
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://muhammedfuhadc.dev/certifications"
+          },
+          "about": [
+            {
+              "@type": "Thing",
+              "name": "Professional Certifications"
+            },
+            {
+              "@type": "Thing",
+              "name": "Skills Validation"
+            },
+            {
+              "@type": "Thing",
+              "name": "AI Engineering"
+            },
+            {
+              "@type": "Thing",
+              "name": "IoT Development"
+            }
+          ],
+          "mentions": certifications.map(cert => ({
+            "@type": "EducationalOccupationalCredential",
+            "name": cert.name,
+            "description": cert.authority,
+            "credentialCategory": "certification",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": cert.authority
+            },
+            "validFrom": cert.startedOn,
+            "validUntil": cert.finishedOn
+          }))
+        }}
       />
       <div className="container">
         {/* Header */}

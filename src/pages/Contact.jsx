@@ -46,8 +46,61 @@ const Contact = () => {
 
   const { contactInfo, socialLinks, availability } = contactData
 
+  // Generate structured data for contact
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "headline": "Contact Muhammed Fuhad C (Fuad) | Get In Touch for IoT & Development Projects",
+    "description": "Get in touch with Muhammed Fuhad C (Fuad) for IoT projects, Embedded Systems development, mobile app development, and research collaborations. Find all social media links and contact information.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Muhammed Fuhad C",
+      "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+      "email": "fuhadcs@icloud.com",
+      "telephone": "+91-7306525489",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kerala",
+        "addressRegion": "Kerala",
+        "addressCountry": "India"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/fuhadc",
+        "https://github.com/fuhadc",
+        "https://www.researchgate.net/profile/Muhammed-Fuhad",
+        "https://www.instagram.com/_fuhad_c",
+        "https://x.com/_fuhad_c",
+        "https://www.facebook.com/fuhadcs3"
+      ]
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Muhammed Fuhad C"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Muhammed Fuhad C"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://muhammedfuhadc.dev/contact"
+    }
+  }
+
   return (
     <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+      <SEO 
+        title="Contact Muhammed Fuhad C (Fuad) | Get In Touch for IoT & Development Projects | Social Media"
+        description="Get in touch with Muhammed Fuhad C (Fuad) for IoT projects, Embedded Systems development, mobile app development, and research collaborations. Find all social media links and contact information."
+        keywords="contact fuad, contact fuhad, contact muhammed fuhad c, IoT projects, Embedded Systems development, mobile app development, research collaboration, hire developer, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, collaboration, hire, get in touch, connect"
+        url="/contact"
+        type="article"
+        section="Contact"
+        tags={["Contact", "Hire", "Collaboration", "IoT Projects", "Development Services", "Social Media", "Instagram", "Facebook", "LinkedIn", "GitHub", "Twitter", "ResearchGate", "Connect"]}
+        structuredData={structuredData}
+      />
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>

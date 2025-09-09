@@ -13,6 +13,7 @@ import Skills from './pages/Skills'
 import Achievements from './pages/Achievements'
 import Certifications from './pages/Certifications'
 import Contact from './pages/Contact'
+import Social from './pages/Social'
 import Admin from './pages/Admin'
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
                 <Route path="/achievements" element={<Achievements />} />
                 <Route path="/certifications" element={<Certifications />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/social" element={<Social />} />
                 <Route path="/admin" element={<Admin />} />
               </Routes>
             </AnimatePresence>
