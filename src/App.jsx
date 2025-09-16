@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import SinglePageLayout from './components/SinglePageLayout'
 import ScrollToTop from './components/ScrollToTop'
 import ErrorBoundary from './components/ErrorBoundary'
@@ -54,6 +55,7 @@ function App() {
           </ErrorBoundary>
         </SinglePageLayout>
       </div>
+      <SpeedInsights />
     </HelmetProvider>
   )
 }

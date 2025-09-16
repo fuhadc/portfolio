@@ -524,7 +524,10 @@ const Projects = () => {
           <div style={{
             position: 'relative',
             maxWidth: '90vw',
-            maxHeight: '90vh'
+            maxHeight: '90vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}>
             <img 
               src={selectedImage} 
@@ -532,8 +535,11 @@ const Projects = () => {
               style={{
                 maxWidth: '100%',
                 maxHeight: '100%',
+                width: 'auto',
+                height: 'auto',
                 objectFit: 'contain',
-                borderRadius: '0.5rem'
+                borderRadius: '0.5rem',
+                display: 'block'
               }}
             />
             <button
