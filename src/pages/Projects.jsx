@@ -32,9 +32,9 @@ const Projects = () => {
   return (
     <section id="projects" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
-        title="Projects - Muhammed Fuhad C (Fuad) | IoT, Mobile Apps & Web Development | Portfolio"
-        description="Explore the portfolio of projects by Muhammed Fuhad C (Fuad) including IoT solutions, mobile applications, web development, and smart agriculture systems. View code on GitHub and connect for collaborations."
-        keywords="fuad projects, fuhad projects, muhammed fuhad c projects, IoT projects, mobile app development, web development, smart agriculture, healthcare monitoring, Flutter apps, React projects, github, portfolio, developer, collaboration, open source, code, programming"
+        title="Projects - Muhammed Fuhad C | IoT, Mobile Apps & Web Development | Portfolio"
+        description="Explore the portfolio of projects by Muhammed Fuhad C including IoT solutions, mobile applications, web development, and smart agriculture systems. View code on GitHub and connect for collaborations."
+        keywords="fuhad projects, muhammed fuhad c projects, IoT projects, mobile app development, web development, smart agriculture, healthcare monitoring, Flutter apps, React projects, github, portfolio, developer, collaboration, open source, code, programming"
         url="/projects"
         type="article"
         section="Portfolio"
@@ -42,12 +42,12 @@ const Projects = () => {
         structuredData={{
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "Projects - Muhammed Fuhad C (Fuad) | IoT, Mobile Apps & Web Development",
-          "description": "Explore the portfolio of projects by Muhammed Fuhad C (Fuad) including IoT solutions, mobile applications, web development, and smart agriculture systems.",
+          "headline": "Projects - Muhammed Fuhad C | IoT, Mobile Apps & Web Development",
+          "description": "Explore the portfolio of projects by Muhammed Fuhad C including IoT solutions, mobile applications, web development, and smart agriculture systems.",
           "author": {
             "@type": "Person",
             "name": "Muhammed Fuhad C",
-            "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+            "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"],
             "sameAs": [
               "https://github.com/fuhadc"
             ]

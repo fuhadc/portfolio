@@ -20,12 +20,12 @@ const Experience = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Professional Experience - Muhammed Fuhad C (Fuad) | Software Engineer & Researcher",
-    "description": "Professional experience and career journey of Muhammed Fuhad C (Fuad) including software engineering roles, research positions, and academic achievements.",
+    "headline": "Professional Experience - Muhammed Fuhad C | Software Engineer & Researcher",
+    "description": "Professional experience and career journey of Muhammed Fuhad C including software engineering roles, research positions, and academic achievements.",
     "author": {
       "@type": "Person",
       "name": "Muhammed Fuhad C",
-      "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"]
+      "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"]
     },
     "publisher": {
       "@type": "Person",
@@ -70,9 +70,9 @@ const Experience = () => {
   return (
     <section id="experience" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
-        title="Professional Experience - Muhammed Fuhad C (Fuad) | Software Engineer & Researcher | Career"
-        description="Professional experience and career journey of Muhammed Fuhad C (Fuad) including software engineering roles, research positions, and academic achievements. Connect on LinkedIn for professional networking."
-        keywords="fuad experience, fuhad experience, muhammed fuhad c experience, Software Engineer, Research experience, Toyota Industries, academic achievements, professional career, linkedin, career, professional, networking, work experience, job history"
+        title="Professional Experience - Muhammed Fuhad C | Software Engineer & Researcher | Career"
+        description="Professional experience and career journey of Muhammed Fuhad C including software engineering roles, research positions, and academic achievements. Connect on LinkedIn for professional networking."
+        keywords="fuhad experience, muhammed fuhad c experience, Software Engineer, Research experience, Toyota Industries, academic achievements, professional career, linkedin, career, professional, networking, work experience, job history"
         url="/experience"
         type="article"
         section="Experience"

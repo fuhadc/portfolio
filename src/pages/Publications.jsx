@@ -55,9 +55,9 @@ const Publications = () => {
   return (
     <section id="publications" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
-        title="Research Publications - Muhammed Fuhad C (Fuad) | IEEE & Springer Papers | Academic Profile"
-        description="Explore the research publications of Muhammed Fuhad C (Fuad), including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems. Connect on ResearchGate and other academic platforms."
-        keywords="fuad publications, fuhad publications, muhammed fuhad c publications, IEEE papers, Springer papers, IoT research, Smart Agriculture research, Healthcare Monitoring, Embedded Systems research, academic papers, researchgate, academic profile, researcher, citations, research papers, conference proceedings"
+        title="Research Publications - Muhammed Fuhad C | IEEE & Springer Papers | Academic Profile"
+        description="Explore the research publications of Muhammed Fuhad C, including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems. Connect on ResearchGate and other academic platforms."
+        keywords="fuhad publications, muhammed fuhad c publications, IEEE papers, Springer papers, IoT research, Smart Agriculture research, Healthcare Monitoring, Embedded Systems research, academic papers, researchgate, academic profile, researcher, citations, research papers, conference proceedings"
         url="/publications"
         type="article"
         section="Research"
@@ -65,12 +65,12 @@ const Publications = () => {
         structuredData={{
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "Research Publications - Muhammed Fuhad C (Fuad) | IEEE & Springer Papers",
-          "description": "Explore the research publications of Muhammed Fuhad C (Fuad), including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems.",
+          "headline": "Research Publications - Muhammed Fuhad C | IEEE & Springer Papers",
+          "description": "Explore the research publications of Muhammed Fuhad C, including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems.",
           "author": {
             "@type": "Person",
             "name": "Muhammed Fuhad C",
-            "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+            "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"],
             "sameAs": [
               "https://scholar.google.com/citations?user=rC6hYXwAAAAJ&hl=en&oi=sra",
               "https://www.researchgate.net/profile/Muhammed-Fuhad"

@@ -21,17 +21,17 @@ const Home = memo(() => {
   return (
     <>
       <SEO 
-        title="Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer | Portfolio | Social Media Links"
-        description="Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps. View portfolio, projects, and connect on social media. Find me on Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate."
-        keywords="fuad, fuhad, muhammed fuhad, fuhad c, muhammed fuhad c, iot developer, embedded systems developer, smart agriculture, healthcare monitoring, mobile app developer, flutter developer, python developer, arduino, raspberry pi, research, ieee, springer, kerala, india, portfolio, developer, software engineer, researcher, toyota industries, christ university, btech, computer science, engineering, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, hire, collaboration"
+        title="Muhammed Fuhad C - IoT & Embedded Systems Developer | Portfolio | Social Media Links"
+        description="Muhammed Fuhad C - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps. View portfolio, projects, and connect on social media. Find me on Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate."
+        keywords="fuhad, muhammed fuhad, fuhad c, muhammed fuhad c, iot developer, embedded systems developer, smart agriculture, healthcare monitoring, mobile app developer, flutter developer, python developer, arduino, raspberry pi, research, ieee, springer, kerala, india, portfolio, developer, software engineer, researcher, toyota industries, christ university, btech, computer science, engineering, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, hire, collaboration"
         url="/"
         type="website"
-        tags={["IoT", "Embedded Systems", "Research", "Mobile Development", "Smart Agriculture", "Healthcare Monitoring", "Social Media", "Portfolio", "Fuad", "Fuhad"]}
+        tags={["IoT", "Embedded Systems", "Research", "Mobile Development", "Smart Agriculture", "Healthcare Monitoring", "Social Media", "Portfolio", "Fuhad"]}
         structuredData={{
           "@context": "https://schema.org",
           "@type": "Person",
           "name": "Muhammed Fuhad C",
-          "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+          "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"],
           "jobTitle": "IoT & Embedded Systems Developer | Researcher | Software Engineer",
           "description": "Passionate IoT and Embedded Systems enthusiast, researcher, and developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India.",
           "url": "https://muhammedfuhadc.dev",
@@ -336,7 +336,7 @@ const Home = memo(() => {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <h2 className="section-title" style={{ color: 'white' }}>
-              Connect with <span style={{ color: '#3b82f6' }}>Fuad</span>
+              Connect with <span style={{ color: '#3b82f6' }}>Fuhad</span>
             </h2>
             <p style={{
               fontSize: '1.125rem',

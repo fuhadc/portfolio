@@ -161,12 +161,12 @@ const Contact = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "headline": "Contact Muhammed Fuhad C (Fuad) | Get In Touch for IoT & Development Projects",
-    "description": "Get in touch with Muhammed Fuhad C (Fuad) for IoT projects, Embedded Systems development, mobile app development, and research collaborations. Find all social media links and contact information.",
+    "headline": "Contact Muhammed Fuhad C | Get In Touch for IoT & Development Projects",
+    "description": "Get in touch with Muhammed Fuhad C for IoT projects, Embedded Systems development, mobile app development, and research collaborations. Find all social media links and contact information.",
     "mainEntity": {
       "@type": "Person",
       "name": "Muhammed Fuhad C",
-      "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+      "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"],
       "email": "fuhadcs@icloud.com",
       "telephone": "+91-7306525489",
       "address": {
@@ -203,9 +203,9 @@ const Contact = () => {
   return (
     <section id="contact" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
-        title="Contact Muhammed Fuhad C (Fuad) | Get In Touch for IoT & Development Projects | Social Media"
-        description="Get in touch with Muhammed Fuhad C (Fuad) for IoT projects, Embedded Systems development, mobile app development, and research collaborations. Find all social media links and contact information."
-        keywords="contact fuad, contact fuhad, contact muhammed fuhad c, IoT projects, Embedded Systems development, mobile app development, research collaboration, hire developer, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, collaboration, hire, get in touch, connect"
+        title="Contact Muhammed Fuhad C | Get In Touch for IoT & Development Projects | Social Media"
+        description="Get in touch with Muhammed Fuhad C for IoT projects, Embedded Systems development, mobile app development, and research collaborations. Find all social media links and contact information."
+        keywords="contact fuhad, contact muhammed fuhad c, IoT projects, Embedded Systems development, mobile app development, research collaboration, hire developer, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, collaboration, hire, get in touch, connect"
         url="/contact"
         type="article"
         section="Contact"

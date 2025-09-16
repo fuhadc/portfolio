@@ -20,9 +20,9 @@ const About = () => {
   return (
     <section id="about" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
-        title="About Muhammed Fuhad C (Fuad) | IoT & Embedded Systems Developer | Social Media Links"
-        description="Learn about Muhammed Fuhad C (Fuad), a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India. Connect on social media platforms."
-        keywords="fuad about, fuhad about, muhammed fuhad c about, IoT developer, Embedded Systems developer, Smart Agriculture, Healthcare Monitoring, Mobile App Developer, Kerala India, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, personal profile, background, education, christ university, toyota industries"
+        title="About Muhammed Fuhad C | IoT & Embedded Systems Developer | Social Media Links"
+        description="Learn about Muhammed Fuhad C, a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India. Connect on social media platforms."
+        keywords="fuhad about, muhammed fuhad c about, IoT developer, Embedded Systems developer, Smart Agriculture, Healthcare Monitoring, Mobile App Developer, Kerala India, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, personal profile, background, education, christ university, toyota industries"
         url="/about"
         type="article"
         section="About"
@@ -30,12 +30,12 @@ const About = () => {
         structuredData={{
           "@context": "https://schema.org",
           "@type": "AboutPage",
-          "headline": "About Muhammed Fuhad C (Fuad) | IoT & Embedded Systems Developer",
-          "description": "Learn about Muhammed Fuhad C (Fuad), a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications.",
+          "headline": "About Muhammed Fuhad C | IoT & Embedded Systems Developer",
+          "description": "Learn about Muhammed Fuhad C, a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications.",
           "mainEntity": {
             "@type": "Person",
             "name": "Muhammed Fuhad C",
-            "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+            "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"],
             "jobTitle": "IoT & Embedded Systems Developer | Researcher | Software Engineer",
             "description": "Passionate IoT and Embedded Systems enthusiast, researcher, and developer specializing in smart agriculture, healthcare monitoring, and mobile applications.",
             "address": {

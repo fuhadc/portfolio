@@ -38,12 +38,12 @@ const Achievements = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Achievements & Awards - Muhammed Fuhad C (Fuad) | Academic & Professional Recognition",
-    "description": "Academic achievements, professional awards, certifications, and recognition received by Muhammed Fuhad C (Fuad) in IoT, Embedded Systems, and Research domains.",
+    "headline": "Achievements & Awards - Muhammed Fuhad C | Academic & Professional Recognition",
+    "description": "Academic achievements, professional awards, certifications, and recognition received by Muhammed Fuhad C in IoT, Embedded Systems, and Research domains.",
     "author": {
       "@type": "Person",
       "name": "Muhammed Fuhad C",
-      "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad", "Fuhad Muhammed"]
+      "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad", "Fuhad Muhammed"]
     },
     "publisher": {
       "@type": "Person",
@@ -89,9 +89,9 @@ const Achievements = () => {
   return (
     <section id="achievements" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
-        title="Achievements & Awards - Muhammed Fuhad C (Fuad) | Academic & Professional Recognition"
-        description="Academic achievements, professional awards, certifications, and recognition received by Muhammed Fuhad C (Fuad) in IoT, Embedded Systems, and Research domains. Connect to learn more about accomplishments."
-        keywords="fuad achievements, fuhad achievements, muhammed fuhad c achievements, awards, certifications, academic recognition, professional awards, IoT achievements, accomplishments, recognition, connect, academic excellence, research awards, technology achievements, embedded systems awards, mobile development recognition"
+        title="Achievements & Awards - Muhammed Fuhad C | Academic & Professional Recognition"
+        description="Academic achievements, professional awards, certifications, and recognition received by Muhammed Fuhad C in IoT, Embedded Systems, and Research domains. Connect to learn more about accomplishments."
+        keywords="fuhad achievements, muhammed fuhad c achievements, awards, certifications, academic recognition, professional awards, IoT achievements, accomplishments, recognition, connect, academic excellence, research awards, technology achievements, embedded systems awards, mobile development recognition"
         url="/achievements"
         type="article"
         section="Achievements"

@@ -27,12 +27,12 @@ const Skills = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Skills & Technologies - Muhammed Fuhad C (Fuad) | IoT & Development Expertise",
-    "description": "Comprehensive overview of technical skills and technologies mastered by Muhammed Fuhad C (Fuad) including IoT, Embedded Systems, Mobile Development, and Research methodologies.",
+    "headline": "Skills & Technologies - Muhammed Fuhad C | IoT & Development Expertise",
+    "description": "Comprehensive overview of technical skills and technologies mastered by Muhammed Fuhad C including IoT, Embedded Systems, Mobile Development, and Research methodologies.",
     "author": {
       "@type": "Person",
       "name": "Muhammed Fuhad C",
-      "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"]
+      "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"]
     },
     "publisher": {
       "@type": "Person",
@@ -75,9 +75,9 @@ const Skills = () => {
   return (
     <section id="skills" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
-        title="Skills & Technologies - Muhammed Fuhad C (Fuad) | IoT & Development Expertise | Technical Profile"
-        description="Comprehensive overview of technical skills and technologies mastered by Muhammed Fuhad C (Fuad) including IoT, Embedded Systems, Mobile Development, and Research methodologies. Connect for technical discussions."
-        keywords="fuad skills, fuhad skills, muhammed fuhad c skills, IoT skills, Embedded Systems skills, Mobile Development, Flutter, Python, Arduino, Raspberry Pi, Research skills, technical profile, developer skills, programming, certifications, professional skills"
+        title="Skills & Technologies - Muhammed Fuhad C | IoT & Development Expertise | Technical Profile"
+        description="Comprehensive overview of technical skills and technologies mastered by Muhammed Fuhad C including IoT, Embedded Systems, Mobile Development, and Research methodologies. Connect for technical discussions."
+        keywords="fuhad skills, muhammed fuhad c skills, IoT skills, Embedded Systems skills, Mobile Development, Flutter, Python, Arduino, Raspberry Pi, Research skills, technical profile, developer skills, programming, certifications, professional skills"
         url="/skills"
         type="article"
         section="Skills"

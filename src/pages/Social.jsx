@@ -123,20 +123,20 @@ const Social = () => {
   return (
     <section id="social" className="section" style={{ padding: '4rem 0' }}>
       <Helmet>
-        <title>Social Media & Contact - Muhammed Fuhad C (Fuad) | All Social Links & Contact Information</title>
-        <meta name="description" content="Connect with Muhammed Fuhad C (Fuad) on all social media platforms. Find Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate links. Get contact information and connect for IoT projects, collaborations, and professional networking." />
-        <meta name="keywords" content="fuad social media, fuhad social media, muhammed fuhad c social media, instagram fuad, facebook fuad, linkedin fuad, github fuad, twitter fuad, researchgate fuad, contact fuad, social media links, professional networking, iot developer contact, embedded systems developer contact, mobile app developer contact, research collaboration, hire developer, connect with fuad, social media profiles, contact information, professional contact" />
+        <title>Social Media & Contact - Muhammed Fuhad C | All Social Links & Contact Information</title>
+        <meta name="description" content="Connect with Muhammed Fuhad C on all social media platforms. Find Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate links. Get contact information and connect for IoT projects, collaborations, and professional networking." />
+        <meta name="keywords" content="fuhad social media, muhammed fuhad c social media, instagram fuhad, facebook fuhad, linkedin fuhad, github fuhad, twitter fuhad, researchgate fuhad, contact fuhad, social media links, professional networking, iot developer contact, embedded systems developer contact, mobile app developer contact, research collaboration, hire developer, connect with fuhad, social media profiles, contact information, professional contact" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Social Media & Contact - Muhammed Fuhad C (Fuad) | All Social Links" />
-        <meta property="og:description" content="Connect with Muhammed Fuhad C (Fuad) on all social media platforms. Find Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate links." />
+        <meta property="og:title" content="Social Media & Contact - Muhammed Fuhad C | All Social Links" />
+        <meta property="og:description" content="Connect with Muhammed Fuhad C on all social media platforms. Find Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate links." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://muhammedfuhadc.dev/social" />
         <meta property="og:image" content="https://muhammedfuhadc.dev/social-og.jpg" />
         
         {/* Twitter */}
-        <meta property="twitter:title" content="Social Media & Contact - Muhammed Fuhad C (Fuad) | All Social Links" />
-        <meta property="twitter:description" content="Connect with Muhammed Fuhad C (Fuad) on all social media platforms. Find Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate links." />
+        <meta property="twitter:title" content="Social Media & Contact - Muhammed Fuhad C | All Social Links" />
+        <meta property="twitter:description" content="Connect with Muhammed Fuhad C on all social media platforms. Find Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate links." />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:image" content="https://muhammedfuhadc.dev/social-og.jpg" />
         
@@ -146,7 +146,7 @@ const Social = () => {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Muhammed Fuhad C",
-            "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
+            "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"],
             "url": "https://muhammedfuhadc.dev/social",
             "sameAs": [
               "https://linkedin.com/in/fuhadc",
@@ -173,7 +173,7 @@ const Social = () => {
           {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <h1 className="section-title" style={{ marginBottom: '1rem' }}>
-              Connect with <span style={{ color: '#3b82f6' }}>Fuad</span>
+              Connect with <span style={{ color: '#3b82f6' }}>Fuhad</span>
             </h1>
             <p style={{ 
               fontSize: '1.25rem', 
