@@ -20,9 +20,11 @@ const Achievements = () => {
   const { achievements, volunteering, stats } = achievementsData
   const [selectedImage, setSelectedImage] = useState(null)
 
-  // Debug: Log achievements data to see if images are loaded
-  console.log('Achievements data loaded:', achievementsData)
-  console.log('Achievements with images:', achievements.filter(ach => ach.image && ach.image.trim() !== ''))
+  // Debug: Log achievements data to see if images are loaded (only in development)
+  if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'development') {
+    console.log('Achievements data loaded:', achievementsData)
+    console.log('Achievements with images:', achievements.filter(ach => ach.image && ach.image.trim() !== ''))
+  }
 
   const openImageModal = (imageUrl) => {
     setSelectedImage(imageUrl)
@@ -85,7 +87,7 @@ const Achievements = () => {
   }
 
   return (
-    <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+    <section id="achievements" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
         title="Achievements & Awards - Muhammed Fuhad C (Fuad) | Academic & Professional Recognition"
         description="Academic achievements, professional awards, certifications, and recognition received by Muhammed Fuhad C (Fuad) in IoT, Embedded Systems, and Research domains. Connect to learn more about accomplishments."
@@ -721,7 +723,7 @@ const Achievements = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   )
 }
 

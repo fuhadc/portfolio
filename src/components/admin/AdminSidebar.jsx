@@ -41,7 +41,7 @@ const AdminSidebar = () => {
           initial={{ x: -300 }}
           animate={{ x: 0 }}
           exit={{ x: -300 }}
-          className="fixed lg:static top-16 bottom-0 left-0 z-50 w-64 bg-white shadow-lg lg:shadow-none border-r border-gray-200"
+          className="fixed lg:static top-16 bottom-0 left-0 z-50 w-64 bg-white shadow-lg lg:shadow-none border-r border-gray-200 mobile-only lg:block"
         >
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-between p-4 lg:hidden border-b border-gray-200">
@@ -63,11 +63,12 @@ const AdminSidebar = () => {
                       setActiveTab(item.id)
                       setSidebarOpen(false)
                     }}
-                    className={`w-full flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${
+                    className={`w-full flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-all duration-200 touch-target ${
                       activeTab === item.id
                         ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-sm'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                     }`}
+                    style={{ minHeight: '44px' }}
                   >
                     <Icon className="h-5 w-5 mr-3" />
                     {item.label}

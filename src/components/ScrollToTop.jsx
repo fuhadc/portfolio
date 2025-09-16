@@ -1,11 +1,8 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation()
-
   useEffect(() => {
-    // Small delay to ensure DOM is updated after route change
+    // Small delay to ensure DOM is updated
     const timer = setTimeout(() => {
       const mainElement = document.querySelector('main')
       if (mainElement) {
@@ -31,7 +28,7 @@ const ScrollToTop = () => {
     }, 100) // Small delay to ensure DOM is ready
 
     return () => clearTimeout(timer)
-  }, [pathname])
+  }, []) // Empty dependency array since this is a single-page app
 
   return null
 }

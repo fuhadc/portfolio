@@ -90,7 +90,7 @@ const Contact = () => {
   }
 
   return (
-    <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+    <section id="contact" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
         title="Contact Muhammed Fuhad C (Fuad) | Get In Touch for IoT & Development Projects | Social Media"
         description="Get in touch with Muhammed Fuhad C (Fuad) for IoT projects, Embedded Systems development, mobile app development, and research collaborations. Find all social media links and contact information."
@@ -105,17 +105,18 @@ const Contact = () => {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1 className="section-title">Get In Touch</h1>
-          <p style={{ 
+          <p className="mobile-text-sm" style={{ 
             fontSize: '1.125rem', 
             color: '#64748b', 
             maxWidth: '32rem', 
-            margin: '0 auto' 
+            margin: '0 auto',
+            padding: '0 1rem'
           }}>
             I'm always interested in new opportunities and collaborations. Let's discuss how we can work together!
           </p>
         </div>
 
-        <div style={{
+        <div className="grid-responsive-2 mobile-grid-1" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
           gap: '3rem',
@@ -612,7 +613,7 @@ const Contact = () => {
           100% { transform: rotate(360deg); }
         }
       `}</style>
-    </div>
+    </section>
   )
 }
 

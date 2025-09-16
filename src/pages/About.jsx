@@ -18,7 +18,7 @@ const About = () => {
   const { personalInfo, education } = aboutData
 
   return (
-    <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+    <section id="about" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
         title="About Muhammed Fuhad C (Fuad) | IoT & Embedded Systems Developer | Social Media Links"
         description="Learn about Muhammed Fuhad C (Fuad), a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India. Connect on social media platforms."
@@ -83,11 +83,12 @@ const About = () => {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1 className="section-title">About Me</h1>
-          <p style={{ 
+          <p className="mobile-text-sm" style={{ 
             fontSize: '1.125rem', 
             color: '#64748b', 
             maxWidth: '32rem', 
-            margin: '0 auto' 
+            margin: '0 auto',
+            padding: '0 1rem'
           }}>
             Get to know more about my background, education, and passion for technology
           </p>
@@ -324,7 +325,7 @@ const About = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -53,7 +53,7 @@ const Publications = () => {
   ]
 
   return (
-    <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+    <section id="publications" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
         title="Research Publications - Muhammed Fuhad C (Fuad) | IEEE & Springer Papers | Academic Profile"
         description="Explore the research publications of Muhammed Fuhad C (Fuad), including IEEE and Springer conference papers on IoT, Smart Agriculture, Healthcare Monitoring, and Embedded Systems. Connect on ResearchGate and other academic platforms."
@@ -513,7 +513,7 @@ const Publications = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

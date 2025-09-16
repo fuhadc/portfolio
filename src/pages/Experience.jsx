@@ -68,7 +68,7 @@ const Experience = () => {
   }
 
   return (
-    <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+    <section id="experience" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
         title="Professional Experience - Muhammed Fuhad C (Fuad) | Software Engineer & Researcher | Career"
         description="Professional experience and career journey of Muhammed Fuhad C (Fuad) including software engineering roles, research positions, and academic achievements. Connect on LinkedIn for professional networking."
@@ -326,7 +326,7 @@ const Experience = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

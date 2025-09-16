@@ -18,7 +18,7 @@ import { getIcon } from '../utils/iconMapper'
 
 const Projects = () => {
   const projectsData = getDataByType(DATA_TYPES.PROJECTS)
-  const { projects, projectStats, categories } = projectsData
+  const { projects, projectStats } = projectsData
   const [selectedImage, setSelectedImage] = useState(null)
 
   const openImageModal = (imageUrl) => {
@@ -30,7 +30,7 @@ const Projects = () => {
   }
 
   return (
-    <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+    <section id="projects" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
         title="Projects - Muhammed Fuhad C (Fuad) | IoT, Mobile Apps & Web Development | Portfolio"
         description="Explore the portfolio of projects by Muhammed Fuhad C (Fuad) including IoT solutions, mobile applications, web development, and smart agriculture systems. View code on GitHub and connect for collaborations."
@@ -86,7 +86,7 @@ const Projects = () => {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1 className="section-title">Featured Projects</h1>
-          <p className="text-responsive" style={{ 
+          <p className="mobile-text-sm" style={{ 
             color: '#64748b', 
             maxWidth: '32rem', 
             margin: '0 auto',
@@ -98,7 +98,7 @@ const Projects = () => {
 
         {/* Project Stats */}
         <div style={{ marginBottom: '4rem' }}>
-          <div style={{
+          <div className="grid-responsive mobile-grid-2" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '2rem',
@@ -121,7 +121,7 @@ const Projects = () => {
                   }}>
                     <Icon style={{ color: '#3b82f6' }} size={32} />
                   </div>
-                  <div style={{
+                  <div className="mobile-text-lg" style={{
                     fontSize: '1.875rem',
                     fontWeight: 'bold',
                     color: '#1e293b',
@@ -129,7 +129,7 @@ const Projects = () => {
                   }}>
                     {stat.value}
                   </div>
-                  <div style={{
+                  <div className="mobile-text-sm" style={{
                     color: '#64748b',
                     fontWeight: '500'
                   }}>
@@ -156,8 +156,8 @@ const Projects = () => {
           <div className="grid-responsive">
             {projects.map((project, index) => {
               const Icon = getIcon(project.icon)
-              // Debug: Log project image data
-              if (project.image) {
+              // Debug: Log project image data (only in development)
+              if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'development' && project.image) {
                 console.log(`Project ${index} (${project.title}):`, {
                   hasImage: !!project.image,
                   imageLength: project.image.length,
@@ -564,7 +564,7 @@ const Projects = () => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   )
 }
 

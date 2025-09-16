@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { 
   Github, 
   Linkedin, 
@@ -11,16 +11,15 @@ import {
   Database,
   ExternalLink
 } from 'lucide-react'
-import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import homeData from '../data/home.json'
 import { getIcon } from '../utils/iconMapper'
 
-const Home = () => {
+const Home = memo(() => {
   const { hero, socialLinks, quickStats, coreExpertise } = homeData
 
   return (
-    <div style={{ minHeight: '100vh' }}>
+    <>
       <SEO 
         title="Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer | Portfolio | Social Media Links"
         description="Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps. View portfolio, projects, and connect on social media. Find me on Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate."
@@ -68,8 +67,9 @@ const Home = () => {
           ]
         }}
       />
+      
       {/* Hero Section */}
-      <section className="hero">
+      <section id="home" className="hero" style={{ minHeight: '100vh', paddingTop: '5rem' }}>
         <div className="container">
           <div style={{ textAlign: 'center' }}>
             {/* Profile Image Placeholder */}
@@ -130,9 +130,14 @@ const Home = () => {
 
             {/* CTA Buttons */}
             <div className="cta-buttons">
-              <Link
-                to="/projects"
-                className="btn"
+              <button
+                onClick={() => {
+                  const element = document.getElementById('projects')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
+                className="btn mobile-flex-col"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -143,17 +148,23 @@ const Home = () => {
                   borderRadius: '0.75rem',
                   fontWeight: '600',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  minHeight: '44px',
+                  width: '100%',
+                  maxWidth: '280px',
+                  justifyContent: 'center'
                 }}
               >
                 View My Work
                 <ArrowRight style={{ marginLeft: '0.5rem' }} size={20} />
-              </Link>
+              </button>
               
               <a
                 href="/resume_fuhad.pdf"
                 download="Muhammed_Fuhad_C_Resume.pdf"
-                className="btn btn-outline"
+                className="btn btn-outline mobile-flex-col"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -164,7 +175,11 @@ const Home = () => {
                   borderRadius: '0.75rem',
                   fontWeight: '600',
                   border: '2px solid #3b82f6',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  minHeight: '44px',
+                  width: '100%',
+                  maxWidth: '280px',
+                  justifyContent: 'center'
                 }}
               >
                 <Download style={{ marginRight: '0.5rem' }} size={20} />
@@ -210,7 +225,7 @@ const Home = () => {
       {/* Quick Stats Section */}
       <section className="section">
         <div className="container">
-          <div style={{
+          <div className="grid-responsive mobile-grid-2" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
             gap: '1.5rem',
@@ -233,7 +248,7 @@ const Home = () => {
                   }}>
                     <Icon style={{ color: '#3b82f6' }} size={32} />
                   </div>
-                  <div style={{
+                  <div className="mobile-text-lg" style={{
                     fontSize: '1.875rem',
                     fontWeight: 'bold',
                     color: '#1e293b',
@@ -241,7 +256,7 @@ const Home = () => {
                   }}>
                     {stat.value}
                   </div>
-                  <div style={{
+                  <div className="mobile-text-sm" style={{
                     color: '#64748b',
                     fontWeight: '500'
                   }}>
@@ -271,7 +286,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div style={{
+          <div className="grid-responsive mobile-grid-1" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1.5rem',
@@ -294,7 +309,7 @@ const Home = () => {
                   }}>
                     <Icon style={{ color: expertise.color }} size={32} />
                   </div>
-                  <h3 style={{
+                  <h3 className="mobile-text-lg" style={{
                     fontSize: '1.25rem',
                     fontWeight: '600',
                     color: '#1e293b',
@@ -303,7 +318,7 @@ const Home = () => {
                   }}>
                     {expertise.title}
                   </h3>
-                  <p style={{
+                  <p className="mobile-text-sm" style={{
                     color: '#64748b',
                     textAlign: 'center'
                   }}>
@@ -335,7 +350,7 @@ const Home = () => {
           </div>
 
           {/* Social Media Links */}
-          <div style={{
+          <div className="grid-responsive mobile-grid-1" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '1.5rem',
@@ -349,6 +364,7 @@ const Home = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="touch-target"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -358,7 +374,8 @@ const Home = () => {
                     textDecoration: 'none',
                     color: 'white',
                     transition: 'all 0.3s ease',
-                    border: '1px solid rgba(255, 255, 255, 0.2)'
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    minHeight: '44px'
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'
@@ -371,10 +388,10 @@ const Home = () => {
                 >
                   <Icon size={24} style={{ marginRight: '0.75rem' }} />
                   <div>
-                    <div style={{ fontWeight: '600', marginBottom: '0.25rem' }}>
+                    <div className="mobile-text-sm" style={{ fontWeight: '600', marginBottom: '0.25rem' }}>
                       {social.name}
                     </div>
-                    <div style={{ fontSize: '0.875rem', color: '#cbd5e1' }}>
+                    <div className="mobile-text-sm" style={{ fontSize: '0.875rem', color: '#cbd5e1' }}>
                       {social.username}
                     </div>
                   </div>
@@ -384,9 +401,15 @@ const Home = () => {
           </div>
 
           {/* Call to Action */}
-          <div style={{ textAlign: 'center' }}>
-            <Link
-              to="/social"
+          <div className="mobile-flex-col" style={{ textAlign: 'center' }}>
+            <button
+              onClick={() => {
+                const element = document.getElementById('social')
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }}
+              className="touch-target"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -398,14 +421,27 @@ const Home = () => {
                 fontWeight: '600',
                 transition: 'all 0.3s ease',
                 boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                marginRight: '1rem'
+                marginRight: '1rem',
+                marginBottom: '1rem',
+                border: 'none',
+                cursor: 'pointer',
+                minHeight: '44px',
+                width: '100%',
+                maxWidth: '280px',
+                justifyContent: 'center'
               }}
             >
               View All Social Links
               <ExternalLink style={{ marginLeft: '0.5rem' }} size={20} />
-            </Link>
-            <Link
-              to="/contact"
+            </button>
+            <button
+              onClick={() => {
+                const element = document.getElementById('contact')
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }}
+              className="touch-target"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -416,17 +452,24 @@ const Home = () => {
                 borderRadius: '0.75rem',
                 fontWeight: '600',
                 transition: 'all 0.3s ease',
-                border: '2px solid white'
+                border: '2px solid white',
+                cursor: 'pointer',
+                minHeight: '44px',
+                width: '100%',
+                maxWidth: '280px',
+                justifyContent: 'center'
               }}
             >
               Contact Me
               <Mail style={{ marginLeft: '0.5rem' }} size={20} />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
-}
+})
+
+Home.displayName = 'Home'
 
 export default Home

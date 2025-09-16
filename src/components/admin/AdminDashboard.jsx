@@ -35,14 +35,14 @@ const AdminDashboard = () => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+      className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow mobile-p-4"
     >
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-600">{title}</p>
-          <p className="text-2xl font-semibold text-gray-900">{value}</p>
+          <p className="mobile-text-sm text-sm font-medium text-gray-600">{title}</p>
+          <p className="mobile-text-lg text-2xl font-semibold text-gray-900">{value}</p>
           {change && (
-            <div className={`flex items-center mt-1 text-sm ${
+            <div className={`flex items-center mt-1 mobile-text-sm text-sm ${
               changeType === 'positive' ? 'text-green-600' : 'text-red-600'
             }`}>
               <TrendingUp className={`h-4 w-4 mr-1 ${
@@ -64,15 +64,16 @@ const AdminDashboard = () => {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className="w-full p-4 text-left bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all"
+      className="w-full p-4 text-left bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all touch-target mobile-p-4"
+      style={{ minHeight: '44px' }}
     >
       <div className="flex items-center space-x-3">
         <div className={`p-2 rounded-lg ${color}`}>
           <Icon className="h-5 w-5 text-white" />
         </div>
         <div>
-          <h3 className="font-medium text-gray-900">{title}</h3>
-          <p className="text-sm text-gray-600">{description}</p>
+          <h3 className="mobile-text-sm font-medium text-gray-900">{title}</h3>
+          <p className="mobile-text-sm text-sm text-gray-600">{description}</p>
         </div>
       </div>
     </motion.button>
@@ -179,7 +180,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mobile-grid-2">
         <StatCard
           title="Total Projects"
           value={stats.projects}

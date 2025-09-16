@@ -121,7 +121,7 @@ const Social = () => {
   ]
 
   return (
-    <>
+    <section id="social" className="section" style={{ padding: '4rem 0' }}>
       <Helmet>
         <title>Social Media & Contact - Muhammed Fuhad C (Fuad) | All Social Links & Contact Information</title>
         <meta name="description" content="Connect with Muhammed Fuhad C (Fuad) on all social media platforms. Find Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate links. Get contact information and connect for IoT projects, collaborations, and professional networking." />
@@ -168,31 +168,64 @@ const Social = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-        <div className="container mx-auto px-4 py-12">
+      <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)' }}>
+        <div className="container" style={{ padding: '3rem 0' }}>
           {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Connect with <span className="text-blue-600">Fuad</span>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h1 className="section-title" style={{ marginBottom: '1rem' }}>
+              Connect with <span style={{ color: '#3b82f6' }}>Fuad</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p style={{ 
+              fontSize: '1.25rem', 
+              color: '#64748b', 
+              maxWidth: '48rem', 
+              margin: '0 auto' 
+            }}>
               Find me on all social media platforms and get in touch for IoT projects, 
               collaborations, and professional networking opportunities.
             </p>
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1.5rem',
+            marginBottom: '3rem'
+          }}>
             {quickStats.map((stat, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center shadow-lg">
-                <stat.icon className="w-8 h-8 text-blue-600 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+              <div key={index} className="card" style={{ textAlign: 'center' }}>
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '3rem',
+                  height: '3rem',
+                  backgroundColor: '#eff6ff',
+                  borderRadius: '0.75rem',
+                  marginBottom: '1rem'
+                }}>
+                  <stat.icon style={{ color: '#3b82f6' }} size={24} />
+                </div>
+                <div style={{
+                  fontSize: '1.5rem',
+                  fontWeight: 'bold',
+                  color: '#1e293b',
+                  marginBottom: '0.25rem'
+                }}>
                   {stat.value}
                 </div>
-                <div className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+                <div style={{
+                  color: '#64748b',
+                  fontWeight: '500',
+                  marginBottom: '0.25rem'
+                }}>
                   {stat.label}
                 </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">
+                <div style={{
+                  fontSize: '0.75rem',
+                  color: '#9ca3af'
+                }}>
                   {stat.description}
                 </div>
               </div>
@@ -200,67 +233,141 @@ const Social = () => {
           </div>
 
           {/* Social Media Links */}
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
+          <div style={{ marginBottom: '3rem' }}>
+            <h2 style={{ 
+              fontSize: '2rem', 
+              fontWeight: '700', 
+              color: '#1e293b', 
+              marginBottom: '2rem',
+              textAlign: 'center'
+            }}>
               Social Media Profiles
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '1.5rem'
+            }}>
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="card"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '1.5rem',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'translateY(-2px)'
+                    e.target.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'translateY(0)'
+                    e.target.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)'
+                  }}
                 >
-                  <div className="flex items-center mb-4">
-                    <div 
-                      className="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
-                      style={{ backgroundColor: `${social.color}20` }}
-                    >
-                      <social.icon 
-                        className="w-6 h-6" 
-                        style={{ color: social.color }}
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">
-                        {social.name}
-                      </h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        {social.username}
-                      </p>
-                    </div>
-                    <ExternalLink className="w-5 h-5 text-gray-400 ml-auto group-hover:text-blue-600 transition-colors" />
+                  <div style={{
+                    width: '3rem',
+                    height: '3rem',
+                    backgroundColor: `${social.color}20`,
+                    borderRadius: '0.75rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginRight: '1rem',
+                    flexShrink: 0
+                  }}>
+                    <social.icon size={24} style={{ color: social.color }} />
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">
-                    {social.description}
-                  </p>
+                  <div style={{ flex: 1 }}>
+                    <h3 style={{
+                      fontSize: '1.125rem',
+                      fontWeight: '600',
+                      color: '#1e293b',
+                      marginBottom: '0.25rem'
+                    }}>
+                      {social.name}
+                    </h3>
+                    <p style={{
+                      fontSize: '0.875rem',
+                      color: '#6b7280',
+                      marginBottom: '0.5rem'
+                    }}>
+                      {social.username}
+                    </p>
+                    <p style={{
+                      fontSize: '0.875rem',
+                      color: '#64748b'
+                    }}>
+                      {social.description}
+                    </p>
+                  </div>
+                  <ExternalLink size={20} style={{ color: '#9ca3af' }} />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Contact Information */}
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
+          <div style={{ marginBottom: '3rem' }}>
+            <h2 style={{ 
+              fontSize: '2rem', 
+              fontWeight: '700', 
+              color: '#1e293b', 
+              marginBottom: '2rem',
+              textAlign: 'center'
+            }}>
               Contact Information
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '1.5rem'
+            }}>
               {contactInfo.map((contact, index) => (
                 <a
                   key={index}
                   href={contact.href}
-                  className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-center"
+                  className="card"
+                  style={{
+                    textAlign: 'center',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'translateY(-2px)'
+                    e.target.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'translateY(0)'
+                    e.target.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)'
+                  }}
                 >
                   <contact.icon 
-                    className="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform" 
-                    style={{ color: contact.color }}
+                    size={32} 
+                    style={{ 
+                      color: contact.color,
+                      margin: '0 auto 1rem',
+                      display: 'block'
+                    }} 
                   />
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 style={{
+                    fontSize: '1.125rem',
+                    fontWeight: '600',
+                    color: '#1e293b',
+                    marginBottom: '0.5rem'
+                  }}>
                     {contact.label}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 group-hover:text-blue-600 transition-colors">
+                  <p style={{
+                    color: '#64748b',
+                    fontSize: '0.875rem'
+                  }}>
                     {contact.value}
                   </p>
                 </a>
@@ -269,17 +376,54 @@ const Social = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">
+          <div style={{
+            background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+            borderRadius: '1rem',
+            padding: '2rem',
+            textAlign: 'center',
+            color: 'white',
+            marginBottom: '3rem'
+          }}>
+            <h2 style={{
+              fontSize: '2rem',
+              fontWeight: '700',
+              marginBottom: '1rem'
+            }}>
               Ready to Collaborate?
             </h2>
-            <p className="text-xl mb-6 opacity-90">
+            <p style={{
+              fontSize: '1.25rem',
+              marginBottom: '2rem',
+              opacity: 0.9
+            }}>
               Let's work together on your next IoT project, mobile app, or research collaboration.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
               <a
                 href="mailto:fuhadcs@icloud.com"
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '0.75rem 2rem',
+                  backgroundColor: 'white',
+                  color: '#3b82f6',
+                  textDecoration: 'none',
+                  borderRadius: '0.5rem',
+                  fontWeight: '600',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = '#f1f5f9'
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = 'white'
+                }}
               >
                 Send Email
               </a>
@@ -287,46 +431,40 @@ const Social = () => {
                 href="https://linkedin.com/in/fuhadc"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '0.75rem 2rem',
+                  backgroundColor: 'transparent',
+                  color: 'white',
+                  textDecoration: 'none',
+                  borderRadius: '0.5rem',
+                  fontWeight: '600',
+                  border: '2px solid white',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = 'white'
+                  e.target.style.color = '#3b82f6'
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = 'transparent'
+                  e.target.style.color = 'white'
+                }}
               >
                 Connect on LinkedIn
               </a>
             </div>
           </div>
 
-          {/* SEO Keywords Section */}
-          <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-              Find Me By Searching
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {[
-                "fuad", "fuhad", "muhammed fuhad", "fuhad c", "muhammed fuhad c",
-                "iot developer", "embedded systems developer", "mobile app developer",
-                "flutter developer", "python developer", "arduino developer",
-                "raspberry pi developer", "smart agriculture", "healthcare monitoring",
-                "research", "ieee", "springer", "kerala developer", "india developer",
-                "portfolio", "software engineer", "researcher", "toyota industries",
-                "christ university", "btech", "computer science", "engineering",
-                "instagram fuad", "facebook fuad", "linkedin fuad", "github fuad",
-                "twitter fuad", "researchgate fuad", "contact fuad", "hire fuad",
-                "collaboration", "social media", "professional networking"
-              ].map((keyword, index) => (
-                <span
-                  key={index}
-                  className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium"
-                >
-                  {keyword}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
-    </>
+    </section>
   )
 }
 
 export default Social
+
+
 
 

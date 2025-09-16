@@ -73,7 +73,7 @@ const Skills = () => {
   }
 
   return (
-    <div style={{ padding: '2rem 0', minHeight: '100vh' }}>
+    <section id="skills" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
         title="Skills & Technologies - Muhammed Fuhad C (Fuad) | IoT & Development Expertise | Technical Profile"
         description="Comprehensive overview of technical skills and technologies mastered by Muhammed Fuhad C (Fuad) including IoT, Embedded Systems, Mobile Development, and Research methodologies. Connect for technical discussions."
@@ -341,7 +341,7 @@ const Skills = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

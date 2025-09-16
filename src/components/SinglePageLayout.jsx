@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { 
   Sun, 
@@ -17,57 +16,104 @@ import {
   Mail 
 } from 'lucide-react'
 
-const Layout = ({ children, darkMode, toggleDarkMode }) => {
+const SinglePageLayout = ({ children, darkMode, toggleDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [, setScrolled] = useState(false)
-  const location = useLocation()
+  const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
 
   const navigation = [
-    { name: 'Home', href: '/', icon: Home },
-    { name: 'About', href: '/about', icon: User },
-    { name: 'Experience', href: '/experience', icon: Briefcase },
-    { name: 'Publications', href: '/publications', icon: FileText },
-    { name: 'Projects', href: '/projects', icon: Code },
-    { name: 'Skills', href: '/skills', icon: Award },
-    { name: 'Achievements', href: '/achievements', icon: Trophy },
-    { name: 'Contact', href: '/contact', icon: Mail },
+    { name: 'Home', href: '#home', icon: Home },
+    { name: 'About', href: '#about', icon: User },
+    { name: 'Experience', href: '#experience', icon: Briefcase },
+    { name: 'Publications', href: '#publications', icon: FileText },
+    { name: 'Projects', href: '#projects', icon: Code },
+    { name: 'Skills', href: '#skills', icon: Award },
+    { name: 'Achievements', href: '#achievements', icon: Trophy },
+    { name: 'Contact', href: '#contact', icon: Mail },
   ]
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+      
+      // Update active section based on scroll position
+      const sections = navigation.map(nav => nav.href.substring(1))
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 100 && rect.bottom >= 100
+        }
+        return false
+      })
+      
+      if (currentSection) {
+        setActiveSection(currentSection)
+      }
     }
+    
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [navigation])
 
   useEffect(() => {
     setIsMenuOpen(false)
-  }, [location])
+  }, [activeSection])
+
+  const scrollToSection = (href) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
+  const navbarStyle = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1000,
+    backgroundColor: scrolled ? (darkMode ? 'rgba(30, 41, 59, 0.95)' : 'rgba(255, 255, 255, 0.95)') : 'transparent',
+    backdropFilter: scrolled ? 'blur(10px)' : 'none',
+    borderBottom: scrolled ? `1px solid ${darkMode ? '#334155' : '#e2e8f0'}` : 'none',
+    transition: 'all 0.3s ease'
+  }
 
   return (
     <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
       {/* Navigation */}
-      <nav className="navbar">
+      <nav style={navbarStyle}>
         <div className="navbar-content">
           {/* Logo */}
-          <Link to="/" className="navbar-brand">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <div style={{ 
-                width: '2rem', 
-                height: '2rem', 
-                backgroundColor: '#3b82f6', 
-                borderRadius: '0.5rem', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center' 
-              }}>
-                <span style={{ color: 'white', fontWeight: 'bold' }}>M</span>
-              </div>
-              <span className="desktop-logo">Muhammed Fuhad C</span>
-              <span className="mobile-logo">MFC</span>
+          <button 
+            onClick={() => scrollToSection('#home')}
+            className="navbar-brand"
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <div style={{ 
+              width: '2rem', 
+              height: '2rem', 
+              backgroundColor: '#3b82f6', 
+              borderRadius: '0.5rem', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center' 
+            }}>
+              <span style={{ color: 'white', fontWeight: 'bold' }}>M</span>
             </div>
-          </Link>
+            <span className="desktop-logo">Muhammed Fuhad C</span>
+            <span className="mobile-logo">MFC</span>
+          </button>
 
           {/* Desktop & Tablet Navigation */}
           <div style={{
@@ -80,12 +126,11 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
             <ul className="navbar-nav">
               {navigation.map((item) => {
                 const Icon = item.icon
-                const isActive = location.pathname === item.href
+                const isActive = activeSection === item.href.substring(1)
                 return (
                   <li key={item.name}>
-                    <Link
-                      to={item.href}
-                      className="touch-target"
+                    <button
+                      onClick={() => scrollToSection(item.href)}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -97,12 +142,14 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
                         backgroundColor: isActive ? '#eff6ff' : 'transparent',
                         fontWeight: '500',
                         transition: 'all 0.2s ease',
-                        minHeight: '44px'
+                        border: 'none',
+                        cursor: 'pointer',
+                        background: isActive ? '#eff6ff' : 'transparent'
                       }}
                     >
                       <Icon size={16} />
                       <span>{item.name}</span>
-                    </Link>
+                    </button>
                   </li>
                 )
               })}
@@ -111,9 +158,8 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="theme-toggle touch-target"
+              className="theme-toggle"
               aria-label="Toggle theme"
-              style={{ minHeight: '44px', minWidth: '44px' }}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
@@ -128,9 +174,8 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="theme-toggle touch-target"
+              className="theme-toggle"
               aria-label="Toggle theme"
-              style={{ minHeight: '44px', minWidth: '44px' }}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
@@ -138,9 +183,8 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="theme-toggle touch-target"
+              className="theme-toggle"
               aria-label="Toggle menu"
-              style={{ minHeight: '44px', minWidth: '44px' }}
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -150,23 +194,25 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="mobile-menu bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-gray-700"
+            <div
+              style={{
+                opacity: isMenuOpen ? 1 : 0,
+                height: isMenuOpen ? 'auto' : 0,
+                overflow: 'hidden',
+                transition: 'all 0.2s ease',
+                backgroundColor: darkMode ? '#1e293b' : '#ffffff',
+                borderTop: `1px solid ${darkMode ? '#334155' : '#e2e8f0'}`
+              }}
             >
               <div className="container py-4">
-                <ul className="space-y-2" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {navigation.map((item) => {
                     const Icon = item.icon
-                    const isActive = location.pathname === item.href
+                    const isActive = activeSection === item.href.substring(1)
                     return (
                       <li key={item.name} style={{ listStyle: 'none' }}>
-                        <Link
-                          to={item.href}
-                          className="touch-target"
+                        <button
+                          onClick={() => scrollToSection(item.href)}
                           style={{
                             display: 'flex',
                             alignItems: 'center',
@@ -178,24 +224,28 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
                             backgroundColor: isActive ? '#eff6ff' : 'transparent',
                             fontWeight: '500',
                             transition: 'all 0.2s ease',
-                            minHeight: '44px'
+                            border: 'none',
+                            cursor: 'pointer',
+                            width: '100%',
+                            textAlign: 'left',
+                            background: isActive ? '#eff6ff' : 'transparent'
                           }}
                         >
                           <Icon size={20} />
                           <span>{item.name}</span>
-                        </Link>
+                        </button>
                       </li>
                     )
                   })}
                 </ul>
               </div>
-            </motion.div>
+            </div>
           )}
         </AnimatePresence>
       </nav>
 
       {/* Main Content */}
-      <main>
+      <main style={{ paddingTop: '0' }}>
         {children}
       </main>
 
@@ -206,15 +256,14 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
         padding: '2rem 0'
       }}>
         <div className="container">
-          <div className="mobile-flex-col" style={{ 
+          <div style={{ 
             display: 'flex', 
             justifyContent: 'space-between', 
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '1rem',
-            textAlign: 'center'
+            gap: '1rem'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <div style={{ 
                 width: '1.5rem', 
                 height: '1.5rem', 
@@ -226,14 +275,14 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
               }}>
                 <span style={{ color: 'white', fontWeight: 'bold', fontSize: '0.875rem' }}>M</span>
               </div>
-              <span className="mobile-text-sm" style={{ 
+              <span style={{ 
                 color: darkMode ? '#94a3b8' : '#64748b', 
                 fontWeight: '500' 
               }}>
                 Muhammed Fuhad C
               </span>
             </div>
-            <div className="mobile-text-sm" style={{ 
+            <div style={{ 
               fontSize: '0.875rem', 
               color: darkMode ? '#94a3b8' : '#64748b' 
             }}>
@@ -246,4 +295,4 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
   )
 }
 
-export default Layout
+export default SinglePageLayout
