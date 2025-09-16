@@ -12,28 +12,28 @@
     { "name": "Email", "href": "mailto:fuhadcs@icloud.com", "icon": "Mail" }
   ],
   "quickStats": [
-    { "label": "Projects Completed", "value": "7+", "icon": "Code" },
-    { "label": "IoT Solutions", "value": "4+", "icon": "Cpu" },
-    { "label": "Mobile Apps", "value": "3+", "icon": "Globe" },
-    { "label": "Research Papers", "value": "3+", "icon": "Database" }
+    { "label": "Projects Completed", "value": "13", "icon": "Code" },
+    { "label": "Publications", "value": "5+", "icon": "Database" },
+    { "label": "Certifications", "value": "17", "icon": "Award" },
+    { "label": "Experience", "value": "2+", "icon": "Briefcase" }
   ],
   "coreExpertise": [
     {
-      "title": "IoT Development",
-      "description": "Arduino, Raspberry Pi, sensors, and embedded systems",
+      "title": "IoT & Mobile Apps",
+      "description": "Arduino, Raspberry Pi, Flutter, cross-platform development",
       "icon": "Cpu",
       "color": "#3b82f6"
     },
     {
-      "title": "Mobile Apps",
-      "description": "Flutter, Dart, cross-platform development",
-      "icon": "Code",
+      "title": "IEEE & Springer Publications",
+      "description": "Published research papers, data analysis, innovation",
+      "icon": "Database",
       "color": "#16a34a"
     },
     {
-      "title": "Research",
-      "description": "Published papers, data analysis, innovation",
-      "icon": "Database",
+      "title": "Professional Certifications",
+      "description": "17+ certifications in AI, IoT, Python, and web development",
+      "icon": "Award",
       "color": "#9333ea"
     }
   ]

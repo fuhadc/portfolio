@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { 
   Mail, 
   Phone, 
@@ -9,13 +9,17 @@ import {
   ExternalLink,
   MessageCircle,
   Clock,
-  CheckCircle
+  CheckCircle,
+  AlertCircle,
+  XCircle
 } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 import SEO from '../components/SEO'
 import contactData from '../data/contact.json'
 import { getIcon } from '../utils/iconMapper'
 
 const Contact = () => {
+  const form = useRef()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,24 +28,131 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState(null)
+  const [formErrors, setFormErrors] = useState({})
 
   const handleChange = (e) => {
+    const { name, value } = e.target
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     })
+    
+    // Clear error for this field when user starts typing
+    if (formErrors[name]) {
+      setFormErrors({
+        ...formErrors,
+        [name]: ''
+      })
+    }
+  }
+
+  const validateForm = () => {
+    const errors = {}
+    
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required'
+    }
+    
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required'
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Please enter a valid email address'
+    }
+    
+    if (!formData.subject.trim()) {
+      errors.subject = 'Subject is required'
+    }
+    
+    if (!formData.message.trim()) {
+      errors.message = 'Message is required'
+    } else if (formData.message.trim().length < 10) {
+      errors.message = 'Message must be at least 10 characters long'
+    }
+    
+    setFormErrors(errors)
+    return Object.keys(errors).length === 0
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setIsSubmitting(true)
     
-    // Simulate form submission
-    setTimeout(() => {
+    if (!validateForm()) {
+      return
+    }
+    
+    setIsSubmitting(true)
+    setSubmitError(null)
+    
+    try {
+      // EmailJS configuration - you'll need to replace these with your actual EmailJS credentials
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_1234567'
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_1234567'
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'your_public_key'
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Muhammed Fuhad C',
+        reply_to: formData.email
+      }
+      
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      )
+      
+      console.log('Email sent successfully:', result)
+      
       setIsSubmitting(false)
       setIsSubmitted(true)
       setFormData({ name: '', email: '', subject: '', message: '' })
-    }, 2000)
+      setFormErrors({})
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+      }, 5000)
+      
+    } catch (error) {
+      console.error('Error sending email:', error)
+      setIsSubmitting(false)
+      
+      // Create mailto link as fallback
+      const mailtoLink = `mailto:fuhadcs@icloud.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+        `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
+      )}`
+      
+      setSubmitError(
+        <div>
+          <p>Failed to send message automatically. Please click the button below to send via your email client:</p>
+          <a 
+            href={mailtoLink}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '0.5rem 1rem',
+              backgroundColor: '#3b82f6',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '0.375rem',
+              fontSize: '0.875rem',
+              fontWeight: '500',
+              marginTop: '0.5rem',
+              gap: '0.5rem'
+            }}
+          >
+            <Mail size={16} />
+            Open Email Client
+          </a>
+        </div>
+      )
+    }
   }
 
   const { contactInfo, socialLinks, availability } = contactData
@@ -168,12 +279,52 @@ const Contact = () => {
                 }}>
                   Message Sent Successfully!
                 </h3>
-                <p style={{ color: '#64748b' }}>
+                <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>
                   Thank you for your message. I'll get back to you within 24 hours.
                 </p>
+                <button
+                  onClick={() => setIsSubmitted(false)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '0.5rem 1rem',
+                    backgroundColor: '#3b82f6',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.375rem',
+                    fontSize: '0.875rem',
+                    fontWeight: '500',
+                    cursor: 'pointer',
+                    gap: '0.5rem',
+                    transition: 'background-color 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => e.target.style.backgroundColor = '#2563eb'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = '#3b82f6'}
+                >
+                  <Send size={16} />
+                  Send Another Message
+                </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form ref={form} onSubmit={handleSubmit}>
+                {submitError && (
+                  <div style={{
+                    padding: '1rem',
+                    backgroundColor: '#fef2f2',
+                    border: '1px solid #fecaca',
+                    borderRadius: '0.5rem',
+                    marginBottom: '1.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}>
+                    <XCircle size={20} color="#dc2626" />
+                    <span style={{ color: '#dc2626', fontSize: '0.875rem' }}>
+                      {submitError}
+                    </span>
+                  </div>
+                )}
+                
                 <div style={{ marginBottom: '1.5rem' }}>
                   <label style={{
                     display: 'block',
@@ -193,13 +344,24 @@ const Contact = () => {
                     style={{
                       width: '100%',
                       padding: '0.75rem',
-                      border: '1px solid #d1d5db',
+                      border: `1px solid ${formErrors.name ? '#dc2626' : '#d1d5db'}`,
                       borderRadius: '0.5rem',
                       fontSize: '1rem',
-                      transition: 'border-color 0.3s ease'
+                      transition: 'border-color 0.3s ease',
+                      backgroundColor: formErrors.name ? '#fef2f2' : 'white'
                     }}
                     placeholder="Your full name"
                   />
+                  {formErrors.name && (
+                    <p style={{
+                      color: '#dc2626',
+                      fontSize: '0.75rem',
+                      marginTop: '0.25rem',
+                      marginBottom: 0
+                    }}>
+                      {formErrors.name}
+                    </p>
+                  )}
                 </div>
 
                 <div style={{ marginBottom: '1.5rem' }}>
@@ -221,13 +383,24 @@ const Contact = () => {
                     style={{
                       width: '100%',
                       padding: '0.75rem',
-                      border: '1px solid #d1d5db',
+                      border: `1px solid ${formErrors.email ? '#dc2626' : '#d1d5db'}`,
                       borderRadius: '0.5rem',
                       fontSize: '1rem',
-                      transition: 'border-color 0.3s ease'
+                      transition: 'border-color 0.3s ease',
+                      backgroundColor: formErrors.email ? '#fef2f2' : 'white'
                     }}
                     placeholder="your.email@example.com"
                   />
+                  {formErrors.email && (
+                    <p style={{
+                      color: '#dc2626',
+                      fontSize: '0.75rem',
+                      marginTop: '0.25rem',
+                      marginBottom: 0
+                    }}>
+                      {formErrors.email}
+                    </p>
+                  )}
                 </div>
 
                 <div style={{ marginBottom: '1.5rem' }}>
@@ -249,13 +422,24 @@ const Contact = () => {
                     style={{
                       width: '100%',
                       padding: '0.75rem',
-                      border: '1px solid #d1d5db',
+                      border: `1px solid ${formErrors.subject ? '#dc2626' : '#d1d5db'}`,
                       borderRadius: '0.5rem',
                       fontSize: '1rem',
-                      transition: 'border-color 0.3s ease'
+                      transition: 'border-color 0.3s ease',
+                      backgroundColor: formErrors.subject ? '#fef2f2' : 'white'
                     }}
                     placeholder="What's this about?"
                   />
+                  {formErrors.subject && (
+                    <p style={{
+                      color: '#dc2626',
+                      fontSize: '0.75rem',
+                      marginTop: '0.25rem',
+                      marginBottom: 0
+                    }}>
+                      {formErrors.subject}
+                    </p>
+                  )}
                 </div>
 
                 <div style={{ marginBottom: '2rem' }}>
@@ -277,14 +461,33 @@ const Contact = () => {
                     style={{
                       width: '100%',
                       padding: '0.75rem',
-                      border: '1px solid #d1d5db',
+                      border: `1px solid ${formErrors.message ? '#dc2626' : '#d1d5db'}`,
                       borderRadius: '0.5rem',
                       fontSize: '1rem',
                       resize: 'vertical',
-                      transition: 'border-color 0.3s ease'
+                      transition: 'border-color 0.3s ease',
+                      backgroundColor: formErrors.message ? '#fef2f2' : 'white'
                     }}
                     placeholder="Tell me about your project or question..."
                   />
+                  {formErrors.message && (
+                    <p style={{
+                      color: '#dc2626',
+                      fontSize: '0.75rem',
+                      marginTop: '0.25rem',
+                      marginBottom: 0
+                    }}>
+                      {formErrors.message}
+                    </p>
+                  )}
+                  <p style={{
+                    color: '#6b7280',
+                    fontSize: '0.75rem',
+                    marginTop: '0.25rem',
+                    marginBottom: 0
+                  }}>
+                    {formData.message.length}/500 characters (minimum 10)
+                  </p>
                 </div>
 
                 <button
