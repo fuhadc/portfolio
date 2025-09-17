@@ -2,7 +2,7 @@
 // This utility can be used to generate dynamic sitemaps
 
 export const generateSitemap = () => {
-  const baseUrl = 'https://muhammedfuhadc.dev'
+  const baseUrl = 'https://www.mfuhad.xyz'
   const currentDate = new Date().toISOString().split('T')[0]
   
   const pages = [
@@ -124,7 +124,7 @@ Host: https://muhammedfuhadc.dev`
 
 // Generate structured data for different page types
 export const generatePageStructuredData = (pageType, pageData) => {
-  const baseUrl = 'https://muhammedfuhadc.dev'
+  const baseUrl = 'https://www.mfuhad.xyz'
   
   const structuredDataTemplates = {
     person: {
@@ -206,7 +206,7 @@ export const generatePageStructuredData = (pageType, pageData) => {
 export const seoUtils = {
   // Generate meta tags for a page
   generateMetaTags: (pageData) => {
-    const baseUrl = 'https://muhammedfuhadc.dev'
+    const baseUrl = 'https://www.mfuhad.xyz'
     const defaultImage = `${baseUrl}/og-image.jpg`
     
     return {

@@ -21,8 +21,8 @@ const Home = memo(() => {
   return (
     <>
       <SEO 
-        title="Muhammed Fuhad C - IoT & Embedded Systems Developer | Portfolio | Social Media Links"
-        description="Muhammed Fuhad C - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps. View portfolio, projects, and connect on social media. Find me on Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate."
+        title="Muhammed Fuhad C - IoT & Embedded Systems Developer"
+        description="IoT & Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile apps. IEEE & Springer researcher."
         keywords="fuhad, muhammed fuhad, fuhad c, muhammed fuhad c, iot developer, embedded systems developer, smart agriculture, healthcare monitoring, mobile app developer, flutter developer, python developer, arduino, raspberry pi, research, ieee, springer, kerala, india, portfolio, developer, software engineer, researcher, toyota industries, christ university, btech, computer science, engineering, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, hire, collaboration"
         url="/"
         type="website"
@@ -112,7 +112,7 @@ const Home = memo(() => {
             </div>
             
             <div className="hero-description">
-              {hero.subtitle}
+              {hero.subtitle} - Specializing in <strong>IoT development</strong>, <strong>embedded systems</strong>, <strong>smart agriculture</strong>, and <strong>healthcare monitoring</strong> solutions.
             </div>
 
             {/* Description */}
@@ -274,7 +274,7 @@ const Home = memo(() => {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <h2 className="section-title">
-              Core Expertise
+              IoT & Embedded Systems Expertise
             </h2>
             <p style={{
               fontSize: '1.125rem',
@@ -282,7 +282,11 @@ const Home = memo(() => {
               maxWidth: '32rem',
               margin: '0 auto'
             }}>
-              Specialized skills in IoT development, mobile applications, and research
+              Specialized skills in IoT development, mobile applications, and research. 
+              <a href="/skills" style={{ color: '#3b82f6', textDecoration: 'none' }}> View detailed skills</a> or 
+              <a href="/projects" style={{ color: '#3b82f6', textDecoration: 'none' }}> explore my projects</a>. 
+              Learn more <a href="/about" style={{ color: '#3b82f6', textDecoration: 'none' }}>about my background</a> or 
+              <a href="/publications" style={{ color: '#3b82f6', textDecoration: 'none' }}>view my research publications</a>.
             </p>
           </div>
 
@@ -345,7 +349,9 @@ const Home = memo(() => {
               margin: '0 auto'
             }}>
               Find me on all social media platforms and get in touch for IoT projects, 
-              collaborations, and professional networking opportunities.
+              collaborations, and professional networking opportunities. Check out my work on 
+              <a href="https://github.com/fuhadc" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'none' }}> GitHub</a> and 
+              <a href="https://www.researchgate.net/profile/Muhammed-Fuhad" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'none' }}> ResearchGate</a>.
             </p>
           </div>
 

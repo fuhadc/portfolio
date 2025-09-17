@@ -2,7 +2,7 @@
 // This file contains utilities to optimize SEO performance and social media discoverability
 
 export const generateSocialMediaMeta = (pageData) => {
-  const baseUrl = 'https://muhammedfuhadc.dev'
+  const baseUrl = 'https://www.mfuhad.xyz'
   const defaultImage = `${baseUrl}/og-image.jpg`
   
   return {
@@ -28,7 +28,7 @@ export const generateSocialMediaMeta = (pageData) => {
     'twitter:image:alt': pageData.imageAlt || 'Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer Portfolio',
     'twitter:creator': '@_fuhad_c',
     'twitter:site': '@_fuhad_c',
-    'twitter:domain': 'muhammedfuhadc.dev',
+    'twitter:domain': 'www.mfuhad.xyz',
     
     // LinkedIn specific
     'linkedin:owner': 'fuhadc',
@@ -57,8 +57,8 @@ export const generatePersonStructuredData = () => {
     familyName: 'C',
     jobTitle: 'IoT & Embedded Systems Developer | Researcher | Software Engineer',
     description: 'Passionate IoT and Embedded Systems enthusiast, researcher, and developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India.',
-    url: 'https://muhammedfuhadc.dev',
-    image: 'https://muhammedfuhadc.dev/profile-image.jpg',
+    url: 'https://www.mfuhad.xyz',
+    image: 'https://www.mfuhad.xyz/profile-image.jpg',
     email: 'fuhadcs@icloud.com',
     telephone: '+91-7306525489',
     address: {
@@ -121,7 +121,7 @@ export const generatePersonStructuredData = () => {
 export const generateWebsiteStructuredData = () => {
   return generateStructuredData('WebSite', {
     name: 'Muhammed Fuhad C Portfolio',
-    url: 'https://muhammedfuhadc.dev',
+    url: 'https://www.mfuhad.xyz',
     description: 'Professional portfolio of Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer',
     author: {
       '@type': 'Person',
@@ -135,7 +135,7 @@ export const generateWebsiteStructuredData = () => {
     isAccessibleForFree: true,
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://muhammedfuhadc.dev/search?q={search_term_string}',
+      target: 'https://www.mfuhad.xyz/search?q={search_term_string}',
       'query-input': 'required name=search_term_string'
     }
   })
@@ -144,8 +144,8 @@ export const generateWebsiteStructuredData = () => {
 export const generateOrganizationStructuredData = () => {
   return generateStructuredData('Organization', {
     name: 'Muhammed Fuhad C Portfolio',
-    url: 'https://muhammedfuhadc.dev',
-    logo: 'https://muhammedfuhadc.dev/logo.png',
+    url: 'https://www.mfuhad.xyz',
+    logo: 'https://www.mfuhad.xyz/logo.png',
     description: 'Professional portfolio showcasing IoT, Embedded Systems, and Research work by Muhammed Fuhad C',
     founder: {
       '@type': 'Person',
@@ -232,7 +232,7 @@ export const generateLocalBusinessStructuredData = () => {
   return generateStructuredData('LocalBusiness', {
     name: 'Muhammed Fuhad C - IoT & Embedded Systems Developer',
     description: 'Professional IoT and Embedded Systems development services',
-    url: 'https://muhammedfuhadc.dev',
+    url: 'https://www.mfuhad.xyz',
     telephone: '+91-7306525489',
     email: 'fuhadcs@icloud.com',
     address: {
@@ -333,7 +333,7 @@ export const optimizeImageForSEO = (imageUrl, altText, title) => {
 }
 
 export const generateCanonicalUrl = (path) => {
-  const baseUrl = 'https://muhammedfuhadc.dev'
+  const baseUrl = 'https://www.mfuhad.xyz'
   return `${baseUrl}${path.startsWith('/') ? path : `/${path}`}`
 }
 
@@ -348,7 +348,7 @@ export const generateMetaRobots = (index = true, follow = true) => {
 }
 
 export const generateHreflangTags = (languages = ['en-US', 'en-IN']) => {
-  const baseUrl = 'https://muhammedfuhadc.dev'
+  const baseUrl = 'https://www.mfuhad.xyz'
   return languages.map(lang => ({
     rel: 'alternate',
     hreflang: lang,

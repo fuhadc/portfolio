@@ -20,8 +20,8 @@ const About = () => {
   return (
     <section id="about" className="section" style={{ padding: '4rem 0' }}>
       <SEO 
-        title="About Muhammed Fuhad C | IoT & Embedded Systems Developer | Social Media Links"
-        description="Learn about Muhammed Fuhad C, a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India. Connect on social media platforms."
+        title="About Muhammed Fuhad C | IoT & Embedded Systems Developer"
+        description="Learn about Muhammed Fuhad C, a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications."
         keywords="fuhad about, muhammed fuhad c about, IoT developer, Embedded Systems developer, Smart Agriculture, Healthcare Monitoring, Mobile App Developer, Kerala India, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, personal profile, background, education, christ university, toyota industries"
         url="/about"
         type="article"

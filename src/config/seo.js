@@ -2,12 +2,12 @@
 export const seoConfig = {
   // Default SEO settings
   default: {
-    title: "Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer | Portfolio | Social Media Links",
-    description: "Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps. View portfolio, projects, and connect on social media. Find me on Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate.",
+    title: "Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer | Portfolio",
+    description: "Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps.",
     keywords: "fuad, fuhad, muhammed fuhad, fuhad c, muhammed fuhad c, iot developer, embedded systems developer, smart agriculture, healthcare monitoring, mobile app developer, flutter developer, python developer, arduino, raspberry pi, research, ieee, springer, kerala, india, portfolio, developer, software engineer, researcher, toyota industries, christ university, btech, computer science, engineering, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, hire, collaboration",
     author: "Muhammed Fuhad C",
-    url: "https://muhammedfuhadc.dev",
-    image: "https://muhammedfuhadc.dev/og-image.jpg",
+    url: "https://www.mfuhad.xyz",
+    image: "https://www.mfuhad.xyz/og-image.jpg",
     type: "website",
     locale: "en_US",
     siteName: "Muhammed Fuhad C Portfolio"
@@ -16,8 +16,8 @@ export const seoConfig = {
   // Page-specific SEO configurations
   pages: {
     home: {
-      title: "Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer | Portfolio | Social Media",
-      description: "Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps. View portfolio, projects, and connect on social media. Find me on Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate.",
+      title: "Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer | Portfolio",
+      description: "Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps.",
       keywords: "fuad, fuhad, muhammed fuhad, fuhad c, muhammed fuhad c, iot developer, embedded systems developer, smart agriculture, healthcare monitoring, mobile app developer, flutter developer, python developer, arduino, raspberry pi, research, ieee, springer, kerala, india, portfolio, developer, software engineer, researcher, toyota industries, christ university, btech, computer science, engineering, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, hire, collaboration",
       url: "/",
       type: "website",
@@ -25,8 +25,8 @@ export const seoConfig = {
     },
     
     about: {
-      title: "About Muhammed Fuhad C (Fuad) | IoT & Embedded Systems Developer | Social Media Links",
-      description: "Learn about Muhammed Fuhad C (Fuad), a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India. Connect on social media platforms.",
+      title: "About Muhammed Fuhad C (Fuad) | IoT & Embedded Systems Developer",
+      description: "Learn about Muhammed Fuhad C (Fuad), a passionate IoT and Embedded Systems developer specializing in smart agriculture, healthcare monitoring, and mobile applications.",
       keywords: "fuad about, fuhad about, muhammed fuhad c about, IoT developer, Embedded Systems developer, Smart Agriculture, Healthcare Monitoring, Mobile App Developer, Kerala India, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact",
       url: "/about",
       type: "article",
@@ -124,8 +124,8 @@ export const seoConfig = {
       familyName: "C",
       jobTitle: "IoT & Embedded Systems Developer | Researcher | Software Engineer",
       description: "Passionate IoT and Embedded Systems enthusiast, researcher, and developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India.",
-      url: "https://muhammedfuhadc.dev",
-      image: "https://muhammedfuhadc.dev/profile-image.jpg",
+      url: "https://www.mfuhad.xyz",
+      image: "https://www.mfuhad.xyz/profile-image.jpg",
       email: "fuhadcs@icloud.com",
       telephone: "+91-7306525489",
       address: {
@@ -188,7 +188,7 @@ export const seoConfig = {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Muhammed Fuhad C Portfolio",
-      url: "https://muhammedfuhadc.dev",
+      url: "https://www.mfuhad.xyz",
       logo: "https://muhammedfuhadc.dev/logo.png",
       description: "Professional portfolio showcasing IoT, Embedded Systems, and Research work by Muhammed Fuhad C",
       founder: {
@@ -209,7 +209,7 @@ export const seoConfig = {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: "Muhammed Fuhad C Portfolio",
-      url: "https://muhammedfuhadc.dev",
+      url: "https://www.mfuhad.xyz",
       description: "Professional portfolio of Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer",
       author: {
         "@type": "Person",
@@ -223,7 +223,7 @@ export const seoConfig = {
       isAccessibleForFree: true,
       potentialAction: {
         "@type": "SearchAction",
-        target: "https://muhammedfuhadc.dev/search?q={search_term_string}",
+        target: "https://www.mfuhad.xyz/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     },

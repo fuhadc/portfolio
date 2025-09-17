@@ -15,7 +15,7 @@ const SEO = ({
   tags = [],
   structuredData
 }) => {
-  const baseUrl = 'https://muhammedfuhadc.dev'
+  const baseUrl = 'https://www.mfuhad.xyz'
   const defaultImage = `${baseUrl}/og-image.jpg`
   const fullUrl = url ? `${baseUrl}${url}` : baseUrl
   const fullImage = image ? `${baseUrl}${image}` : defaultImage
@@ -126,7 +126,7 @@ const SEO = ({
       <meta property="twitter:image:alt" content="Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer Portfolio" />
       <meta property="twitter:creator" content="@_fuhad_c" />
       <meta property="twitter:site" content="@_fuhad_c" />
-      <meta property="twitter:domain" content="muhammedfuhadc.dev" />
+      <meta property="twitter:domain" content="www.mfuhad.xyz" />
       
       {/* LinkedIn */}
       <meta property="linkedin:owner" content="fuhadc" />

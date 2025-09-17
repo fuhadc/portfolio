@@ -101,7 +101,7 @@ const mockStructuredData = {
   "alternateName": ["Fuhad C", "Fuad", "Fuhad", "Muhammed Fuhad"],
   "jobTitle": "IoT & Embedded Systems Developer | Researcher | Software Engineer",
   "description": "Passionate IoT and Embedded Systems enthusiast, researcher, and developer specializing in smart agriculture, healthcare monitoring, and mobile applications.",
-  "url": "https://muhammedfuhadc.dev",
+  "url": "https://www.mfuhad.xyz",
   "email": "fuhadcs@icloud.com",
   "telephone": "+91-7306525489",
   "address": {
