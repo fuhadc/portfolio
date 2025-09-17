@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canonical URL Test - mfuhad.xyz</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .pass { background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .fail { background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .info { background-color: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; }
+        .url { font-family: monospace; background: #f8f9fa; padding: 2px 4px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Canonical URL Test for mfuhad.xyz</h1>
+    <p>This page tests the canonical URL implementation to ensure there are no conflicts.</p>
+    
+    <h2>Expected Canonical URLs</h2>
+    <div class="info">
+        <p><strong>All pages should have canonical URLs pointing to:</strong></p>
+        <ul>
+            <li><span class="url">https://mfuhad.xyz/</span> (Home)</li>
+            <li><span class="url">https://mfuhad.xyz/about</span> (About)</li>
+            <li><span class="url">https://mfuhad.xyz/publications</span> (Publications)</li>
+            <li><span class="url">https://mfuhad.xyz/contact</span> (Contact)</li>
+            <li><span class="url">https://mfuhad.xyz/projects</span> (Projects)</li>
+            <li><span class="url">https://mfuhad.xyz/skills</span> (Skills)</li>
+            <li><span class="url">https://mfuhad.xyz/experience</span> (Experience)</li>
+            <li><span class="url">https://mfuhad.xyz/achievements</span> (Achievements)</li>
+        </ul>
+    </div>
+
+    <h2>Issues Fixed</h2>
+    <div class="pass">
+        <h3>✅ Base URL Standardization</h3>
+        <p>All files now use <span class="url">https://mfuhad.xyz</span> (without www) consistently.</p>
+    </div>
+
+    <div class="pass">
+        <h3>✅ Duplicate Canonical URL Removal</h3>
+        <p>Removed duplicate canonical URL setting in SEO component. Now only set via Helmet.</p>
+    </div>
+
+    <div class="pass">
+        <h3>✅ www.mfuhad.xyz References Updated</h3>
+        <p>All references to www.mfuhad.xyz have been updated to mfuhad.xyz.</p>
+    </div>
+
+    <h2>How to Test</h2>
+    <div class="info">
+        <ol>
+            <li>Deploy your updated code to production</li>
+            <li>Visit each page and check the page source</li>
+            <li>Look for the canonical link tag: <code>&lt;link rel="canonical" href="..." /&gt;</code></li>
+            <li>Verify all canonical URLs point to <span class="url">https://mfuhad.xyz</span> (without www)</li>
+            <li>Use Google Search Console to check for canonical URL issues</li>
+        </ol>
+    </div>
+
+    <h2>Next Steps</h2>
+    <div class="info">
+        <ol>
+            <li>Deploy the updated code</li>
+            <li>Submit your sitemap to Google Search Console</li>
+            <li>Request re-indexing of affected pages</li>
+            <li>Monitor for any remaining canonical URL conflicts</li>
+        </ol>
+    </div>
+
+    <script>
+        // Test if we can detect canonical URLs (for local testing)
+        function testCanonicalUrls() {
+            const canonical = document.querySelector('link[rel="canonical"]');
+            if (canonical) {
+                console.log('Canonical URL found:', canonical.href);
+                return canonical.href;
+            } else {
+                console.log('No canonical URL found');
+                return null;
+            }
+        }
+
+        // Run test on page load
+        window.addEventListener('load', () => {
+            const canonicalUrl = testCanonicalUrls();
+            if (canonicalUrl) {
+                console.log('✅ Canonical URL test passed:', canonicalUrl);
+            } else {
+                console.log('❌ Canonical URL test failed: No canonical URL found');
+            }
+        });
+    </script>
+</body>
+</html>

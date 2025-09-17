@@ -15,7 +15,7 @@ const SEO = ({
   tags = [],
   structuredData
 }) => {
-  const baseUrl = import.meta.env.VITE_SITE_URL || 'https://www.mfuhad.xyz'
+  const baseUrl = import.meta.env.VITE_SITE_URL || 'https://mfuhad.xyz'
   const defaultImage = `${baseUrl}/og-image.jpg`
   const fullUrl = url ? `${baseUrl}${url}` : baseUrl
   const fullImage = image ? `${baseUrl}${image}` : defaultImage
@@ -35,14 +35,7 @@ const SEO = ({
       metaDescription.setAttribute('content', description || 'Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps. View portfolio, projects, and connect on social media.')
     }
     
-    // Update canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]')
-    if (!canonical) {
-      canonical = document.createElement('link')
-      canonical.setAttribute('rel', 'canonical')
-      document.head.appendChild(canonical)
-    }
-    canonical.setAttribute('href', fullUrl)
+    // Canonical URL is handled by Helmet below
 
     // Add structured data
     if (structuredData) {
@@ -126,7 +119,7 @@ const SEO = ({
       <meta property="twitter:image:alt" content="Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer Portfolio" />
       <meta property="twitter:creator" content="@_fuhad_c" />
       <meta property="twitter:site" content="@_fuhad_c" />
-      <meta property="twitter:domain" content="www.mfuhad.xyz" />
+      <meta property="twitter:domain" content="mfuhad.xyz" />
       
       {/* LinkedIn */}
       <meta property="linkedin:owner" content="fuhadc" />

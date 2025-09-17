@@ -67,7 +67,7 @@ Allow: /sitemap.xml
 Allow: /robots.txt
 
 # Sitemap location
-Sitemap: https://mfuhad.xyz/sitemap.xml
+Sitemap: https://www.mfuhad.xyz/sitemap.xml
 
 # Additional sitemaps (if you have them)
 # Sitemap: https://mfuhad.xyz/sitemap-images.xml

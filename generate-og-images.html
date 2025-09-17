@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate OG Images</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .image-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+        }
+        .content {
+            text-align: center;
+            z-index: 2;
+        }
+        .name {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.8;
+        }
+        .profile-image {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .profile-content {
+            font-size: 24px;
+        }
+        .publications-og {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .projects-og {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .contact-og {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .instructions {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+        }
+        .instructions ol {
+            margin: 10px 0;
+        }
+        .instructions li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="instructions">
+            <h3>📸 How to Generate OG Images:</h3>
+            <ol>
+                <li>Open this HTML file in your browser</li>
+                <li>Right-click on each image below</li>
+                <li>Select "Save image as..." or "Copy image"</li>
+                <li>Save with the correct filename in your public folder</li>
+                <li>Or use browser dev tools to screenshot each image at exact dimensions</li>
+            </ol>
+        </div>
+
+        <!-- Main OG Image -->
+        <div class="image-container">
+            <h3>1. og-image.jpg (1200x630px) - Homepage</h3>
+            <div class="og-image">
+                <div class="content">
+                    <div class="name">Muhammed Fuhad C</div>
+                    <div class="title">IoT & Embedded Systems Developer</div>
+                    <div class="subtitle">Researcher | Portfolio | mfuhad.xyz</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Image -->
+        <div class="image-container">
+            <h3>2. profile-image.jpg (400x400px) - About Page</h3>
+            <div class="profile-image">
+                <div class="profile-content">
+                    <div style="font-size: 36px; font-weight: bold; margin-bottom: 10px;">Muhammed Fuhad C</div>
+                    <div style="font-size: 18px; opacity: 0.9;">IoT & Embedded Systems Developer</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications OG Image -->
+        <div class="image-container">
+            <h3>3. publications-og.jpg (1200x630px) - Publications Page</h3>
+            <div class="publications-og">
+                <div class="content">
+                    <div class="name">Research Publications</div>
+                    <div class="title">IEEE & Springer Papers</div>
+                    <div class="subtitle">IoT | Smart Agriculture | Healthcare Monitoring | mfuhad.xyz</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects OG Image -->
+        <div class="image-container">
+            <h3>4. projects-og.jpg (1200x630px) - Projects Page</h3>
+            <div class="projects-og">
+                <div class="content">
+                    <div class="name">Projects Portfolio</div>
+                    <div class="title">IoT | Mobile Apps & Web Development</div>
+                    <div class="subtitle">Smart Agriculture | Healthcare Monitoring | mfuhad.xyz</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact OG Image -->
+        <div class="image-container">
+            <h3>5. contact-og.jpg (1200x630px) - Contact Page</h3>
+            <div class="contact-og">
+                <div class="content">
+                    <div class="name">Get In Touch</div>
+                    <div class="title">Social Media Links & Contact Info</div>
+                    <div class="subtitle">IoT Projects | Development Services | mfuhad.xyz</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive features
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.og-image, .profile-image, .publications-og, .projects-og, .contact-og');
+            
+            images.forEach((img, index) => {
+                img.addEventListener('click', function() {
+                    // Create a canvas to export the image
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    if (this.classList.contains('profile-image')) {
+                        canvas.width = 400;
+                        canvas.height = 400;
+                    } else {
+                        canvas.width = 1200;
+                        canvas.height = 630;
+                    }
+                    
+                    // Draw the image to canvas
+                    const computedStyle = window.getComputedStyle(this);
+                    ctx.fillStyle = computedStyle.background;
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    // Add text
+                    ctx.fillStyle = 'white';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    
+                    if (this.classList.contains('profile-image')) {
+                        ctx.font = 'bold 36px Arial';
+                        ctx.fillText('Muhammed Fuhad C', canvas.width/2, canvas.height/2 - 20);
+                        ctx.font = '18px Arial';
+                        ctx.fillText('IoT & Embedded Systems Developer', canvas.width/2, canvas.height/2 + 20);
+                    } else {
+                        ctx.font = 'bold 48px Arial';
+                        const texts = this.querySelectorAll('div');
+                        texts.forEach((text, i) => {
+                            ctx.font = i === 0 ? 'bold 48px Arial' : i === 1 ? '28px Arial' : '20px Arial';
+                            ctx.fillText(text.textContent, canvas.width/2, canvas.height/2 - 40 + (i * 40));
+                        });
+                    }
+                    
+                    // Download the image
+                    const link = document.createElement('a');
+                    link.download = `og-image-${index + 1}.png`;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
