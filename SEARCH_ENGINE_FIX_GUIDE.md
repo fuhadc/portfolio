@@ -135,14 +135,53 @@ Search in Google: `site:mfuhad.xyz`
 - **Content quality**: Make sure content is original and valuable
 - **Mobile optimization**: Ensure site works on mobile devices
 
+## 🤖 AI Search Engine Optimization (NEW)
+
+### **AI Crawler Support Added** ✅
+Updated `robots.txt` to allow:
+- **OAI-SearchBot** (ChatGPT's main crawler)
+- **ChatGPT-User** (Real-time requests)
+- **GPTBot** (AI training)
+- **Claude-Web** (Anthropic's crawler)
+- **PerplexityBot** (Perplexity AI)
+
+### **Structured Data for AI** ✅
+Added comprehensive structured data:
+- **FAQ Schema**: Answers common questions about you
+- **HowTo Schema**: IoT development guide
+- **Article Schema**: Research publications
+- **Service Schema**: Your development services
+
+### **AI Search Engine Benefits**:
+- Better ChatGPT visibility and citations
+- Improved Claude and Perplexity indexing
+- Structured answers for AI queries
+- Enhanced technical content discoverability
+
+## 📊 Monitoring AI Crawler Activity
+
+### **Check Server Logs For**:
+```
+OAI-SearchBot
+ChatGPT-User
+GPTBot
+Claude-Web
+PerplexityBot
+```
+
+### **Test AI Search Engines**:
+1. **ChatGPT**: "Who is Muhammed Fuhad C?"
+2. **Claude**: "What IoT services are available in Kerala?"
+3. **Perplexity**: "IoT developer with IEEE publications"
+
 ## 📞 Next Steps
 
 1. **Immediately**: Set up Google Search Console and get verification code
 2. **Today**: Deploy the updated files with correct domain URLs
 3. **This week**: Submit sitemap and request indexing
-4. **Ongoing**: Monitor search console and improve content
+4. **Ongoing**: Monitor search console and AI crawler activity
 
 ---
 
 **Last Updated**: December 20, 2024
-**Status**: Domain URLs fixed, Google Search Console setup required
+**Status**: Domain URLs fixed, AI optimization complete, Google Search Console setup required

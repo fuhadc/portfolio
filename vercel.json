@@ -2,6 +2,23 @@
   "buildCommand": "npm ci --legacy-peer-deps && npm run build",
   "installCommand": "npm install --legacy-peer-deps",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "http://mfuhad.xyz/(.*)",
+      "destination": "https://mfuhad.xyz/$1",
+      "permanent": true
+    },
+    {
+      "source": "https://www.mfuhad.xyz/(.*)",
+      "destination": "https://mfuhad.xyz/$1",
+      "permanent": true
+    },
+    {
+      "source": "http://www.mfuhad.xyz/(.*)",
+      "destination": "https://mfuhad.xyz/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
@@ -23,6 +40,10 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
         }
       ]
     }

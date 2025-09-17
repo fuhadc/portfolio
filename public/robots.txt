@@ -14,6 +14,27 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+# AI Search Engine Crawlers
+User-agent: OAI-SearchBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 1
+
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
 User-agent: Slurp
 Allow: /
 Crawl-delay: 1
