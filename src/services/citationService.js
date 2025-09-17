@@ -3,7 +3,9 @@ class CitationService {
   constructor() {
     this.cache = new Map()
     this.cacheTimeout = 24 * 60 * 60 * 1000 // 24 hours
-    this.apiBaseUrl = import.meta.env.VITE_CITATION_API_URL || 'http://localhost:3001/api'
+    // Use production API URL by default, fallback to localhost for development
+    this.apiBaseUrl = import.meta.env.VITE_CITATION_API_URL || 
+      (import.meta.env.DEV ? 'http://localhost:3001/api' : 'https://citation-api-mfuhad.vercel.app/api')
   }
 
   // Generate Google Scholar search URL
@@ -26,7 +28,7 @@ class CitationService {
       // Check if API is available before making requests
       const isApiAvailable = await this.checkApiAvailability()
       if (!isApiAvailable) {
-        console.warn('Citation API is not available, using mock data for:', title)
+        // Silently use mock data instead of logging warnings
         return this.getMockCitationCount(title)
       }
 
@@ -36,7 +38,11 @@ class CitationService {
         const timeoutId = setTimeout(() => controller.abort(), 8000) // 8 second timeout
         
         const profileResponse = await fetch(`${this.apiBaseUrl}/scholar/profile`, {
-          signal: controller.signal
+          signal: controller.signal,
+          mode: 'cors',
+          headers: {
+            'Accept': 'application/json',
+          }
         })
         
         clearTimeout(timeoutId)
@@ -70,9 +76,11 @@ class CitationService {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({ title, authors, doi }),
-        signal: controller.signal
+        signal: controller.signal,
+        mode: 'cors'
       })
 
       clearTimeout(timeoutId)
@@ -144,7 +152,7 @@ class CitationService {
       // Check if API is available first
       const isApiAvailable = await this.checkApiAvailability()
       if (!isApiAvailable) {
-        console.warn('Citation API is not available, cannot fetch Google Scholar profile')
+        // Silently return null instead of logging warnings
         return null
       }
 
@@ -152,7 +160,11 @@ class CitationService {
       const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
       
       const response = await fetch(`${this.apiBaseUrl}/scholar/profile`, {
-        signal: controller.signal
+        signal: controller.signal,
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+        }
       })
       
       clearTimeout(timeoutId)
@@ -181,7 +193,7 @@ class CitationService {
       // Check if API is available first
       const isApiAvailable = await this.checkApiAvailability()
       if (!isApiAvailable) {
-        console.warn('Citation API is not available, using mock citation data')
+        // Silently use mock data instead of logging warnings
         return this.getPublicationsWithMockCitations(publications)
       }
 
@@ -190,9 +202,10 @@ class CitationService {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({ publications }),
-        timeout: 10000 // 10 second timeout
+        mode: 'cors'
       })
 
       if (response.ok) {
@@ -256,16 +269,21 @@ class CitationService {
   async checkApiAvailability() {
     try {
       const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 5000) // 5 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 3000) // 3 second timeout
       
       const response = await fetch(`${this.apiBaseUrl}/health`, {
         method: 'GET',
-        signal: controller.signal
+        signal: controller.signal,
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+        }
       })
       
       clearTimeout(timeoutId)
       return response.ok
     } catch (error) {
+      // Silently handle API unavailability
       return false
     }
   }

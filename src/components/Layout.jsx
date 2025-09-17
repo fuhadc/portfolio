@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { 
   Sun, 
   Moon, 
@@ -151,6 +151,7 @@ const Layout = ({ children, darkMode, toggleDarkMode }) => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
+              key="mobile-menu"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}

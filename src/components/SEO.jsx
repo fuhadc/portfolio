@@ -15,7 +15,7 @@ const SEO = ({
   tags = [],
   structuredData
 }) => {
-  const baseUrl = 'https://www.mfuhad.xyz'
+  const baseUrl = import.meta.env.VITE_SITE_URL || 'https://www.mfuhad.xyz'
   const defaultImage = `${baseUrl}/og-image.jpg`
   const fullUrl = url ? `${baseUrl}${url}` : baseUrl
   const fullImage = image ? `${baseUrl}${image}` : defaultImage

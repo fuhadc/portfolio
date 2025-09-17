@@ -6,8 +6,11 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    allowedHosts: true
+    allowedHosts: true,
+    host: true,
+    port: 3000
   },
+  base: './',
   build: {
     // Performance optimizations for Core Web Vitals
     target: 'es2015',

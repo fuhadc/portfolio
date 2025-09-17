@@ -41,17 +41,15 @@ function App() {
       <div className="min-h-screen bg-white dark:bg-dark-900 transition-colors duration-300">
         <SinglePageLayout darkMode={darkMode} toggleDarkMode={toggleDarkMode}>
           <ErrorBoundary>
-            <AnimatePresence mode="wait">
-              <Home />
-              <About />
-              <Experience />
-              <Publications />
-              <Projects />
-              <Skills />
-              <Achievements />
-              <Contact />
-              <Social />
-            </AnimatePresence>
+            <Home />
+            <About />
+            <Experience />
+            <Publications />
+            <Projects />
+            <Skills />
+            <Achievements />
+            <Contact />
+            <Social />
           </ErrorBoundary>
         </SinglePageLayout>
       </div>
