@@ -6,8 +6,8 @@ export const seoConfig = {
     description: "Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps.",
     keywords: "fuad, fuhad, muhammed fuhad, fuhad c, muhammed fuhad c, iot developer, embedded systems developer, smart agriculture, healthcare monitoring, mobile app developer, flutter developer, python developer, arduino, raspberry pi, research, ieee, springer, kerala, india, portfolio, developer, software engineer, researcher, toyota industries, christ university, btech, computer science, engineering, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, hire, collaboration",
     author: "Muhammed Fuhad C",
-    url: "https://www.mfuhad.xyz",
-    image: "https://www.mfuhad.xyz/og-image.jpg",
+    url: "https://mfuhad.xyz",
+    image: "https://mfuhad.xyz/og-image.jpg",
     type: "website",
     locale: "en_US",
     siteName: "Muhammed Fuhad C Portfolio"
@@ -124,8 +124,8 @@ export const seoConfig = {
       familyName: "C",
       jobTitle: "IoT & Embedded Systems Developer | Researcher | Software Engineer",
       description: "Passionate IoT and Embedded Systems enthusiast, researcher, and developer specializing in smart agriculture, healthcare monitoring, and mobile applications. Based in Kerala, India.",
-      url: "https://www.mfuhad.xyz",
-      image: "https://www.mfuhad.xyz/profile-image.jpg",
+      url: "https://mfuhad.xyz",
+      image: "https://mfuhad.xyz/profile-image.jpg",
       email: "fuhadcs@icloud.com",
       telephone: "+91-7306525489",
       address: {
@@ -188,7 +188,7 @@ export const seoConfig = {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Muhammed Fuhad C Portfolio",
-      url: "https://www.mfuhad.xyz",
+      url: "https://mfuhad.xyz",
       logo: "https://muhammedfuhadc.dev/logo.png",
       description: "Professional portfolio showcasing IoT, Embedded Systems, and Research work by Muhammed Fuhad C",
       founder: {
@@ -209,7 +209,7 @@ export const seoConfig = {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: "Muhammed Fuhad C Portfolio",
-      url: "https://www.mfuhad.xyz",
+      url: "https://mfuhad.xyz",
       description: "Professional portfolio of Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer",
       author: {
         "@type": "Person",
@@ -223,7 +223,7 @@ export const seoConfig = {
       isAccessibleForFree: true,
       potentialAction: {
         "@type": "SearchAction",
-        target: "https://www.mfuhad.xyz/search?q={search_term_string}",
+        target: "https://mfuhad.xyz/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     },

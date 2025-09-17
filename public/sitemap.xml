@@ -6,33 +6,33 @@
   
   <!-- Home Page - Highest Priority -->
   <url>
-    <loc>https://muhammedfuhadc.dev/</loc>
+    <loc>https://mfuhad.xyz/</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://muhammedfuhadc.dev/og-image.jpg</image:loc>
-      <image:title>Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer Portfolio</image:title>
+      <image:loc>https://mfuhad.xyz/og-image.jpg</image:loc>
+      <image:title>Muhammed Fuhad C (Fuad) - IoT &amp; Embedded Systems Developer Portfolio</image:title>
       <image:caption>Professional portfolio showcasing IoT, Embedded Systems, and Research work by Muhammed Fuhad C (Fuad)</image:caption>
     </image:image>
   </url>
   
   <!-- About Page -->
   <url>
-    <loc>https://muhammedfuhadc.dev/about</loc>
+    <loc>https://mfuhad.xyz/about</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://muhammedfuhadc.dev/profile-image.jpg</image:loc>
-      <image:title>About Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer</image:title>
+      <image:loc>https://mfuhad.xyz/profile-image.jpg</image:loc>
+      <image:title>About Muhammed Fuhad C (Fuad) - IoT &amp; Embedded Systems Developer</image:title>
       <image:caption>Learn about Muhammed Fuhad C (Fuad), a passionate IoT and Embedded Systems developer</image:caption>
     </image:image>
   </url>
   
   <!-- Experience Page -->
   <url>
-    <loc>https://muhammedfuhadc.dev/experience</loc>
+    <loc>https://mfuhad.xyz/experience</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -40,33 +40,33 @@
   
   <!-- Publications Page - High Priority for Academic SEO -->
   <url>
-    <loc>https://muhammedfuhadc.dev/publications</loc>
+    <loc>https://mfuhad.xyz/publications</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://muhammedfuhadc.dev/publications-og.jpg</image:loc>
-      <image:title>Research Publications - Muhammed Fuhad C (Fuad) | IEEE & Springer Papers</image:title>
+      <image:loc>https://mfuhad.xyz/publications-og.jpg</image:loc>
+      <image:title>Research Publications - Muhammed Fuhad C (Fuad) | IEEE &amp; Springer Papers</image:title>
       <image:caption>Explore research publications including IEEE and Springer conference papers</image:caption>
     </image:image>
   </url>
   
   <!-- Projects Page - High Priority for Portfolio SEO -->
   <url>
-    <loc>https://muhammedfuhadc.dev/projects</loc>
+    <loc>https://mfuhad.xyz/projects</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://muhammedfuhadc.dev/projects-og.jpg</image:loc>
-      <image:title>Projects - Muhammed Fuhad C (Fuad) | IoT, Mobile Apps & Web Development</image:title>
+      <image:loc>https://mfuhad.xyz/projects-og.jpg</image:loc>
+      <image:title>Projects - Muhammed Fuhad C (Fuad) | IoT, Mobile Apps &amp; Web Development</image:title>
       <image:caption>Explore portfolio of IoT solutions, mobile applications, and web development projects</image:caption>
     </image:image>
   </url>
   
   <!-- Skills Page -->
   <url>
-    <loc>https://muhammedfuhadc.dev/skills</loc>
+    <loc>https://mfuhad.xyz/skills</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -74,7 +74,7 @@
   
   <!-- Achievements Page -->
   <url>
-    <loc>https://muhammedfuhadc.dev/achievements</loc>
+    <loc>https://mfuhad.xyz/achievements</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -82,20 +82,20 @@
   
   <!-- Contact Page - High Priority for Social Media Links -->
   <url>
-    <loc>https://muhammedfuhadc.dev/contact</loc>
+    <loc>https://mfuhad.xyz/contact</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://muhammedfuhadc.dev/contact-og.jpg</image:loc>
-      <image:title>Contact Muhammed Fuhad C (Fuad) | Social Media Links & Contact Info</image:title>
+      <image:loc>https://mfuhad.xyz/contact-og.jpg</image:loc>
+      <image:title>Contact Muhammed Fuhad C (Fuad) | Social Media Links &amp; Contact Info</image:title>
       <image:caption>Get in touch with Muhammed Fuhad C (Fuad) - Find all social media links and contact information</image:caption>
     </image:image>
   </url>
   
   <!-- Social Media Profile Pages (for SEO) -->
   <url>
-    <loc>https://muhammedfuhadc.dev/social</loc>
+    <loc>https://mfuhad.xyz/social</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -103,7 +103,7 @@
   
   <!-- Resume/CV Page -->
   <url>
-    <loc>https://muhammedfuhadc.dev/resume</loc>
+    <loc>https://mfuhad.xyz/resume</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -111,7 +111,7 @@
   
   <!-- Blog/Articles Section (if exists) -->
   <url>
-    <loc>https://muhammedfuhadc.dev/blog</loc>
+    <loc>https://mfuhad.xyz/blog</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -119,7 +119,7 @@
   
   <!-- Services Page (if exists) -->
   <url>
-    <loc>https://muhammedfuhadc.dev/services</loc>
+    <loc>https://mfuhad.xyz/services</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
