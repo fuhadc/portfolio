@@ -180,7 +180,7 @@ export const generateArticleStructuredData = (articleData) => {
     author: {
       '@type': 'Person',
       name: 'Muhammed Fuhad C',
-      url: 'https://muhammedfuhadc.dev'
+      url: 'https://www.mfuhad.xyz'
     },
     publisher: {
       '@type': 'Person',
@@ -190,9 +190,9 @@ export const generateArticleStructuredData = (articleData) => {
     dateModified: articleData.modifiedTime || new Date().toISOString(),
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://muhammedfuhadc.dev${articleData.url}`
+      '@id': `https://www.mfuhad.xyz${articleData.url}`
     },
-    image: articleData.image || 'https://muhammedfuhadc.dev/og-image.jpg',
+    image: articleData.image || 'https://www.mfuhad.xyz/og-image.jpg',
     keywords: articleData.keywords || 'IoT, Embedded Systems, Mobile Development, Smart Agriculture, Healthcare Monitoring'
   })
 }

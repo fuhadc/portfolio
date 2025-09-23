@@ -113,13 +113,13 @@ Allow: /css/
 Allow: /js/
 
 # Sitemap
-Sitemap: https://muhammedfuhadc.dev/sitemap.xml
+Sitemap: https://www.mfuhad.xyz/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
 
 # Host
-Host: https://muhammedfuhadc.dev`
+Host: https://www.mfuhad.xyz`
 }
 
 // Generate structured data for different page types

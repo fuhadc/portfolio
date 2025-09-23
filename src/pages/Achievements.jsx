@@ -53,7 +53,7 @@ const Achievements = () => {
     "dateModified": new Date().toISOString(),
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://muhammedfuhadc.dev/achievements"
+      "@id": "https://www.mfuhad.xyz/achievements"
     },
     "about": [
       {

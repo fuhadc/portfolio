@@ -84,7 +84,7 @@ const Publications = () => {
           "dateModified": new Date().toISOString(),
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://muhammedfuhadc.dev/publications"
+            "@id": "https://www.mfuhad.xyz/publications"
           },
           "about": [
             {

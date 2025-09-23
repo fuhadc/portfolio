@@ -75,7 +75,7 @@ const About = () => {
           "dateModified": new Date().toISOString(),
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://muhammedfuhadc.dev/about"
+            "@id": "https://www.mfuhad.xyz/about"
           }
         }}
       />

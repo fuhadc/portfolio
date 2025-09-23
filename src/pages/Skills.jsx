@@ -42,7 +42,7 @@ const Skills = () => {
     "dateModified": new Date().toISOString(),
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://muhammedfuhadc.dev/skills"
+      "@id": "https://www.mfuhad.xyz/skills"
     },
     "about": [
       {

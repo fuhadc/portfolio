@@ -35,7 +35,7 @@ const Experience = () => {
     "dateModified": new Date().toISOString(),
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://muhammedfuhadc.dev/experience"
+      "@id": "https://www.mfuhad.xyz/experience"
     },
     "about": [
       {

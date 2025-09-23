@@ -131,14 +131,14 @@ const Social = () => {
         <meta property="og:title" content="Social Media & Contact - Muhammed Fuhad C | All Social Links" />
         <meta property="og:description" content="Connect with Muhammed Fuhad C on all social media platforms. Find Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate links." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://muhammedfuhadc.dev/social" />
-        <meta property="og:image" content="https://muhammedfuhadc.dev/social-og.jpg" />
+        <meta property="og:url" content="https://www.mfuhad.xyz/social" />
+        <meta property="og:image" content="https://www.mfuhad.xyz/social-og.jpg" />
         
         {/* Twitter */}
         <meta property="twitter:title" content="Social Media & Contact - Muhammed Fuhad C | All Social Links" />
         <meta property="twitter:description" content="Connect with Muhammed Fuhad C on all social media platforms. Find Instagram, Facebook, LinkedIn, GitHub, Twitter, and ResearchGate links." />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:image" content="https://muhammedfuhadc.dev/social-og.jpg" />
+        <meta property="twitter:image" content="https://www.mfuhad.xyz/social-og.jpg" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -147,7 +147,7 @@ const Social = () => {
             "@type": "Person",
             "name": "Muhammed Fuhad C",
             "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"],
-            "url": "https://muhammedfuhadc.dev/social",
+            "url": "https://www.mfuhad.zyz/social",
             "sameAs": [
               "https://linkedin.com/in/fuhadc",
               "https://github.com/fuhadc",

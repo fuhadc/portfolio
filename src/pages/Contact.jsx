@@ -214,7 +214,7 @@ const Contact = () => {
     "dateModified": new Date().toISOString(),
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://muhammedfuhadc.dev/contact"
+      "@id": "https://www.mfuhad.xyz/contact"
     }
   }
 
