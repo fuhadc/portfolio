@@ -189,7 +189,7 @@ export const seoConfig = {
       "@type": "Organization",
       name: "Muhammed Fuhad C Portfolio",
       url: "https://mfuhad.xyz",
-      logo: "https://muhammedfuhadc.dev/logo.png",
+      logo: "https://mfuhad.xyz/logo.png",
       description: "Professional portfolio showcasing IoT, Embedded Systems, and Research work by Muhammed Fuhad C",
       founder: {
         "@type": "Person",
@@ -236,7 +236,7 @@ export const seoConfig = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://muhammedfuhadc.dev"
+          item: "https://mfuhad.xyz"
         }
       ]
     }
