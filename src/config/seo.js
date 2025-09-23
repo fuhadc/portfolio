@@ -4,7 +4,7 @@ export const seoConfig = {
   default: {
     title: "Muhammed Fuhad C (Fuad) - IoT & Embedded Systems Developer | Portfolio",
     description: "Muhammed Fuhad C (Fuad) - Professional IoT & Embedded Systems Developer. Specializing in Smart Agriculture, Healthcare Monitoring, Mobile Apps.",
-    keywords: "fuad, fuhad, muhammed fuhad, fuhad c, muhammed fuhad c, iot developer, embedded systems developer, smart agriculture, healthcare monitoring, mobile app developer, flutter developer, python developer, arduino, raspberry pi, research, ieee, springer, kerala, india, portfolio, developer, software engineer, researcher, toyota industries, christ university, btech, computer science, engineering, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, hire, collaboration",
+    keywords: "fuad, fuhad, muhammed fuhad, fuhad c, muhammed fuhad c, iot developer, embedded systems developer, smart agriculture, healthcare monitoring, mobile app developer, flutter developer, python developer, arduino, raspberry pi, research, ieee, springer, kerala, india, portfolio, developer, software engineer, researcher, toyota industries, christ university, btech, computer science, engineering, instagram, facebook, linkedin, github, twitter, researchgate, social media, contact, hire, collaboration, ai developer, machine learning engineer, artificial intelligence, generative ai, ai integration, voice assistant, chatbot development, nlp engineer, ai researcher, computer vision, deep learning, neural networks, ai consultant, ai solutions, intelligent systems, automated systems, ai-powered applications, smart systems developer, ai innovation, ai technology expert, ai implementation specialist",
     author: "Muhammed Fuhad C",
     url: "https://www.mfuhad.xyz",
     image: "https://www.mfuhad.xyz/og-image.jpg",
@@ -156,7 +156,19 @@ export const seoConfig = {
         "Raspberry Pi",
         "Research",
         "IEEE Publications",
-        "Springer Publications"
+        "Springer Publications",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Generative AI",
+        "Voice Assistant Development",
+        "Natural Language Processing",
+        "AI Integration",
+        "Intelligent Systems",
+        "Automated Systems",
+        "Computer Vision",
+        "Deep Learning",
+        "Neural Networks",
+        "AI-Powered Applications"
       ],
       sameAs: [
         "https://linkedin.com/in/fuhadc",

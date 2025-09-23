@@ -112,7 +112,7 @@ const Home = memo(() => {
             </div>
             
             <div className="hero-description">
-              {hero.subtitle} - Specializing in <strong>IoT development</strong>, <strong>embedded systems</strong>, <strong>smart agriculture</strong>, and <strong>healthcare monitoring</strong> solutions.
+              {hero.subtitle} - Specializing in <strong>IoT development</strong>, <strong>embedded systems</strong>, <strong>smart agriculture</strong>, <strong>healthcare monitoring</strong>, and <strong>AI-powered solutions</strong>. Expert in <strong>artificial intelligence integration</strong>, <strong>machine learning</strong>, and <strong>generative AI applications</strong>.
             </div>
 
             {/* Description */}
