@@ -17,9 +17,11 @@ import emailjs from '@emailjs/browser'
 import SEO from '../components/SEO'
 import contactData from '../data/contact.json'
 import { getIcon } from '../utils/iconMapper'
+import { useAnalytics } from '../hooks/useAnalytics'
 
 const Contact = () => {
   const form = useRef()
+  const analytics = useAnalytics()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -109,6 +111,14 @@ const Contact = () => {
       
       console.log('Email sent successfully:', result)
       
+      // Track successful form submission
+      analytics.trackEvent('contact_form_submit', {
+        event_category: 'Contact',
+        event_label: 'Form Submission',
+        form_subject: formData.subject,
+        form_name: formData.name
+      })
+      
       setIsSubmitting(false)
       setIsSubmitted(true)
       setFormData({ name: '', email: '', subject: '', message: '' })
@@ -121,6 +131,14 @@ const Contact = () => {
       
     } catch (error) {
       console.error('Error sending email:', error)
+      
+      // Track form submission error
+      analytics.trackEvent('contact_form_error', {
+        event_category: 'Contact',
+        event_label: 'Form Error',
+        error_message: error.message || 'Unknown error'
+      })
+      
       setIsSubmitting(false)
       
       // Create mailto link as fallback
@@ -627,6 +645,7 @@ const Contact = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => analytics.trackSocialClick(social.name, 'click')}
                       style={{
                         display: 'flex',
                         alignItems: 'center',

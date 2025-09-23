@@ -5,6 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 import SinglePageLayout from './components/SinglePageLayout'
 import ScrollToTop from './components/ScrollToTop'
 import ErrorBoundary from './components/ErrorBoundary'
+import { useAnalytics } from './hooks/useAnalytics'
 import Home from './pages/Home'
 import About from './pages/About'
 import Experience from './pages/Experience'
@@ -21,6 +22,9 @@ function App() {
     const saved = localStorage.getItem('darkMode')
     return saved ? JSON.parse(saved) : false
   })
+
+  // Initialize Google Analytics
+  useAnalytics()
 
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode))
