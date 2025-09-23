@@ -154,11 +154,5 @@ export const useAnalytics = () => {
   }
 }
 
-// Higher-order component for analytics
-export const withAnalytics = (WrappedComponent) => {
-  return function AnalyticsWrapper(props) {
-    const analytics = useAnalytics()
-    
-    return <WrappedComponent {...props} analytics={analytics} />
-  }
-}
+// Higher-order component for analytics (removed JSX to fix build error)
+// Use the useAnalytics hook directly in components instead
