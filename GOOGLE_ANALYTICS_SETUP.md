@@ -1,4 +1,4 @@
-# Google Analytics Setup Guide - mfuhad.xyz
+# Google Analytics Setup Guide - www.mfuhad.xyz
 
 ## 🎯 **Google Analytics 4 (GA4) Implementation Complete**
 
