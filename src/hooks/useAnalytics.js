@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 import { GA_CONFIG, GA_EVENTS, GA_EVENT_PARAMS, getPageTitle, getContentGroup } from '../config/analytics'
 
 // Initialize Google Analytics
@@ -131,17 +130,18 @@ export const trackExternalLink = (url, linkText = '') => {
 
 // Custom hook for automatic page tracking
 export const useAnalytics = () => {
-  const location = useLocation()
-
   useEffect(() => {
     // Initialize GA on first load
     initializeGA()
+    
+    // Track initial page view
+    trackPageView(window.location.pathname, window.location.search)
   }, [])
 
+  // Track page view when component mounts (for single-page app sections)
   useEffect(() => {
-    // Track page view on route change
-    trackPageView(location.pathname, location.search)
-  }, [location])
+    trackPageView(window.location.pathname, window.location.search)
+  }, [])
 
   return {
     trackEvent,
