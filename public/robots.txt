@@ -88,17 +88,17 @@ Allow: /sitemap.xml
 Allow: /robots.txt
 
 # Sitemap location
-Sitemap: https://mfuhad.xyz/sitemap.xml
+Sitemap: https://www.mfuhad.xyz/sitemap.xml
 
 # Additional sitemaps (if you have them)
-# Sitemap: https://mfuhad.xyz/sitemap-images.xml
-# Sitemap: https://mfuhad.xyz/sitemap-news.xml
+# Sitemap: https://www.mfuhad.xyz/sitemap-images.xml
+# Sitemap: https://www.mfuhad.xyz/sitemap-news.xml
 
 # Crawl delay for general bots
 Crawl-delay: 1
 
 # Host directive
-Host: https://mfuhad.xyz
+Host: https://www.mfuhad.xyz
 
 # Additional directives for better SEO
 # Clean-param: utm_source /utm_medium /utm_campaign
