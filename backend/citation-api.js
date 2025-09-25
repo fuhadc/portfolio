@@ -27,6 +27,32 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json())
 
+// Additional CORS middleware for Vercel
+app.use((req, res, next) => {
+  const origin = req.headers.origin
+  const allowedOrigins = [
+    'https://www.mfuhad.xyz',
+    'https://mfuhad.xyz',
+    'http://localhost:3000',
+    'http://localhost:5173'
+  ]
+  
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin)
+  }
+  
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept')
+  res.header('Access-Control-Allow-Credentials', 'true')
+  
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200)
+    return
+  }
+  
+  next()
+})
+
 // Handle preflight requests
 app.options('*', cors(corsOptions))
 
@@ -446,6 +472,12 @@ app.get('/api/scholar/profile', async (req, res) => {
 
 // Health check
 app.get('/api/health', (req, res) => {
+  // Set CORS headers explicitly
+  res.header('Access-Control-Allow-Origin', req.headers.origin || '*')
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept')
+  res.header('Access-Control-Allow-Credentials', 'true')
+  
   res.json({ 
     status: 'healthy', 
     timestamp: new Date().toISOString(),

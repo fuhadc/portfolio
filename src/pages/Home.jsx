@@ -283,8 +283,8 @@ const Home = memo(() => {
               margin: '0 auto'
             }}>
               Specialized skills in IoT development, mobile applications, and research. 
-              <a href="/skills" style={{ color: '#3b82f6', textDecoration: 'none' }}> View detailed skills</a> or 
-              <a href="/projects" style={{ color: '#3b82f6', textDecoration: 'none' }}> explore my projects</a>. 
+              <a href="/skills" style={{ color: '#3b82f6', textDecoration: 'none' }}>View detailed skills</a> or 
+              <a href="/projects" style={{ color: '#3b82f6', textDecoration: 'none' }}>explore my projects</a>. 
               Learn more <a href="/about" style={{ color: '#3b82f6', textDecoration: 'none' }}>about my background</a> or 
               <a href="/publications" style={{ color: '#3b82f6', textDecoration: 'none' }}>view my research publications</a>.
             </p>

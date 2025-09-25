@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense, lazy } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
 import { SpeedInsights } from '@vercel/speed-insights/react'
@@ -6,16 +6,25 @@ import SinglePageLayout from './components/SinglePageLayout'
 import ScrollToTop from './components/ScrollToTop'
 import ErrorBoundary from './components/ErrorBoundary'
 import { useAnalytics } from './hooks/useAnalytics'
-import Home from './pages/Home'
-import About from './pages/About'
-import Experience from './pages/Experience'
-import Publications from './pages/Publications'
-import Projects from './pages/Projects'
-import Skills from './pages/Skills'
-import Achievements from './pages/Achievements'
-import Contact from './pages/Contact'
-import Social from './pages/Social'
-import Admin from './pages/Admin'
+
+// Lazy load page components for better performance
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
+const Experience = lazy(() => import('./pages/Experience'))
+const Publications = lazy(() => import('./pages/Publications'))
+const Projects = lazy(() => import('./pages/Projects'))
+const Skills = lazy(() => import('./pages/Skills'))
+const Achievements = lazy(() => import('./pages/Achievements'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Social = lazy(() => import('./pages/Social'))
+const Admin = lazy(() => import('./pages/Admin'))
+
+// Loading component for Suspense fallback
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-500"></div>
+  </div>
+)
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -45,15 +54,17 @@ function App() {
       <div className="min-h-screen bg-white dark:bg-dark-900 transition-colors duration-300">
         <SinglePageLayout darkMode={darkMode} toggleDarkMode={toggleDarkMode}>
           <ErrorBoundary>
-            <Home />
-            <About />
-            <Experience />
-            <Publications />
-            <Projects />
-            <Skills />
-            <Achievements />
-            <Contact />
-            <Social />
+            <Suspense fallback={<PageLoader />}>
+              <Home />
+              <About />
+              <Experience />
+              <Publications />
+              <Projects />
+              <Skills />
+              <Achievements />
+              <Contact />
+              <Social />
+            </Suspense>
           </ErrorBoundary>
         </SinglePageLayout>
       </div>

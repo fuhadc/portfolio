@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { 
   Trophy, 
   Award, 
@@ -9,16 +9,21 @@ import {
   Star,
   ExternalLink,
   Download,
-  Eye
+  Eye,
+  X
 } from 'lucide-react'
 import SEO from '../components/SEO'
 import { getDataByType, DATA_TYPES } from '../utils/dataManager'
 import { getIcon } from '../utils/iconMapper'
+import { generateAriaLabel, generateId, keyboardNavigation, announceToScreenReader, focusManagement } from '../utils/accessibility'
 
 const Achievements = () => {
   const achievementsData = getDataByType(DATA_TYPES.ACHIEVEMENTS)
   const { achievements, volunteering, stats } = achievementsData
   const [selectedImage, setSelectedImage] = useState(null)
+  const [focusedAchievement, setFocusedAchievement] = useState(0)
+  const modalRef = useRef(null)
+  const previousFocusRef = useRef(null)
 
   // Debug: Log achievements data to see if images are loaded (only in development)
   if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'development') {
@@ -27,12 +32,37 @@ const Achievements = () => {
   }
 
   const openImageModal = (imageUrl) => {
+    previousFocusRef.current = document.activeElement
     setSelectedImage(imageUrl)
+    announceToScreenReader('Image modal opened')
   }
 
   const closeImageModal = () => {
     setSelectedImage(null)
+    announceToScreenReader('Image modal closed')
+    if (previousFocusRef.current) {
+      focusManagement.restoreFocus(previousFocusRef.current)
+    }
   }
+
+  // Handle keyboard navigation for modal
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (selectedImage) {
+        if (event.key === 'Escape') {
+          closeImageModal()
+        } else if (event.key === 'Tab') {
+          // Trap focus within modal
+          if (modalRef.current) {
+            keyboardNavigation.trapFocus(modalRef.current)
+          }
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [selectedImage])
 
   // Generate structured data for achievements
   const structuredData = {
@@ -114,39 +144,58 @@ const Achievements = () => {
 
         {/* Stats */}
         <div style={{ marginBottom: '4rem' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '2rem'
-          }}>
+          <div 
+            role="region" 
+            aria-label="Achievement statistics"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '2rem'
+            }}
+          >
             {stats.map((stat, index) => {
               const Icon = getIcon(stat.icon)
+              const statId = generateId('stat')
               return (
-                <div key={index} style={{ textAlign: 'center' }}>
-                  <div style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '4rem',
-                    height: '4rem',
-                    backgroundColor: '#eff6ff',
-                    borderRadius: '1rem',
-                    marginBottom: '1rem'
-                  }}>
+                <div 
+                  key={index} 
+                  style={{ textAlign: 'center' }}
+                  role="img"
+                  aria-labelledby={statId}
+                >
+                  <div 
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '4rem',
+                      height: '4rem',
+                      backgroundColor: '#eff6ff',
+                      borderRadius: '1rem',
+                      marginBottom: '1rem'
+                    }}
+                    aria-hidden="true"
+                  >
                     <Icon style={{ color: '#3b82f6' }} size={32} />
                   </div>
-                  <div style={{
-                    fontSize: '1.875rem',
-                    fontWeight: 'bold',
-                    color: '#1e293b',
-                    marginBottom: '0.5rem'
-                  }}>
+                  <div 
+                    id={statId}
+                    style={{
+                      fontSize: '1.875rem',
+                      fontWeight: 'bold',
+                      color: '#1e293b',
+                      marginBottom: '0.5rem'
+                    }}
+                    aria-label={`${stat.value} ${stat.label}`}
+                  >
                     {stat.value}
                   </div>
-                  <div style={{
-                    color: '#64748b',
-                    fontWeight: '500'
-                  }}>
+                  <div 
+                    style={{
+                      color: '#64748b',
+                      fontWeight: '500'
+                    }}
+                  >
                     {stat.label}
                   </div>
                 </div>
@@ -667,27 +716,37 @@ const Achievements = () => {
 
       {/* Image Modal */}
       {selectedImage && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000,
-          padding: '2rem'
-        }}>
-          <div style={{
-            position: 'relative',
-            maxWidth: '90vw',
-            maxHeight: '90vh'
-          }}>
+        <div 
+          role="dialog"
+          aria-modal="true"
+          aria-label="Achievement image viewer"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+            padding: '2rem'
+          }}
+          onClick={closeImageModal}
+        >
+          <div 
+            ref={modalRef}
+            style={{
+              position: 'relative',
+              maxWidth: '90vw',
+              maxHeight: '90vh'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
             <img 
               src={selectedImage} 
-              alt="Achievement" 
+              alt="Achievement certificate or award" 
               style={{
                 maxWidth: '100%',
                 maxHeight: '100%',
@@ -697,6 +756,7 @@ const Achievements = () => {
             />
             <button
               onClick={closeImageModal}
+              aria-label="Close image viewer"
               style={{
                 position: 'absolute',
                 top: '-2.5rem',
@@ -717,6 +777,7 @@ const Achievements = () => {
               onMouseOut={(e) => {
                 e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'
               }}
+              onKeyDown={(e) => keyboardNavigation.handleActivation(e, closeImageModal)}
             >
               Close
             </button>
