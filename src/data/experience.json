@@ -1,6 +1,23 @@
 {
   "experiences": [
     {
+      "title": "Co-Founder",
+      "company": "Zandora",
+      "location": "India",
+      "type": "Entrepreneurship",
+      "duration": "Nov 2025 - Present",
+      "website": "https://www.zandora.in",
+      "description": "Co-founded Zandora, a clothing brand focused on delivering quality fashion. Leading strategic initiatives and overseeing brand development, product design, and business operations.",
+      "achievements": [
+        "Successfully launched Zandora as a clothing brand",
+        "Leading business strategy and brand development",
+        "Managing product design and operational excellence"
+      ],
+      "technologies": ["Entrepreneurship", "Brand Management", "Business Strategy", "E-commerce"],
+      "icon": "Store",
+      "color": "#ec4899"
+    },
+    {
       "title": "Software Engineer Intern",
       "company": "Toyota Industries Engine India Private Limited",
       "location": "Bengaluru, Karnataka, India",
@@ -67,7 +84,7 @@
   ],
   "summaryStats": [
     { "label": "Years Experience", "value": "2+", "color": "#3b82f6" },
-    { "label": "Companies", "value": "4", "color": "#10b981" },
+    { "label": "Companies", "value": "5", "color": "#10b981" },
     { "label": "Projects Completed", "value": "7+", "color": "#8b5cf6" },
     { "label": "Technologies", "value": "10+", "color": "#f59e0b" }
   ]
