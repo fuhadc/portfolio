@@ -110,7 +110,7 @@ export const ErrorState = ({
       <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">
         {description}
       </p>
-      {process.env.NODE_ENV === 'development' && error && (
+      {import.meta.env.DEV && error && (
         <details className="mb-4 text-left">
           <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
             Error Details
@@ -254,3 +254,4 @@ export default {
   ProgressBar,
   LoadingOverlay
 }
+

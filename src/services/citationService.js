@@ -14,7 +14,7 @@ class CitationService {
     return `https://scholar.google.com/scholar?q=${searchQuery}`
   }
 
-  // Fetch citation count from backend API
+  // Fetch citation count from Semantic Scholar API (no backend required)
   async fetchCitationCount(title, authors, doi = null) {
     try {
       // Check cache first
@@ -25,86 +25,16 @@ class CitationService {
         return cached.citations
       }
 
-      // Check if API is available before making requests
-      const isApiAvailable = await this.checkApiAvailability()
-      if (!isApiAvailable) {
-        // Silently use mock data instead of logging warnings
-        return this.getMockCitationCount(title)
-      }
-
-      // Try to get from your specific Google Scholar profile first
-      try {
-        const controller = new AbortController()
-        const timeoutId = setTimeout(() => controller.abort(), 8000) // 8 second timeout
-        
-        const profileResponse = await fetch(`${this.apiBaseUrl}/scholar/profile`, {
-          signal: controller.signal,
-          mode: 'cors',
-          headers: {
-            'Accept': 'application/json',
-          }
-        })
-        
-        clearTimeout(timeoutId)
-        
-        if (profileResponse.ok) {
-          const profileData = await profileResponse.json()
-          if (profileData.success && profileData.data.publications) {
-            const paper = profileData.data.publications.find(p => 
-              p.title.toLowerCase().includes(title.toLowerCase()) ||
-              title.toLowerCase().includes(p.title.toLowerCase())
-            )
-            if (paper) {
-              const citations = paper.citations || 0
-              this.cache.set(cacheKey, {
-                citations,
-                timestamp: new Date().toISOString()
-              })
-              return citations
-            }
-          }
-        }
-      } catch (profileError) {
-        console.warn('Could not fetch from Google Scholar profile:', profileError)
-      }
-
-      // Fallback to general search
-      const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 8000) // 8 second timeout
+      // Fetch directly from Semantic Scholar API
+      const citations = await this.fetchFromSemanticScholar(title, doi)
       
-      const response = await fetch(`${this.apiBaseUrl}/citations/search`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({ title, authors, doi }),
-        signal: controller.signal,
-        mode: 'cors'
+      // Cache the result
+      this.cache.set(cacheKey, {
+        citations,
+        timestamp: new Date().toISOString()
       })
-
-      clearTimeout(timeoutId)
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-
-      const data = await response.json()
       
-      if (data.success) {
-        const citations = data.data.citations || 0
-        
-        // Cache the result
-        this.cache.set(cacheKey, {
-          citations,
-          timestamp: new Date().toISOString()
-        })
-        
-        return citations
-      } else {
-        // Fallback to mock data if API fails
-        return this.getMockCitationCount(title)
-      }
+      return citations
       
     } catch (error) {
       console.error('Error fetching citation count:', error)
@@ -113,11 +43,11 @@ class CitationService {
     }
   }
 
-  // Mock citation data (replace with real API calls)
+  // Mock citation data (fallback when Semantic Scholar doesn't have the paper)
   getMockCitationCount(title) {
     const mockData = {
       'cost-effective-energy-efficient-drip-irrigation-2024': 2,
-      'automated-contactless-temperature-monitoring-2023': 2,
+      'automated-contactless-temperature-monitoring-2023': 1,
       'generative-ai-iot-voice-assistance-2024': 0,
       'iot-visualization-fog-computing-2024': 0
     }
@@ -187,69 +117,44 @@ class CitationService {
     }
   }
 
-  // Update all publications with fresh citation counts
+  // Update all publications with fresh citation counts from Semantic Scholar
   async updateAllCitations(publications) {
     try {
-      // Check if API is available first
-      const isApiAvailable = await this.checkApiAvailability()
-      if (!isApiAvailable) {
-        // Silently use mock data instead of logging warnings
-        return this.getPublicationsWithMockCitations(publications)
-      }
-
-      // Use batch API for better performance
-      const response = await fetch(`${this.apiBaseUrl}/citations/batch`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({ publications }),
-        mode: 'cors'
-      })
-
-      if (response.ok) {
-        const data = await response.json()
-        if (data.success) {
-          return data.data
-        }
-      }
-
-      // Fallback to individual updates if batch fails
-      console.warn('Batch update failed, falling back to individual updates')
+      // Fetch citations individually from Semantic Scholar
       return this.updateCitationsIndividually(publications)
-      
     } catch (error) {
       console.error('Error in batch update:', error)
       // If API is completely unavailable, return original publications with mock data
-      console.warn('API unavailable, using mock citation data')
-      return this.getPublicationsWithMockCitations(publications)
+      console.warn('API unavailable, using existing citation data')
+      return publications
     }
   }
 
-  // Fallback method for individual citation updates
+  // Individual citation updates using Semantic Scholar API
   async updateCitationsIndividually(publications) {
     const updatedPublications = []
     
     for (const pub of publications) {
-      if (pub.googleScholarId || pub.doi) {
-        try {
-          const citationCount = await this.fetchCitationCount(pub.title, pub.authors, pub.doi)
-          updatedPublications.push({
-            ...pub,
-            citations: citationCount,
-            lastUpdated: new Date().toISOString()
-          })
-        } catch (error) {
-          console.warn(`Failed to fetch citations for "${pub.title}", using mock data`)
-          updatedPublications.push({
-            ...pub,
-            citations: this.getMockCitationCount(pub.title),
-            lastUpdated: new Date().toISOString()
-          })
-        }
-      } else {
-        updatedPublications.push(pub)
+      try {
+        // Try to fetch from Semantic Scholar using DOI or title
+        const citationCount = await this.fetchFromSemanticScholar(pub.title, pub.doi)
+        
+        updatedPublications.push({
+          ...pub,
+          citations: citationCount,
+          lastUpdated: new Date().toISOString()
+        })
+        
+        // Add small delay to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 300))
+        
+      } catch (error) {
+        console.warn(`Failed to fetch citations for "${pub.title}"`)
+        updatedPublications.push({
+          ...pub,
+          citations: pub.citations || 0, // Keep existing citation count
+          lastUpdated: new Date().toISOString()
+        })
       }
     }
     
@@ -285,6 +190,59 @@ class CitationService {
     } catch (error) {
       // Silently handle API unavailability
       return false
+    }
+  }
+
+  // Fetch citation count directly from Semantic Scholar API (no backend needed)
+  async fetchFromSemanticScholar(title, doi = null) {
+    try {
+      const baseUrl = 'https://api.semanticscholar.org/graph/v1'
+      let response
+
+      if (doi) {
+        // Try fetching by DOI first
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 5000)
+        
+        response = await fetch(`${baseUrl}/paper/DOI:${doi}?fields=citationCount,title`, {
+          signal: controller.signal,
+          headers: {
+            'Accept': 'application/json',
+          }
+        })
+        
+        clearTimeout(timeoutId)
+        
+        if (response.ok) {
+          const data = await response.json()
+          return data.citationCount || 0
+        }
+      }
+
+      // Fallback to search by title
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 5000)
+      
+      response = await fetch(`${baseUrl}/paper/search?query=${encodeURIComponent(title)}&fields=citationCount,title&limit=1`, {
+        signal: controller.signal,
+        headers: {
+          'Accept': 'application/json',
+        }
+      })
+      
+      clearTimeout(timeoutId)
+
+      if (response.ok) {
+        const data = await response.json()
+        if (data.data && data.data.length > 0) {
+          return data.data[0].citationCount || 0
+        }
+      }
+
+      return 0
+    } catch (error) {
+      console.warn('Semantic Scholar API error:', error)
+      return 0
     }
   }
 

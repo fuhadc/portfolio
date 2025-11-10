@@ -246,7 +246,7 @@ export class ErrorBoundary extends React.Component {
         <div className="error-boundary">
           <h2>Something went wrong</h2>
           <p>We apologize for the inconvenience. Please refresh the page or try again later.</p>
-          {process.env.NODE_ENV === 'development' && (
+          {import.meta.env.DEV && (
             <details>
               <summary>Error Details</summary>
               <pre>{this.state.error?.toString()}</pre>
@@ -306,7 +306,7 @@ export const ErrorNotification = ({ error, onDismiss }) => {
             {error.type.replace('_ERROR', '').replace('_', ' ')}
           </h4>
           <p className="text-sm mt-1">{error.userMessage}</p>
-          {process.env.NODE_ENV === 'development' && (
+          {import.meta.env.DEV && (
             <details className="mt-2">
               <summary className="text-xs cursor-pointer">Technical Details</summary>
               <pre className="text-xs mt-1 whitespace-pre-wrap">{error.technicalMessage}</pre>
@@ -363,3 +363,4 @@ export const safeAsync = async (asyncFn, fallbackValue = null) => {
 }
 
 export default globalErrorHandler
+

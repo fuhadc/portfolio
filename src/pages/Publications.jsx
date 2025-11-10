@@ -124,13 +124,21 @@ const Publications = () => {
       />
       <div className="container">
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h1 className="section-title">Research Publications</h1>
-          <p style={{ 
+        <div className="animate-fade-in-up" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h1 className="section-title" style={{
+            background: 'linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            Research Publications
+          </h1>
+          <p className="animate-fade-in-up animate-delay-200" style={{ 
             fontSize: '1.125rem', 
             color: '#64748b', 
             maxWidth: '32rem', 
-            margin: '0 auto 2rem' 
+            margin: '0 auto 2rem',
+            lineHeight: '1.7'
           }}>
             Published research papers and conference proceedings in IoT, smart agriculture, and healthcare monitoring
           </p>
@@ -195,23 +203,48 @@ const Publications = () => {
             {researchStats.map((stat, index) => {
               const Icon = getIcon(stat.icon)
               return (
-                <div key={index} style={{ textAlign: 'center' }}>
+                <div 
+                  key={index} 
+                  className={`animate-scale-in animate-delay-${index * 100}`}
+                  style={{ 
+                    textAlign: 'center',
+                    padding: '1.5rem',
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    borderRadius: '1rem',
+                    border: '1px solid rgba(226,232,240,0.6)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    cursor: 'default'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'
+                    e.currentTarget.style.boxShadow = '0 12px 24px rgba(59,130,246,0.15)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)'
+                  }}
+                >
                   <div style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     width: '4rem',
                     height: '4rem',
-                    backgroundColor: '#eff6ff',
+                    background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
                     borderRadius: '1rem',
-                    marginBottom: '1rem'
+                    marginBottom: '1rem',
+                    boxShadow: '0 4px 12px rgba(59,130,246,0.1)'
                   }}>
                     <Icon style={{ color: '#3b82f6' }} size={32} />
                   </div>
                   <div style={{
                     fontSize: '1.875rem',
                     fontWeight: 'bold',
-                    color: '#1e293b',
+                    background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
                     marginBottom: '0.5rem'
                   }}>
                     {stat.value}
@@ -230,10 +263,13 @@ const Publications = () => {
 
         {/* Publications List */}
         <div>
-          <h2 style={{ 
+          <h2 className="animate-fade-in-up" style={{ 
             fontSize: '2rem', 
             fontWeight: '700', 
-            color: '#1e293b', 
+            background: 'linear-gradient(135deg, #1e293b, #3b82f6)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
             marginBottom: '2rem',
             textAlign: 'center'
           }}>
@@ -248,7 +284,14 @@ const Publications = () => {
             {publications.map((pub, index) => {
               const Icon = getIcon(pub.icon)
               return (
-                <div key={index} className="card">
+                <div 
+                  key={index} 
+                  className={`card animate-fade-in-up animate-delay-${Math.min(index * 100, 500)}`}
+                  style={{
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}
+                >
                   {/* Header */}
                   <div style={{
                     display: 'flex',
@@ -378,7 +421,7 @@ const Publications = () => {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     paddingTop: '1rem',
-                    borderTop: '1px solid #e2e8f0',
+                    borderTop: '2px solid rgba(226,232,240,0.6)',
                     flexWrap: 'wrap',
                     gap: '1rem'
                   }}>
@@ -391,16 +434,21 @@ const Publications = () => {
                       <div style={{
                         display: 'flex',
                         alignItems: 'center',
-                        color: '#6b7280',
-                        fontSize: '0.875rem'
+                        padding: '0.5rem 1rem',
+                        background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                        borderRadius: '0.5rem',
+                        color: '#3b82f6',
+                        fontSize: '0.875rem',
+                        fontWeight: '500',
+                        border: '1px solid #bae6fd'
                       }}>
-                        <Eye size={16} style={{ marginRight: '0.25rem' }} />
+                        <Eye size={16} style={{ marginRight: '0.5rem' }} />
                         {pub.citations} citations
                         {pub.lastUpdated && (
                           <span style={{ 
                             marginLeft: '0.5rem', 
                             fontSize: '0.75rem',
-                            color: '#9ca3af'
+                            color: '#64748b'
                           }}>
                             (Updated: {new Date(pub.lastUpdated).toLocaleDateString()})
                           </span>
@@ -409,10 +457,15 @@ const Publications = () => {
                       <div style={{
                         display: 'flex',
                         alignItems: 'center',
-                        color: '#6b7280',
-                        fontSize: '0.875rem'
+                        padding: '0.5rem 1rem',
+                        background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
+                        borderRadius: '0.5rem',
+                        color: '#d97706',
+                        fontSize: '0.875rem',
+                        fontWeight: '500',
+                        border: '1px solid #fcd34d'
                       }}>
-                        <Award size={16} style={{ marginRight: '0.25rem' }} />
+                        <Award size={16} style={{ marginRight: '0.5rem' }} />
                         {pub.impact} impact
                       </div>
                     </div>

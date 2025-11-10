@@ -69,19 +69,19 @@ const Home = memo(() => {
       />
       
       {/* Hero Section */}
-      <section id="home" className="hero" style={{ minHeight: '100vh', paddingTop: '5rem' }}>
+      <section id="home" className="hero" style={{ minHeight: '100vh', paddingTop: '5rem', position: 'relative', zIndex: 1 }}>
         <div className="container">
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
             {/* Profile Image Placeholder */}
-            <div style={{ 
+            <div className="animate-scale-in" style={{ 
               display: 'inline-block', 
               marginBottom: '2rem',
               position: 'relative'
             }}>
-              <div className="profile-avatar">
+              <div className="profile-avatar animate-float">
                 M
               </div>
-              <div style={{
+              <div className="animate-scale-in animate-delay-300" style={{
                 position: 'absolute',
                 bottom: '-0.5rem',
                 right: '-0.5rem',
@@ -91,7 +91,9 @@ const Home = memo(() => {
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px rgba(16, 185, 129, 0.4)',
+                animation: 'pulse 2s ease-in-out infinite'
               }}>
                 <div style={{
                   width: '0.75rem',
@@ -103,20 +105,33 @@ const Home = memo(() => {
             </div>
 
             {/* Name and Title */}
-            <h1 className="hero-title">
+            <h1 className="hero-title animate-fade-in-up animate-delay-100">
               {hero.name}
             </h1>
             
-            <div className="hero-subtitle">
+            <div className="hero-subtitle animate-fade-in-up animate-delay-200" style={{
+              background: 'linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
               {hero.title}
             </div>
             
-            <div className="hero-description">
-              {hero.subtitle} - Specializing in <strong>IoT development</strong>, <strong>embedded systems</strong>, <strong>smart agriculture</strong>, <strong>healthcare monitoring</strong>, and <strong>AI-powered solutions</strong>. Expert in <strong>artificial intelligence integration</strong>, <strong>machine learning</strong>, and <strong>generative AI applications</strong>.
+            <div className="hero-description animate-fade-in-up animate-delay-300" style={{
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 100%)',
+              padding: '1.5rem 2rem',
+              borderRadius: '1rem',
+              maxWidth: '56rem',
+              margin: '1rem auto',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+              border: '1px solid rgba(226,232,240,0.6)'
+            }}>
+              {hero.subtitle} - Specializing in <strong style={{color: '#3b82f6'}}>IoT development</strong>, <strong style={{color: '#8b5cf6'}}>embedded systems</strong>, <strong style={{color: '#10b981'}}>smart agriculture</strong>, <strong style={{color: '#f59e0b'}}>healthcare monitoring</strong>, and <strong style={{color: '#ec4899'}}>AI-powered solutions</strong>. Expert in <strong style={{color: '#3b82f6'}}>artificial intelligence integration</strong>, <strong style={{color: '#8b5cf6'}}>machine learning</strong>, and <strong style={{color: '#ec4899'}}>generative AI applications</strong>.
             </div>
 
             {/* Description */}
-            <p className="hero-description" style={{
+            <p className="hero-description animate-fade-in-up animate-delay-400" style={{
               maxWidth: '56rem',
               marginLeft: 'auto',
               marginRight: 'auto',
@@ -129,7 +144,7 @@ const Home = memo(() => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="cta-buttons">
+            <div className="cta-buttons animate-fade-in-up animate-delay-500">
               <button
                 onClick={() => {
                   const element = document.getElementById('projects')
@@ -142,13 +157,9 @@ const Home = memo(() => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   padding: '1rem 2rem',
-                  backgroundColor: '#3b82f6',
                   color: 'white',
                   textDecoration: 'none',
-                  borderRadius: '0.75rem',
                   fontWeight: '600',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                   border: 'none',
                   cursor: 'pointer',
                   minHeight: '44px',
@@ -169,13 +180,8 @@ const Home = memo(() => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   padding: '1rem 2rem',
-                  backgroundColor: 'transparent',
-                  color: '#3b82f6',
                   textDecoration: 'none',
-                  borderRadius: '0.75rem',
                   fontWeight: '600',
-                  border: '2px solid #3b82f6',
-                  transition: 'all 0.3s ease',
                   minHeight: '44px',
                   width: '100%',
                   maxWidth: '280px',
@@ -188,8 +194,8 @@ const Home = memo(() => {
             </div>
 
             {/* Social Links */}
-            <div className="social-links">
-              {socialLinks.map((link) => {
+            <div className="social-links animate-fade-in animate-delay-500">
+              {socialLinks.map((link, index) => {
                 const Icon = getIcon(link.icon)
                 return (
                   <a
@@ -197,21 +203,9 @@ const Home = memo(() => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '3rem',
-                      height: '3rem',
-                      backgroundColor: 'white',
-                      border: '1px solid #e2e8f0',
-                      borderRadius: '50%',
-                      color: '#64748b',
-                      textDecoration: 'none',
-                      transition: 'all 0.3s ease',
-                      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-                    }}
+                    className={`animate-scale-in animate-delay-${(index + 6) * 100}`}
                     aria-label={link.name}
+                    title={link.name}
                   >
                     <Icon size={24} />
                   </a>
@@ -223,7 +217,11 @@ const Home = memo(() => {
       </section>
 
       {/* Quick Stats Section */}
-      <section className="section">
+      <section className="section" style={{ 
+        background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 100%)',
+        borderTop: '1px solid rgba(226,232,240,0.6)',
+        borderBottom: '1px solid rgba(226,232,240,0.6)'
+      }}>
         <div className="container">
           <div className="grid-responsive mobile-grid-2" style={{
             display: 'grid',
@@ -235,23 +233,48 @@ const Home = memo(() => {
             {quickStats.map((stat, index) => {
               const Icon = getIcon(stat.icon)
               return (
-                <div key={index} style={{ textAlign: 'center' }}>
+                <div 
+                  key={index} 
+                  className={`animate-fade-in-up animate-delay-${index * 100}`}
+                  style={{ 
+                    textAlign: 'center',
+                    padding: '1.5rem',
+                    background: 'white',
+                    borderRadius: '1rem',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+                    border: '1px solid rgba(226,232,240,0.6)',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    cursor: 'default'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'
+                    e.currentTarget.style.boxShadow = '0 12px 24px rgba(59,130,246,0.15)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)'
+                  }}
+                >
                   <div style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     width: '4rem',
                     height: '4rem',
-                    backgroundColor: '#eff6ff',
+                    background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
                     borderRadius: '1rem',
-                    marginBottom: '1rem'
+                    marginBottom: '1rem',
+                    boxShadow: '0 4px 12px rgba(59,130,246,0.1)'
                   }}>
                     <Icon style={{ color: '#3b82f6' }} size={32} />
                   </div>
                   <div className="mobile-text-lg" style={{
                     fontSize: '1.875rem',
                     fontWeight: 'bold',
-                    color: '#1e293b',
+                    background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
                     marginBottom: '0.5rem'
                   }}>
                     {stat.value}
@@ -300,17 +323,35 @@ const Home = memo(() => {
             {coreExpertise.map((expertise, index) => {
               const Icon = getIcon(expertise.icon)
               return (
-                <div key={index} className="card">
+                <div 
+                  key={index} 
+                  className={`card animate-fade-in-up animate-delay-${index * 100}`}
+                  style={{
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}
+                >
                   <div style={{
                     width: '4rem',
                     height: '4rem',
-                    backgroundColor: `${expertise.color}20`,
+                    background: `linear-gradient(135deg, ${expertise.color}40, ${expertise.color}20)`,
                     borderRadius: '1rem',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    margin: '0 auto 1rem'
-                  }}>
+                    margin: '0 auto 1rem',
+                    boxShadow: `0 4px 12px ${expertise.color}20`,
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1) rotate(5deg)'
+                    e.currentTarget.style.boxShadow = `0 8px 20px ${expertise.color}30`
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1) rotate(0deg)'
+                    e.currentTarget.style.boxShadow = `0 4px 12px ${expertise.color}20`
+                  }}
+                  >
                     <Icon style={{ color: expertise.color }} size={32} />
                   </div>
                   <h3 className="mobile-text-lg" style={{
@@ -324,7 +365,8 @@ const Home = memo(() => {
                   </h3>
                   <p className="mobile-text-sm" style={{
                     color: '#64748b',
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    lineHeight: '1.6'
                   }}>
                     {expertise.description}
                   </p>

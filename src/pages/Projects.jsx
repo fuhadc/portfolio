@@ -84,13 +84,22 @@ const Projects = () => {
       />
       <div className="container">
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h1 className="section-title">Featured Projects</h1>
-          <p className="mobile-text-sm" style={{ 
+        <div className="animate-fade-in-up" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h1 className="section-title" style={{
+            background: 'linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            Featured Projects
+          </h1>
+          <p className="mobile-text-sm animate-fade-in-up animate-delay-200" style={{ 
             color: '#64748b', 
             maxWidth: '32rem', 
             margin: '0 auto',
-            padding: '0 1rem'
+            padding: '0 1rem',
+            fontSize: '1.125rem',
+            lineHeight: '1.7'
           }}>
             A showcase of my work spanning IoT systems, mobile applications, web development, and innovative solutions
           </p>
@@ -108,23 +117,48 @@ const Projects = () => {
             {projectStats.map((stat, index) => {
               const Icon = getIcon(stat.icon)
               return (
-                <div key={index} style={{ textAlign: 'center' }}>
+                <div 
+                  key={index} 
+                  className={`animate-scale-in animate-delay-${index * 100}`}
+                  style={{ 
+                    textAlign: 'center',
+                    padding: '1.5rem',
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    borderRadius: '1rem',
+                    border: '1px solid rgba(226,232,240,0.6)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    cursor: 'default'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'
+                    e.currentTarget.style.boxShadow = '0 12px 24px rgba(59,130,246,0.15)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)'
+                  }}
+                >
                   <div style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     width: '4rem',
                     height: '4rem',
-                    backgroundColor: '#eff6ff',
+                    background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
                     borderRadius: '1rem',
-                    marginBottom: '1rem'
+                    marginBottom: '1rem',
+                    boxShadow: '0 4px 12px rgba(59,130,246,0.1)'
                   }}>
                     <Icon style={{ color: '#3b82f6' }} size={32} />
                   </div>
                   <div className="mobile-text-lg" style={{
                     fontSize: '1.875rem',
                     fontWeight: 'bold',
-                    color: '#1e293b',
+                    background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
                     marginBottom: '0.5rem'
                   }}>
                     {stat.value}
@@ -143,10 +177,13 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div>
-          <h2 style={{ 
+          <h2 className="animate-fade-in-up" style={{ 
             fontSize: '2rem', 
             fontWeight: '700', 
-            color: '#1e293b', 
+            background: 'linear-gradient(135deg, #1e293b, #3b82f6)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
             marginBottom: '2rem',
             textAlign: 'center'
           }}>
@@ -157,7 +194,7 @@ const Projects = () => {
             {projects.map((project, index) => {
               const Icon = getIcon(project.icon)
               // Debug: Log project image data (only in development)
-              if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'development' && project.image) {
+              if (import.meta.env.DEV && project.image) {
                 console.log(`Project ${index} (${project.title}):`, {
                   hasImage: !!project.image,
                   imageLength: project.image.length,
@@ -166,25 +203,40 @@ const Projects = () => {
                 })
               }
               return (
-                <div key={index} className="card" style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  height: '100%'
-                }}>
+                <div 
+                  key={index} 
+                  className={`card animate-fade-in-up animate-delay-${Math.min(index * 100, 500)}`} 
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                    position: 'relative'
+                  }}
+                >
                   {/* Project Image - Hidden by default, shown only in modal */}
                   <div style={{
                     width: '100%',
                     height: '200px',
-                    backgroundColor: '#f1f5f9',
+                    background: `linear-gradient(135deg, ${project.color}15 0%, ${project.color}05 100%)`,
                     borderRadius: '0.75rem',
                     marginBottom: '1.5rem',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: '1px solid #e2e8f0',
+                    border: `2px solid ${project.color}30`,
                     position: 'relative',
-                    overflow: 'hidden'
-                  }}>
+                    overflow: 'hidden',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = `linear-gradient(135deg, ${project.color}25 0%, ${project.color}10 100%)`
+                    e.currentTarget.style.borderColor = `${project.color}50`
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = `linear-gradient(135deg, ${project.color}15 0%, ${project.color}05 100%)`
+                    e.currentTarget.style.borderColor = `${project.color}30`
+                  }}
+                  >
                     {project.image && project.image.trim() !== '' && !project.image.includes('/api/placeholder') ? (
                       <>
                         {/* Hidden image placeholder with view button */}

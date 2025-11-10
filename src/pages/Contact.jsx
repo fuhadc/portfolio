@@ -88,9 +88,9 @@ const Contact = () => {
     
     try {
       // EmailJS configuration - you'll need to replace these with your actual EmailJS credentials
-      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_1234567'
-      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_1234567'
-      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'your_public_key'
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_1234567'
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_1234567'
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key'
       
       const templateParams = {
         from_name: formData.name,
@@ -232,14 +232,22 @@ const Contact = () => {
       />
       <div className="container">
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h1 className="section-title">Get In Touch</h1>
-          <p className="mobile-text-sm" style={{ 
+        <div className="animate-fade-in-up" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h1 className="section-title" style={{
+            background: 'linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            Get In Touch
+          </h1>
+          <p className="mobile-text-sm animate-fade-in-up animate-delay-200" style={{ 
             fontSize: '1.125rem', 
             color: '#64748b', 
             maxWidth: '32rem', 
             margin: '0 auto',
-            padding: '0 1rem'
+            padding: '0 1rem',
+            lineHeight: '1.7'
           }}>
             I'm always interested in new opportunities and collaborations. Let's discuss how we can work together!
           </p>
@@ -252,7 +260,7 @@ const Contact = () => {
           marginBottom: '4rem'
         }}>
           {/* Contact Form */}
-          <div className="card">
+          <div className="card animate-fade-in-up animate-delay-100">
             <div style={{
               display: 'flex',
               alignItems: 'center',
@@ -261,19 +269,23 @@ const Contact = () => {
               <div style={{
                 width: '3rem',
                 height: '3rem',
-                backgroundColor: '#3b82f6',
+                background: 'linear-gradient(135deg, #3b82f6, #2563eb)',
                 borderRadius: '0.75rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginRight: '1rem'
+                marginRight: '1rem',
+                boxShadow: '0 4px 12px rgba(59,130,246,0.3)'
               }}>
                 <MessageCircle size={20} color="white" />
               </div>
               <h2 style={{
                 fontSize: '1.5rem',
                 fontWeight: '700',
-                color: '#1e293b',
+                background: 'linear-gradient(135deg, #1e293b, #3b82f6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
                 margin: 0
               }}>
                 Send a Message
@@ -281,45 +293,61 @@ const Contact = () => {
             </div>
 
             {isSubmitted ? (
-              <div style={{
+              <div className="animate-scale-in" style={{
                 textAlign: 'center',
-                padding: '2rem',
-                backgroundColor: '#f0f9ff',
-                borderRadius: '0.75rem',
-                border: '1px solid #bae6fd'
+                padding: '3rem 2rem',
+                background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
+                borderRadius: '1rem',
+                border: '2px solid #86efac',
+                boxShadow: '0 10px 30px rgba(16,185,129,0.15)'
               }}>
-                <CheckCircle size={48} color="#10b981" style={{ marginBottom: '1rem' }} />
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '5rem',
+                  height: '5rem',
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  borderRadius: '50%',
+                  marginBottom: '1.5rem',
+                  boxShadow: '0 8px 20px rgba(16,185,129,0.3)',
+                  animation: 'scaleIn 0.6s ease-out'
+                }}>
+                  <CheckCircle size={36} color="white" />
+                </div>
                 <h3 style={{
-                  fontSize: '1.25rem',
-                  fontWeight: '600',
-                  color: '#1e293b',
-                  marginBottom: '0.5rem'
+                  fontSize: '1.5rem',
+                  fontWeight: '700',
+                  background: 'linear-gradient(135deg, #059669, #047857)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  marginBottom: '0.75rem'
                 }}>
                   Message Sent Successfully!
                 </h3>
-                <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>
+                <p style={{ 
+                  color: '#64748b', 
+                  marginBottom: '2rem',
+                  fontSize: '1.125rem',
+                  lineHeight: '1.7'
+                }}>
                   Thank you for your message. I'll get back to you within 24 hours.
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
+                  className="btn"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '0.5rem 1rem',
-                    backgroundColor: '#3b82f6',
+                    padding: '0.75rem 1.5rem',
                     color: 'white',
                     border: 'none',
-                    borderRadius: '0.375rem',
-                    fontSize: '0.875rem',
-                    fontWeight: '500',
                     cursor: 'pointer',
-                    gap: '0.5rem',
-                    transition: 'background-color 0.3s ease'
+                    gap: '0.5rem'
                   }}
-                  onMouseEnter={(e) => e.target.style.backgroundColor = '#2563eb'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = '#3b82f6'}
                 >
-                  <Send size={16} />
+                  <Send size={18} />
                   Send Another Message
                 </button>
               </div>
@@ -554,11 +582,14 @@ const Contact = () => {
           {/* Contact Information */}
           <div>
             {/* Contact Details */}
-            <div className="card" style={{ marginBottom: '2rem' }}>
+            <div className="card animate-fade-in-up animate-delay-200" style={{ marginBottom: '2rem' }}>
               <h2 style={{
                 fontSize: '1.5rem',
                 fontWeight: '700',
-                color: '#1e293b',
+                background: 'linear-gradient(135deg, #1e293b, #3b82f6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
                 marginBottom: '1.5rem'
               }}>
                 Contact Information
@@ -622,11 +653,14 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div className="card" style={{ marginBottom: '2rem' }}>
+            <div className="card animate-fade-in-up animate-delay-300" style={{ marginBottom: '2rem' }}>
               <h2 style={{
                 fontSize: '1.5rem',
                 fontWeight: '700',
-                color: '#1e293b',
+                background: 'linear-gradient(135deg, #1e293b, #3b82f6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
                 marginBottom: '1.5rem'
               }}>
                 Connect With Me
@@ -693,7 +727,7 @@ const Contact = () => {
             </div>
 
             {/* Availability */}
-            <div className="card">
+            <div className="card animate-fade-in-up animate-delay-400">
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -702,19 +736,23 @@ const Contact = () => {
                 <div style={{
                   width: '2.5rem',
                   height: '2.5rem',
-                  backgroundColor: '#10b981',
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
                   borderRadius: '0.5rem',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginRight: '1rem'
+                  marginRight: '1rem',
+                  boxShadow: '0 4px 12px rgba(16,185,129,0.3)'
                 }}>
                   <Clock size={16} color="white" />
                 </div>
                 <h2 style={{
                   fontSize: '1.25rem',
                   fontWeight: '700',
-                  color: '#1e293b',
+                  background: 'linear-gradient(135deg, #1e293b, #10b981)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
                   margin: 0
                 }}>
                   Availability

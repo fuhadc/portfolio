@@ -314,3 +314,4 @@ export default {
   SearchFilter,
   FilterChips
 }
+

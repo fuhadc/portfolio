@@ -198,3 +198,4 @@ export const useSearchAndFilter = (data, searchFields, filterConfig, options = {
 }
 
 export default { useSearch, useFilters, useSearchAndFilter }
+

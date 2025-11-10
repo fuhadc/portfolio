@@ -26,7 +26,7 @@ const Achievements = () => {
   const previousFocusRef = useRef(null)
 
   // Debug: Log achievements data to see if images are loaded (only in development)
-  if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     console.log('Achievements data loaded:', achievementsData)
     console.log('Achievements with images:', achievements.filter(ach => ach.image && ach.image.trim() !== ''))
   }

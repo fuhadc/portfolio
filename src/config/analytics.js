@@ -2,10 +2,10 @@
 export const GA_CONFIG = {
   // Replace with your actual Google Analytics Measurement ID
   // Format: G-XXXXXXXXXX (GA4) or UA-XXXXXXXXX-X (Universal Analytics)
-  measurementId: process.env.REACT_APP_GA_MEASUREMENT_ID || 'G-02F5YF0N07',
+  measurementId: import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-02F5YF0N07',
   
   // Debug mode for development
-  debug: process.env.NODE_ENV === 'development',
+  debug: import.meta.env.DEV || false,
   
   // Custom dimensions (optional)
   customDimensions: {

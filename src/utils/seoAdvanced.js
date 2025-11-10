@@ -223,7 +223,7 @@ export const generateStructuredData = {
  * Generate meta tags for social media sharing
  */
 export const generateSocialMetaTags = (pageData) => {
-  const baseUrl = process.env.REACT_APP_BASE_URL || 'https://www.mfuhad.xyz'
+  const baseUrl = import.meta.env.VITE_BASE_URL || 'https://www.mfuhad.xyz'
   const imageUrl = pageData.image ? 
     (pageData.image.startsWith('http') ? pageData.image : `${baseUrl}${pageData.image}`) :
     `${baseUrl}/og-image.jpg`
@@ -258,7 +258,7 @@ export const generateSocialMetaTags = (pageData) => {
  * Generate sitemap data
  */
 export const generateSitemapData = (pages) => {
-  const baseUrl = process.env.REACT_APP_BASE_URL || 'https://www.mfuhad.xyz'
+  const baseUrl = import.meta.env.VITE_BASE_URL || 'https://www.mfuhad.xyz'
   const currentDate = new Date().toISOString()
 
   return pages.map(page => ({
@@ -425,3 +425,4 @@ export default {
   seoOptimizer,
   seoPerformance
 }
+

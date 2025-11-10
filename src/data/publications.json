@@ -1,5 +1,26 @@
 {
+  "googleScholarProfileId": "rC6hYXwAAAAJ",
   "publications": [
+    {
+      "title": "Whispers of the Network: Mastering IoT Communication",
+      "authors": "Muhammed Fuhad C et al.",
+      "venue": "Book Publication",
+      "publisher": "KDP",
+      "year": "2025",
+      "type": "Book",
+      "doi": null,
+      "pages": null,
+      "isbn": null,
+      "abstract": "An upcoming co-authored book covering theoretical and experimental aspects of IoT communication. This comprehensive work explores the intricacies of IoT network protocols, communication frameworks, and practical implementations in modern IoT systems.",
+      "keywords": ["IoT", "Network Communication", "IoT Protocols", "Wireless Networks", "Theoretical Foundations", "Experimental IoT"],
+      "status": "In Progress",
+      "impact": "High",
+      "citations": 0,
+      "lastUpdated": "2025-11-10T00:00:00.000Z",
+      "icon": "BookOpen",
+      "color": "#ec4899",
+      "googleScholarId": null
+    },
     {
       "title": "Cost Effective and Energy Efficient Drip Irrigation System for IoT Enabled Smart Agriculture",
       "authors": "Muhammed Fuhad C, Stenin George, Manu Elappila, Sachin Malayath Jose",
@@ -34,8 +55,8 @@
       "keywords": ["IoT", "Temperature Monitoring", "Pandemic Control", "Contactless", "Real-time Alerts", "Data Analytics"],
       "status": "Published",
       "impact": "High",
-      "citations": 2,
-      "lastUpdated": "2024-01-01T00:00:00.000Z",
+      "citations": 1,
+      "lastUpdated": "2025-11-10T00:00:00.000Z",
       "icon": "BookOpen",
       "color": "#3b82f6",
       "googleScholarId": "automated-contactless-temperature-monitoring-2023"
