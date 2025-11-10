@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { 
   BookOpen, 
   ExternalLink, 
@@ -9,36 +9,14 @@ import {
   Eye
 } from 'lucide-react'
 import SEO from '../components/SEO'
-import citationService from '../services/citationService'
 import publicationsData from '../data/publications.json'
 import { getIcon } from '../utils/iconMapper'
 
 
 const Publications = () => {
-  const [publications, setPublications] = useState(publicationsData.publications.map(pub => ({
-    ...pub,
-    lastUpdated: new Date().toISOString()
-  })))
-  
-  const [lastUpdated, setLastUpdated] = useState(null)
-
-  // Fetch citation data on component mount
-  useEffect(() => {
-    updateCitations()
-  }, [])
-
-  // Update citation counts from Google Scholar
-  const updateCitations = async () => {
-    try {
-      const updatedPublications = await citationService.updateAllCitations(publications)
-      setPublications(updatedPublications)
-      setLastUpdated(new Date().toISOString())
-    } catch (error) {
-      console.error('Error updating citations:', error)
-      // Don't fail the component if citation update fails
-      // Just use the existing publications data
-    }
-  }
+  // Use static publications data from JSON file
+  // Citation counts are manually updated in publications.json
+  const [publications] = useState(publicationsData.publications)
 
   // Calculate dynamic stats from publications
   const publishedWorks = publications.filter(pub => pub.status === 'Published')
@@ -178,17 +156,6 @@ const Publications = () => {
               View Google Scholar Profile
             </a>
           </div>
-          
-          {lastUpdated && (
-            <div style={{ 
-              textAlign: 'center', 
-              color: '#6b7280', 
-              fontSize: '0.875rem',
-              marginBottom: '1rem'
-            }}>
-              Last updated: {new Date(lastUpdated).toLocaleString()}
-            </div>
-          )}
           
         </div>
 
@@ -445,15 +412,6 @@ const Publications = () => {
                       }}>
                         <Eye size={16} style={{ marginRight: '0.5rem' }} />
                         {pub.citations} citations
-                        {pub.lastUpdated && (
-                          <span style={{ 
-                            marginLeft: '0.5rem', 
-                            fontSize: '0.75rem',
-                            color: '#64748b'
-                          }}>
-                            (Updated: {new Date(pub.lastUpdated).toLocaleDateString()})
-                          </span>
-                        )}
                       </div>
                       <div style={{
                         display: 'flex',
