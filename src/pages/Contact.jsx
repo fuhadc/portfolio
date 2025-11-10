@@ -87,10 +87,24 @@ const Contact = () => {
     setSubmitError(null)
     
     try {
-      // EmailJS configuration - you'll need to replace these with your actual EmailJS credentials
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_1234567'
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_1234567'
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key'
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      
+      // Debug: Log credentials (remove after testing)
+      if (import.meta.env.DEV) {
+        console.log('EmailJS Config:', {
+          serviceId: serviceId ? '✓ Loaded' : '✗ Missing',
+          templateId: templateId ? '✓ Loaded' : '✗ Missing',
+          publicKey: publicKey ? '✓ Loaded' : '✗ Missing'
+        })
+      }
+      
+      // Validate credentials
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS credentials are not configured. Please check your .env file.')
+      }
       
       const templateParams = {
         from_name: formData.name,
