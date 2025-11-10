@@ -41,13 +41,14 @@ const Publications = () => {
   }
 
   // Calculate dynamic stats from publications
-  const totalCitations = publications.reduce((sum, pub) => sum + pub.citations, 0)
-  const publishedPapers = publications.filter(pub => pub.status === 'Published').length
-  const abstracts = publications.filter(pub => pub.type === 'Abstract').length
+  const publishedWorks = publications.filter(pub => pub.status === 'Published')
+  const totalCitations = publishedWorks.reduce((sum, pub) => sum + (pub.citations || 0), 0)
+  const publishedCount = publishedWorks.length
+  const abstracts = publications.filter(pub => pub.type === 'Abstract' && pub.status === 'Presented').length
 
   const researchStats = [
     { label: "Total Publications", value: publications.length.toString(), icon: BookOpen },
-    { label: "Published Papers", value: publishedPapers.toString(), icon: FileText },
+    { label: "Published Works", value: publishedCount.toString(), icon: FileText },
     { label: "Abstracts Presented", value: abstracts.toString(), icon: Award },
     { label: "Total Citations", value: totalCitations.toString(), icon: ExternalLink }
   ]
@@ -273,7 +274,7 @@ const Publications = () => {
             marginBottom: '2rem',
             textAlign: 'center'
           }}>
-            Published Papers
+            Published Works
           </h2>
           
           <div style={{

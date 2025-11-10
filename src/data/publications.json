@@ -6,7 +6,7 @@
       "authors": "Muhammed Fuhad C et al.",
       "venue": "Book Publication",
       "publisher": "KDP",
-      "year": "2025",
+      "year": "2024",
       "type": "Book",
       "doi": null,
       "pages": null,
@@ -16,7 +16,7 @@
       "status": "In Progress",
       "impact": "High",
       "citations": 0,
-      "lastUpdated": "2025-11-10T00:00:00.000Z",
+      "lastUpdated": "2024-11-10T00:00:00.000Z",
       "icon": "BookOpen",
       "color": "#ec4899",
       "googleScholarId": null
@@ -36,7 +36,7 @@
       "status": "Published",
       "impact": "High",
       "citations": 2,
-      "lastUpdated": "2024-01-01T00:00:00.000Z",
+      "lastUpdated": "2024-11-10T00:00:00.000Z",
       "icon": "BookOpen",
       "color": "#10b981",
       "googleScholarId": "cost-effective-energy-efficient-drip-irrigation-2024"
@@ -56,7 +56,7 @@
       "status": "Published",
       "impact": "High",
       "citations": 1,
-      "lastUpdated": "2025-11-10T00:00:00.000Z",
+      "lastUpdated": "2024-11-10T00:00:00.000Z",
       "icon": "BookOpen",
       "color": "#3b82f6",
       "googleScholarId": "automated-contactless-temperature-monitoring-2023"
