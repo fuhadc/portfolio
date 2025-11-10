@@ -92,18 +92,24 @@ const Contact = () => {
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       
-      // Debug: Log credentials (remove after testing)
-      if (import.meta.env.DEV) {
-        console.log('EmailJS Config:', {
-          serviceId: serviceId ? '✓ Loaded' : '✗ Missing',
-          templateId: templateId ? '✓ Loaded' : '✗ Missing',
-          publicKey: publicKey ? '✓ Loaded' : '✗ Missing'
-        })
-      }
+      // Debug: Log credentials (works in both dev and production)
+      console.log('🔍 EmailJS Config Check:', {
+        serviceId: serviceId || '❌ MISSING',
+        templateId: templateId || '❌ MISSING',
+        publicKey: publicKey || '❌ MISSING',
+        isDev: import.meta.env.DEV,
+        mode: import.meta.env.MODE,
+        allEnvVars: Object.keys(import.meta.env).filter(key => key.startsWith('VITE_'))
+      })
       
       // Validate credentials
       if (!serviceId || !templateId || !publicKey) {
-        throw new Error('EmailJS credentials are not configured. Please check your .env file.')
+        const missingVars = []
+        if (!serviceId) missingVars.push('VITE_EMAILJS_SERVICE_ID')
+        if (!templateId) missingVars.push('VITE_EMAILJS_TEMPLATE_ID')
+        if (!publicKey) missingVars.push('VITE_EMAILJS_PUBLIC_KEY')
+        
+        throw new Error(`EmailJS credentials missing: ${missingVars.join(', ')}. Please add them to Vercel Environment Variables and redeploy.`)
       }
       
       const templateParams = {
@@ -144,7 +150,13 @@ const Contact = () => {
       }, 5000)
       
     } catch (error) {
-      console.error('Error sending email:', error)
+      console.error('❌ EmailJS Error:', error)
+      console.error('Error details:', {
+        message: error.message,
+        text: error.text,
+        status: error.status,
+        name: error.name
+      })
       
       // Track form submission error
       analytics.trackEvent('contact_form_error', {

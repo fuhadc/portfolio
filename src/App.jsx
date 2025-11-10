@@ -18,6 +18,7 @@ const Achievements = lazy(() => import('./pages/Achievements'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Social = lazy(() => import('./pages/Social'))
 const Admin = lazy(() => import('./pages/Admin'))
+const EnvTest = lazy(() => import('./pages/EnvTest'))
 
 // Loading component for Suspense fallback
 const PageLoader = () => (
@@ -34,6 +35,9 @@ function App() {
 
   // Initialize Google Analytics
   useAnalytics()
+  
+  // Check if we should show the env test page
+  const showEnvTest = window.location.pathname === '/env-test' || window.location.hash === '#env-test'
 
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode))
@@ -46,6 +50,21 @@ function App() {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
+  }
+
+  // If env test is requested, show only that page
+  if (showEnvTest) {
+    return (
+      <HelmetProvider>
+        <div className="min-h-screen bg-white dark:bg-dark-900">
+          <ErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <EnvTest />
+            </Suspense>
+          </ErrorBoundary>
+        </div>
+      </HelmetProvider>
+    )
   }
 
   return (
