@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailJS Verification Tool</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #1e293b;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .credential-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .status.success {
+            background: #f0fdf4;
+            border: 2px solid #86efac;
+            color: #166534;
+            display: block;
+        }
+        
+        .status.error {
+            background: #fef2f2;
+            border: 2px solid #fecaca;
+            color: #dc2626;
+            display: block;
+        }
+        
+        .status.info {
+            background: #eff6ff;
+            border: 2px solid #93c5fd;
+            color: #1e40af;
+            display: block;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffffff40;
+            border-top: 2px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .note {
+            background: #fef3c7;
+            border: 2px solid #fbbf24;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #92400e;
+        }
+        
+        .note strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #78350f;
+        }
+        
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📧 EmailJS Verification Tool</h1>
+        <p class="subtitle">Test your EmailJS credentials before using them in the app</p>
+        
+        <form id="verifyForm">
+            <div class="credential-group">
+                <label for="serviceId">Service ID</label>
+                <input type="text" id="serviceId" value="service_qpmysgb" required>
+            </div>
+            
+            <div class="credential-group">
+                <label for="templateId">Template ID</label>
+                <input type="text" id="templateId" value="template_9gbqy6j" required>
+            </div>
+            
+            <div class="credential-group">
+                <label for="publicKey">Public Key</label>
+                <input type="text" id="publicKey" value="w1-JxvmRCX8qn3X7l" required>
+            </div>
+            
+            <button type="submit" class="btn" id="submitBtn">
+                🚀 Test EmailJS Configuration
+            </button>
+        </form>
+        
+        <div id="status" class="status"></div>
+        
+        <div class="note">
+            <strong>⚠️ Before Testing:</strong>
+            Make sure you've reconnected your Gmail service in the EmailJS dashboard:
+            <br><br>
+            1. Go to <code>dashboard.emailjs.com/admin</code>
+            <br>
+            2. Reconnect Gmail service
+            <br>
+            3. Grant all permissions
+            <br>
+            4. Then test here
+        </div>
+    </div>
+    
+    <script>
+        const form = document.getElementById('verifyForm');
+        const statusDiv = document.getElementById('status');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const serviceId = document.getElementById('serviceId').value.trim();
+            const templateId = document.getElementById('templateId').value.trim();
+            const publicKey = document.getElementById('publicKey').value.trim();
+            
+            // Validation
+            if (!serviceId || !templateId || !publicKey) {
+                showStatus('error', '❌ All fields are required!');
+                return;
+            }
+            
+            // Show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="loading"></span> Testing...';
+            statusDiv.className = 'status';
+            statusDiv.style.display = 'none';
+            
+            try {
+                // Initialize EmailJS
+                emailjs.init(publicKey);
+                
+                // Template parameters
+                const templateParams = {
+                    from_name: 'Test User',
+                    from_email: 'test@example.com',
+                    subject: 'EmailJS Verification Test',
+                    message: 'This is a test message from the EmailJS verification tool. If you receive this, your EmailJS configuration is working correctly!',
+                    to_name: 'Muhammed Fuhad C',
+                    reply_to: 'test@example.com'
+                };
+                
+                // Send test email
+                const result = await emailjs.send(serviceId, templateId, templateParams);
+                
+                if (result.status === 200) {
+                    showStatus('success', `
+                        ✅ <strong>Success!</strong> EmailJS is configured correctly!
+                        <br><br>
+                        <strong>Status:</strong> ${result.status} - ${result.text}
+                        <br><br>
+                        📧 <strong>Check your email:</strong> fuhadcs@gmail.com
+                        <br><br>
+                        ✨ Your contact form will now work in the app!
+                        <br><br>
+                        <strong>Next steps:</strong>
+                        <br>1. Make sure your dev server is running
+                        <br>2. Test the contact form in your app
+                    `);
+                } else {
+                    showStatus('error', `❌ Unexpected response: ${result.status} - ${result.text}`);
+                }
+                
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                
+                let errorMessage = '❌ <strong>Failed to send test email</strong><br><br>';
+                
+                if (error.text) {
+                    errorMessage += `<strong>Error:</strong> ${error.text}<br><br>`;
+                }
+                
+                if (error.status === 400 || error.text?.includes('400')) {
+                    errorMessage += `
+                        <strong>Common causes:</strong>
+                        <br>• Gmail service not connected or needs reconnection
+                        <br>• Insufficient authentication scopes
+                        <br>• Template variables mismatch
+                        <br><br>
+                        <strong>Fix:</strong>
+                        <br>1. Go to <code>dashboard.emailjs.com/admin</code>
+                        <br>2. Click on your Gmail service
+                        <br>3. Click "Reconnect" or "Re-authorize"
+                        <br>4. Grant ALL permissions to Google
+                        <br>5. Test again here
+                    `;
+                } else if (error.text?.includes('User ID')) {
+                    errorMessage += `
+                        <strong>Invalid Public Key</strong>
+                        <br>• Check your Public Key in EmailJS account settings
+                        <br>• It should look like: <code>w1-JxvmRCX8qn3X7l</code>
+                    `;
+                } else if (error.text?.includes('Service')) {
+                    errorMessage += `
+                        <strong>Service not found</strong>
+                        <br>• Verify Service ID: <code>${serviceId}</code>
+                        <br>• Check EmailJS dashboard for correct ID
+                    `;
+                } else if (error.text?.includes('Template')) {
+                    errorMessage += `
+                        <strong>Template not found</strong>
+                        <br>• Verify Template ID: <code>${templateId}</code>
+                        <br>• Check EmailJS dashboard for correct ID
+                    `;
+                } else {
+                    errorMessage += `<strong>Error details:</strong> ${error.message || 'Unknown error'}`;
+                }
+                
+                showStatus('error', errorMessage);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '🚀 Test EmailJS Configuration';
+            }
+        });
+        
+        function showStatus(type, message) {
+            statusDiv.className = `status ${type}`;
+            statusDiv.innerHTML = message;
+            statusDiv.style.display = 'block';
+            statusDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
+
