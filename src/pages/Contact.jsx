@@ -142,7 +142,7 @@ const Contact = () => {
       setIsSubmitting(false)
       
       // Create mailto link as fallback
-      const mailtoLink = `mailto:fuhadcs@icloud.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+      const mailtoLink = `mailto:fuhadcs@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
         `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
       )}`
       
@@ -185,7 +185,7 @@ const Contact = () => {
       "@type": "Person",
       "name": "Muhammed Fuhad C",
       "alternateName": ["Fuhad C", "Fuhad", "Muhammed Fuhad"],
-      "email": "fuhadcs@icloud.com",
+      "email": "fuhadcs@gmail.com",
       "telephone": "+91-7306525489",
       "address": {
         "@type": "PostalAddress",
@@ -829,7 +829,7 @@ const Contact = () => {
             flexWrap: 'wrap'
           }}>
             <a
-              href="mailto:fuhadcs@icloud.com"
+              href="mailto:fuhadcs@gmail.com"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
