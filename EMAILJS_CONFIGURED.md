@@ -9,7 +9,7 @@ All EmailJS credentials have been set up for your contact form:
 | **Service ID** | `service_qpmysgb` | ✅ Configured |
 | **Template ID** | `template_9gbqy6j` | ✅ Configured |
 | **Public Key** | `w1-JxvmRCX8qn3X7l` | ✅ Configured |
-| **Email Recipient** | `fuhadcs@gmail.com` | ✅ Updated |
+| **Email Recipient** | `fuhadcs@icloud.com` (displayed)<br>`fuhadcs@gmail.com` (EmailJS delivers) | ✅ Configured |
 
 ---
 
@@ -39,7 +39,7 @@ npm run dev
 2. Navigate to the **Contact** page
 3. Fill out the form with test data
 4. Click **Send Message**
-5. **Check your email**: `fuhadcs@gmail.com`
+5. **Check your email**: `fuhadcs@gmail.com` (EmailJS sends here)
 
 ---
 
@@ -59,10 +59,11 @@ VITE_EMAILJS_PUBLIC_KEY=w1-JxvmRCX8qn3X7l
 ## 🎯 What Was Updated
 
 ### 1. Contact Form (`src/pages/Contact.jsx`)
-- ✅ Email addresses updated from `fuhadcs@icloud.com` to `fuhadcs@gmail.com`
-- ✅ Fallback mailto link updated
-- ✅ Structured data updated
-- ✅ CTA section updated
+- ✅ Public-facing email: `fuhadcs@icloud.com` (displayed in portfolio)
+- ✅ EmailJS delivery email: `fuhadcs@gmail.com` (configured in EmailJS template)
+- ✅ Fallback mailto link: `fuhadcs@icloud.com`
+- ✅ Structured data: `fuhadcs@icloud.com`
+- ✅ CTA section: `fuhadcs@icloud.com`
 
 ### 2. EmailJS Integration
 - ✅ Service ID: `service_qpmysgb`
@@ -75,10 +76,12 @@ VITE_EMAILJS_PUBLIC_KEY=w1-JxvmRCX8qn3X7l
 
 Make sure your EmailJS template at https://dashboard.emailjs.com/admin/templates has:
 
-### Template Settings:
+### Template Settings (in EmailJS Dashboard):
 - **Template ID**: `template_9gbqy6j`
-- **To Email**: `fuhadcs@gmail.com`
+- **To Email**: `fuhadcs@gmail.com` ← EmailJS sends here
 - **Subject**: `New Contact: {{subject}}`
+
+**Note**: Portfolio displays `fuhadcs@icloud.com` publicly, but EmailJS delivers to `fuhadcs@gmail.com`
 
 ### Template Content:
 ```
@@ -104,7 +107,7 @@ Reply to: {{reply_to}}
 - [ ] Fill out the form
 - [ ] Submit the form
 - [ ] Check for success message
-- [ ] Verify email received at `fuhadcs@gmail.com`
+- [ ] Verify email received at `fuhadcs@gmail.com` (EmailJS delivers here)
 
 ---
 
@@ -155,7 +158,8 @@ When deploying to Vercel, add these environment variables:
 
 ### On Success:
 ✅ Form shows success message with checkmark
-✅ Email sent to `fuhadcs@gmail.com`
+✅ Email sent to `fuhadcs@gmail.com` (via EmailJS)
+✅ Portfolio displays `fuhadcs@icloud.com` (public contact)
 ✅ Form resets after 5 seconds
 ✅ Console logs: "Email sent successfully"
 
@@ -168,7 +172,9 @@ When deploying to Vercel, add these environment variables:
 
 ## 🎉 You're All Set!
 
-Your contact form is now fully configured and will send messages to **fuhadcs@gmail.com**.
+Your contact form is now fully configured:
+- **Public contact email**: `fuhadcs@icloud.com` (shown in portfolio)
+- **EmailJS delivery**: `fuhadcs@gmail.com` (where messages arrive)
 
 **Test it now**: http://localhost:5173
 
