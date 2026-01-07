@@ -11,6 +11,7 @@
       "doi": null,
       "pages": null,
       "isbn": "979-8276389226",
+      "link": "https://www.amazon.com/WHISPERS-NETWORKS-MASTERING-IOT-COMMUNICATIONS/dp/B0G53GM4Z4",
       "abstract": "The Internet of Things is no longer a futuristic concept; it’s the backbone of modern technology. From smart cities and intelligent agriculture to cloud-driven automation, IoT is transforming how devices think, communicate, and evolve. Whispers of the Networks: Mastering IoT Communications is your complete, practical, and beginner-friendly guide to understanding how billions of devices talk to each other, quietly shaping the world around us.\n\nBuilt on clear explanations, real-world examples, diagrams, and step-by-step learning, this book takes you from the foundations of IoT to advanced communication architectures used in industry today. Whether you're a student, developer, researcher, or enthusiast, this book gives you everything you need to understand and build IoT communication systems confidently.",
       "keywords": ["IoT", "Network Communication", "Smart Cities", "Cloud Automation", "Beginner Friendly", "IoT Architecture"],
       "status": "Published",

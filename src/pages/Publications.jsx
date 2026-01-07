@@ -429,28 +429,52 @@ const Publications = () => {
                       </div>
                     </div>
                     
-                    {pub.doi && (
-                      <a
-                        href={`https://doi.org/${pub.doi}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          padding: '0.5rem 1rem',
-                          backgroundColor: '#3b82f6',
-                          color: 'white',
-                          textDecoration: 'none',
-                          borderRadius: '0.5rem',
-                          fontSize: '0.875rem',
-                          fontWeight: '500',
-                          transition: 'all 0.3s ease'
-                        }}
-                      >
-                        <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
-                        View Paper
-                      </a>
-                    )}
+                    <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                      {pub.doi && (
+                        <a
+                          href={`https://doi.org/${pub.doi}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            padding: '0.5rem 1rem',
+                            backgroundColor: '#3b82f6',
+                            color: 'white',
+                            textDecoration: 'none',
+                            borderRadius: '0.5rem',
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            transition: 'all 0.3s ease'
+                          }}
+                        >
+                          <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
+                          View Paper
+                        </a>
+                      )}
+                      {pub.link && (
+                        <a
+                          href={pub.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            padding: '0.5rem 1rem',
+                            backgroundColor: '#10b981',
+                            color: 'white',
+                            textDecoration: 'none',
+                            borderRadius: '0.5rem',
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            transition: 'all 0.3s ease'
+                          }}
+                        >
+                          <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
+                          View Book
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               )
