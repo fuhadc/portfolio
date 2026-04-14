@@ -305,7 +305,7 @@ const About = () => {
             Get a detailed overview of my experience, skills, and achievements
           </p>
           <a
-            href="/resume_fuhad.pdf"
+            href="/Europass_me.pdf"
             download="Muhammed_Fuhad_C_Resume.pdf"
             className="btn"
             style={{

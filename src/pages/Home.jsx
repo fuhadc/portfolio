@@ -173,7 +173,7 @@ const Home = memo(() => {
               </button>
               
               <a
-                href="/resume_fuhad.pdf"
+                href="/Europass_me.pdf"
                 download="Muhammed_Fuhad_C_Resume.pdf"
                 className="btn btn-outline mobile-flex-col"
                 style={{
